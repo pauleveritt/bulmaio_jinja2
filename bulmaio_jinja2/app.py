@@ -9,22 +9,28 @@ app = Flask(__name__)
 app.config['DEBUG'] = True
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
+
+def load_content(pagename):
+    with open(f'bulmaio_jinja2/content/{pagename}', 'r') as f:
+        return f.read()
+
+
 pages = {
     'index.html': dict(
         template='homepage.html',
-        content='Hello Index'
+        content=load_content('index.html')
     ),
     'documentation.html': dict(
         template='documentation_homepage.html',
-        content='Hello Documentation'
+        content=load_content('documentation.html')
     ),
     'documentation_overview.html': dict(
         template='documentation.html',
-        content='Hello Documentation'
+        content=load_content('documentation_overview.html')
     ),
-    'documentation_elements.html': dict(
+    'documentation_elements_box.html': dict(
         template='documentation.html',
-        content='Hello Documentation'
+        content=load_content('documentation_elements_box.html')
     ),
 }
 
