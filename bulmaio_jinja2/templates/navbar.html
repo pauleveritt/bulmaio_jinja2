@@ -31,6 +31,7 @@
     </div>
 {%- endmacro %}
 
+
 {% macro start(entries) %}
     <div class="navbar-start">
         {% for entry in entries %}
@@ -81,5 +82,47 @@
             {% endif %}
         {% endfor %}
 
+    </div>
+{% endmacro %}
+
+
+{% macro end(entries) %}
+    <div class="navbar-end">
+        {% for entry in entries %}
+            <a class="navbar-item is-hidden-touch is-hidden-desktop-only"
+               href="{{ entry.href }}"
+               target="_blank">
+                    <span class="icon" style="{{ entry.style }}">
+                        <i class="fab fa-lg fa-{{ entry.icon }}"></i>
+                    </span>
+            </a>
+        {% endfor %}
+
+        <div class="navbar-item">
+            <div class="field is-grouped is-grouped-multiline">
+                <p class="control">
+                    <a class="bd-patreon-button"
+                       href="https://www.patreon.com/jgthms"
+                       target="_blank">
+                        <img
+                                src="#"
+                                srcset="static/images/become-a-patron.png 1x,
+                                          static/images/become-a-patron@2x.png 2x,
+                                          static/images/become-a-patron@3x.png 3x"
+                                alt="Become a Patron"
+                                width="148"
+                                height="36">
+
+                    </a>
+
+                </p>
+                <p class="control">
+                    <a class="button is-primary"
+                       href="#">
+                        <strong>Download</strong>
+                    </a>
+                </p>
+            </div>
+        </div>
     </div>
 {% endmacro %}

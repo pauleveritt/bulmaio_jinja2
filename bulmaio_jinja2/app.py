@@ -13,6 +13,7 @@ app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 pages = Pages()
 pages.load_pages()
+menu = load_yaml('menu')
 
 
 @app.route('/bulmaio.map')
@@ -34,14 +35,11 @@ def favicon():
 
 @app.route('/', defaults={'pagename': 'index.html'})
 @app.route('/<pagename>')
-def hello_world(pagename):
+def page_view(pagename):
     page = pages.get(pagename)
-    menu = load_yaml('menu')
     context = dict(
-        content=page.content,
-        pagename=pagename,
-        template=page.template,
-        navbar_start=menu['start']
+        page=page,
+        menu=menu
     )
 
     return render_template(page.template, **context)

@@ -43,3 +43,11 @@ start:
     label: "Coming from Bootstrap"
     description: "See how Bulma is an alternative to Bootstrap"
     href: "/more/bootstrap.html"
+
+end:
+- style: "color: #333;"
+  href: "https://github.com/jgthms/bulma"
+  icon: "github-alt"
+- style: "color: #55acee;"
+  href: "https://twitter.com/jgthms"
+  icon: "twitter"
