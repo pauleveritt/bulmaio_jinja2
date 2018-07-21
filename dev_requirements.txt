@@ -1,3 +1,4 @@
 livereload==2.5.1
 flask
 formic
+pyyaml

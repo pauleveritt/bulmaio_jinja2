@@ -1,3 +1,5 @@
+from yaml import Loader, load
+
 navbar_start = [
     dict(css_class='documentation', accent='primary', icon='book',
          label_wide='Documentation', label_narrow='Docs',
@@ -57,3 +59,9 @@ def get_pages():
             content=load_content('documentation_start.html')
         ),
     }
+
+
+def load_yaml(filename):
+    with open(f'bulmaio_jinja2/content/{filename}.yaml', 'r') as f:
+        data = load(f, Loader=Loader)
+        return data

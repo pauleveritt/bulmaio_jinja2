@@ -5,6 +5,7 @@ from flask import Flask, render_template, send_from_directory, make_response
 from bulmaio_jinja2.content import (
     get_pages,
     navbar_start,
+    load_yaml
 )
 
 app = Flask(__name__)
@@ -34,11 +35,12 @@ def favicon():
 def hello_world(pagename):
     pages = get_pages()
     page = pages.get(pagename)
+    menu = load_yaml('menu')
     context = dict(
         content=page['content'],
         pagename=pagename,
         template=page['template'],
-        navbar_start=navbar_start
+        navbar_start=menu['start']
     )
 
     return render_template(page['template'], **context)

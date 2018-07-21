@@ -38,7 +38,7 @@
                 <div class="navbar-item has-dropdown is-hoverable">
 
                     <a class="navbar-link" href="#">
-                        {{ entry.label_wide }}
+                        {{ entry.label }}
                     </a>
                     <div id="moreDropdown" class="navbar-dropdown">
                         {% for subentry in entry.submenu %}
@@ -67,12 +67,16 @@
                     <span class="icon has-text-{{ entry.accent }}">
                         <i class="fas fa-{{ entry.icon }}"></i>
                     </span>
-                    <span class="is-hidden-touch is-hidden-widescreen">
+                    {% if entry.label_narrow %}
+                        <span class="is-hidden-touch is-hidden-widescreen">
                         {{ entry.label_narrow }}
                     </span>
-                    <span class="is-hidden-desktop-only">
-                        {{ entry.label_wide }}
+                        <span class="is-hidden-desktop-only">
+                        {{ entry.label }}
                     </span>
+                    {% else %}
+                        <span>{{ entry.label }}</span>
+                    {% endif %}
                 </a>
             {% endif %}
         {% endfor %}
