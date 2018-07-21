@@ -11,10 +11,6 @@ app = Flask(__name__)
 app.config['DEBUG'] = True
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
-pages = Pages()
-pages.load_pages()
-menu = load_yaml('menu')
-
 
 @app.route('/bulmaio.map')
 def sourcemaps():
@@ -36,6 +32,9 @@ def favicon():
 @app.route('/', defaults={'pagename': 'index.html'})
 @app.route('/<pagename>')
 def page_view(pagename):
+    pages = Pages()
+    pages.load_pages()
+    menu = load_yaml('menu')
     page = pages.get(pagename)
     context = dict(
         page=page,
