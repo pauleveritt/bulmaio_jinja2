@@ -17,7 +17,15 @@ pages = {
     'documentation.html': dict(
         template='documentation_homepage.html',
         content='Hello Documentation'
-    )
+    ),
+    'documentation_overview.html': dict(
+        template='documentation.html',
+        content='Hello Documentation'
+    ),
+    'documentation_elements.html': dict(
+        template='documentation.html',
+        content='Hello Documentation'
+    ),
 }
 
 
