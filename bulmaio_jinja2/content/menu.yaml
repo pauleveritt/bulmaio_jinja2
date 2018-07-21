@@ -1,48 +1,48 @@
 start:
-- css_class: "documentation"
-  accent: "primary"
-  icon: "book"
-  label: "Documentation"
-  label_narrow: "Docs"
-  href: "/documentation.html"
-- css_class: "videos"
-  accent: "success"
-  icon: "play-circle"
-  label: "Videos"
-  href: "/videos.html"
-- css_class: "blog"
-  accent: "rss"
-  icon: "rss"
-  label: "Blog"
-  href: "/blog.html"
-- css_class: "expo"
-  accent: "star"
-  icon: "star"
-  label: "Expo"
-  href: "/expo.html"
-- css_class: "love"
-  accent: "danger"
-  icon: "heart"
-  label: "Love"
-  href: "/love.html"
-- label: "More"
-  href: "/more.html"
+- css_class: documentation
+  accent: primary
+  icon: book
+  label: Documentation
+  label_narrow: Docs
+  href: /documentation.html
+- css_class: videos
+  accent: success
+  icon: play-circle
+  label: Videos
+  href: /videos.html
+- css_class: blog
+  accent: rss
+  icon: rss
+  label: Blog
+  href: /blog.html
+- css_class: expo
+  accent: star
+  icon: star
+  label: Expo
+  href: /expo.html
+- css_class: love
+  accent: danger
+  icon: heart
+  label: Love
+  href: /love.html
+- label: More
+  href: /more.html
   submenu:
-  - accent: "success"
-    icon: "rocket"
-    label: "Bulma start"
-    description: "Docs"
-    href: "/more/start.html"
-  - accent: "primary"
-    icon: "certificate"
-    label: "Made with Bulma"
-    description: "The official community badge"
-    href: "/more/made_with.html"
-  - accent: "bootstrap"
-    icon: "exchange-alt"
-    label: "Coming from Bootstrap"
-    description: "See how Bulma is an alternative to Bootstrap"
-    href: "/more/bootstrap.html"
+  - accent: success
+    icon: rocket
+    label: Bulma start
+    description: Docs
+    href: /more/start.html
+  - accent: primary
+    icon: certificate
+    label: Made with Bulma
+    description: The official community badge
+    href: /more/made_with.html
+  - accent: bootstrap
+    icon: exchange-alt
+    label: Coming from Bootstrap
+    description: See how Bulma is an alternative to Bootstrap
+    href: /more/bootstrap.html
 
 end:
 - color: 333
