@@ -2,7 +2,10 @@ import os
 
 from flask import Flask, render_template, send_from_directory
 
-from bulmaio_jinja2.content import get_pages
+from bulmaio_jinja2.content import (
+    get_pages,
+    navbar_start,
+)
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -24,7 +27,8 @@ def hello_world(pagename):
     context = dict(
         content=page['content'],
         pagename=pagename,
-        template=page['template']
+        template=page['template'],
+        navbar_start=navbar_start
     )
 
     return render_template(page['template'], **context)
