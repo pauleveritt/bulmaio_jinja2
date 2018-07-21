@@ -3,14 +3,16 @@ import os
 from flask import Flask, render_template, send_from_directory, make_response
 
 from bulmaio_jinja2.content import (
-    get_pages,
-    navbar_start,
+    Pages,
     load_yaml
 )
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
 app.config['TEMPLATES_AUTO_RELOAD'] = True
+
+pages = Pages()
+pages.load_pages()
 
 
 @app.route('/bulmaio.map')
@@ -33,14 +35,13 @@ def favicon():
 @app.route('/', defaults={'pagename': 'index.html'})
 @app.route('/<pagename>')
 def hello_world(pagename):
-    pages = get_pages()
     page = pages.get(pagename)
     menu = load_yaml('menu')
     context = dict(
-        content=page['content'],
+        content=page.content,
         pagename=pagename,
-        template=page['template'],
+        template=page.template,
         navbar_start=menu['start']
     )
 
-    return render_template(page['template'], **context)
+    return render_template(page.template, **context)

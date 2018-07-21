@@ -1,33 +1,38 @@
+from collections import UserDict
+from dataclasses import dataclass
+from os.path import join
+from pathlib import Path
+
 from yaml import Loader, load
 
-
-def load_content(pagename):
-    with open(f'bulmaio_jinja2/content/{pagename}', 'r') as f:
-        return f.read()
-
-
-def get_pages():
-    return {
-        'index.html': dict(
-            template='homepage.html',
-            content=load_content('index.html')
-        ),
-        'documentation.html': dict(
-            template='documentation_homepage.html',
-            content=load_content('documentation.html')
-        ),
-        'documentation_overview.html': dict(
-            template='documentation.html',
-            content=load_content('documentation_overview.html')
-        ),
-        'documentation_start.html': dict(
-            template='documentation.html',
-            content=load_content('documentation_start.html')
-        ),
-    }
+cwd = Path(__file__).parents[0]
 
 
 def load_yaml(filename):
-    with open(f'bulmaio_jinja2/content/{filename}.yaml', 'r') as f:
+    fn = join(cwd, filename + '.yaml')
+    with open(fn, 'r') as f:
         data = load(f, Loader=Loader)
         return data
+
+
+@dataclass
+class Page:
+    docname: str
+    template: str = 'documentation.html'
+
+    @property
+    def content(self):
+        fn = join(cwd, self.docname)
+        with open(fn, 'r') as f:
+            return f.read()
+
+
+class Pages(UserDict):
+    def add(self, page: Page):
+        self.data[page.docname] = page
+
+    def load_pages(self):
+        pages = load_yaml('pages')
+        for page_data in pages:
+            page = Page(**page_data)
+            self.add(page)
