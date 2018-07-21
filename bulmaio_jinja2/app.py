@@ -13,7 +13,9 @@ app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 
 @app.route('/bulmaio.map')
-def file_downloads():
+def sourcemaps():
+    # Likely a problem with Parcel encoding an absolute path in the .js
+    # to point at the .map
     headers = {}
     with open('bulmaio_jinja2/static/js/bulmaio.map', 'r') as f:
         body = f.read()

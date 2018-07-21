@@ -52,8 +52,8 @@ def get_pages():
             template='documentation.html',
             content=load_content('documentation_overview.html')
         ),
-        'documentation_elements_box.html': dict(
+        'documentation_start.html': dict(
             template='documentation.html',
-            content=load_content('documentation_elements_box.html')
+            content=load_content('documentation_start.html')
         ),
     }
