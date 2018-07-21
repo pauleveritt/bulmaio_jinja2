@@ -6342,12 +6342,10 @@ svg {
       .bd-footer-star.bd-is-expo .bd-footer-title .icon, .bd-footer-star.bd-is-love .bd-footer-title .icon {
         margin-right: 0.25em; }
   .bd-footer-star.bd-is-expo {
-    background-image: url("/src/static/images/footer/expo-examples.png");
     background-repeat: repeat-x;
     background-position: bottom center;
     background-size: 352px 156px; }
   .bd-footer-star.bd-is-love {
-    background-image: url("/src/static/images/footer/love.png");
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: 440px 180px; }
@@ -6854,7 +6852,6 @@ svg {
 
 .bd-book-pattern,
 .bd-book-modal-column.bd-is-cover {
-  background-image: url("/src/static/images/hab/lightpaperfibers_@2X.png");
   background-repeat: repeat;
   background-size: 250px 150px; }
   .bd-book-pattern::before,
