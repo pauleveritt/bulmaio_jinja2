@@ -1,2 +1,1 @@
-def foo():
-    print('bar')
+#
