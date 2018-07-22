@@ -20,17 +20,13 @@
 <body class="layout-default">
 
 <nav id="navbar" class="navbar has-shadow is-spaced">
-    {% import 'menu.html' as navbar %}
+    {% from 'navbar.html' import brand, start, end %}
     <div class="container">
-        {{ navbar.brand(alt='Bulma: a modern CSS framework based on Flexbox', href='/') }}
-
+        {{ brand(alt='Bulma: a modern CSS framework based on Flexbox', href='/') }}
         <div id="navMenuIndex" class="navbar-menu">
-
-            {{ navbar.start(entries=menu['start']) }}
-            {{ navbar.end(links=menu['end'].links, buttons=menu['end'].buttons) }}
-
+            {{ start(entries=navbar['start']) }}
+            {{ end(links=navbar['end'].links, buttons=navbar['end'].buttons) }}
         </div>
-
     </div>
 </nav>
 

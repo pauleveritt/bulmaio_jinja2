@@ -34,11 +34,11 @@ def favicon():
 def page_view(pagename):
     pages = Pages()
     pages.load_pages()
-    menu = load_yaml('menu')
+    navbar = load_yaml('navbar')
     page = pages.get(pagename)
     context = dict(
         page=page,
-        menu=menu
+        navbar=navbar
     )
 
     return render_template(page.template, **context)
