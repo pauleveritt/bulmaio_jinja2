@@ -18,10 +18,15 @@ def load_yaml(filename):
 
 @dataclass
 class Breadcrumb:
-    title: str
+    label: str
     href: str
     is_active: bool = False
 
+@dataclass
+class Tab:
+    label: str
+    href: str
+    is_active: bool = False
 
 @dataclass
 class Page:
@@ -29,6 +34,7 @@ class Page:
     title: str
     subtitle: str = None
     breadcrumbs: Optional[List[Breadcrumb]] = None
+    tabs: Optional[List[Tab]] = None
     template: str = 'documentation.html'
 
     @property

@@ -31,14 +31,22 @@
     </header>
 {% endmacro %}
 
-{% macro tabs () %}
-    <nav class="bd-tabs">
-        <div class="tabs">
-            <ul>
-
-            </ul>
-        </div>
-    </nav>
+{% macro tabs (entries) %}
+    {% if entries %}
+        <nav class="bd-tabs">
+            <div class="tabs">
+                <ul>
+                    {% for entry in entries %}
+                        <li class="{{ 'is-active' if entry.is_active else '' }}">
+                            <a href="{{ entry.href }}">
+                                {{ entry.label }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </nav>
+    {% endif %}
 {% endmacro %}
 
 {% macro subsections () %}

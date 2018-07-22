@@ -12,7 +12,28 @@
       href: /documentation.html
       is_active: true
 - docname: documentation_overview.html
-  template: documentation_overview.html
+  template: documentation_homepage.html
   title: Overview
-- docname: documentation_start.html
-  title: Start
+  subtitle: An overview of what Bulma as a <strong>framework</strong> is all about
+  breadcrumbs:
+    - label: Home
+      href: /
+    - label: Documentation
+      href: /documentation.html
+    - label: Overview
+      href: /documentation_overview.html
+      is_active: true
+- docname: documentation_overview_start.html
+  template: documentation_homepage.html
+  title: Getting started with Bulma
+  subtitle: You only need <strong>1 CSS file</strong> to use Bulma
+  breadcrumbs:
+    - label: Home
+      href: /
+    - label: Documentation
+      href: /documentation.html
+    - label: Overview
+      href: /documentation_overview.html
+    - label: Start
+      href: /documentation__overview_start.html
+      is_active: true
