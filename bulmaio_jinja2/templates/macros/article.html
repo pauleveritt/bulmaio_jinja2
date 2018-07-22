@@ -49,180 +49,31 @@
     {% endif %}
 {% endmacro %}
 
-{% macro subsections () %}
-    <nav class="bd-links">
+{% macro subsections (entries) %}
+    {% if entries %}
+        <nav class="bd-links">
+            {% for entry in entries %}
+                <a class="bd-link"
+                   href="{{ entry.href }}">
 
+                    <h2 class="bd-link-name">
+                        <figure class="bd-link-figure">
 
-        <a class="bd-link"
-           href="/documentation_overview.html">
+                            <span class="bd-link-icon has-text-{{ entry.accent }}">
+                                <i class="{{ entry.icon }}"></i>
+                            </span>
 
-            <h2 class="bd-link-name">
-                <figure class="bd-link-figure">
+                        </figure>
+                        {{ entry.label }}
+                    </h2>
+                    <p class="bd-link-subtitle">
+                        {{ entry.subheading | safe }}
+                    </p>
 
-                    <span class="bd-link-icon has-text-primary">
-                        <i class="fas fa-eye"></i>
-                    </span>
-
-                </figure>
-                Overview
-            </h2>
-            <p class="bd-link-subtitle">
-                An overview of what Bulma as a <strong>framework</strong>
-                is all about
-            </p>
-
-        </a>
-
-
-        <a class="bd-link"
-           href="https://bulma.io/documentation/customize">
-
-            <h2 class="bd-link-name">
-                <figure class="bd-link-figure">
-
-                    <span class="bd-link-icon has-text-star">
-                        <i class="fas fa-paint-brush"></i>
-                    </span>
-
-                </figure>
-                Customize
-            </h2>
-            <p class="bd-link-subtitle">
-                Create your <strong>own theme</strong> with
-                a simple set of <strong>variables</strong>
-            </p>
-
-        </a>
-
-
-        <a class="bd-link"
-           href="https://bulma.io/documentation/modifiers">
-
-            <h2 class="bd-link-name">
-                <figure class="bd-link-figure">
-
-                    <span class="bd-link-icon has-text-grey">
-                        <i class="fas fa-cogs"></i>
-                    </span>
-
-                </figure>
-                Modifiers
-            </h2>
-            <p class="bd-link-subtitle">
-                An <strong>easy-to-read</strong> naming
-                system designed for humans
-            </p>
-
-        </a>
-
-
-        <a class="bd-link"
-           href="https://bulma.io/documentation/columns">
-
-            <h2 class="bd-link-name">
-                <figure class="bd-link-figure">
-
-                    <span class="bd-link-icon has-text-star">
-                        <i class="fas fa-columns"></i>
-                    </span>
-
-                </figure>
-                Columns
-            </h2>
-            <p class="bd-link-subtitle">
-                The power of <strong>Flexbox</strong> in a
-                simple interface
-            </p>
-
-        </a>
-
-
-        <a class="bd-link"
-           href="https://bulma.io/documentation/layout">
-
-            <h2 class="bd-link-name">
-                <figure class="bd-link-figure">
-
-                    <span class="bd-link-icon has-text-success">
-                        <i class="fas fa-warehouse"></i>
-                    </span>
-
-                </figure>
-                Layout
-            </h2>
-            <p class="bd-link-subtitle">
-                Design the <strong>structure</strong> of
-                your webpage with these CSS classes
-            </p>
-
-        </a>
-
-
-        <a class="bd-link"
-           href="https://bulma.io/documentation/form">
-
-            <h2 class="bd-link-name">
-                <figure class="bd-link-figure">
-
-                    <span class="bd-link-icon has-text-link">
-                        <i class="fab fa-wpforms"></i>
-                    </span>
-
-                </figure>
-                Form
-            </h2>
-            <p class="bd-link-subtitle">
-                The indispensable <strong>form
-                controls</strong>, designed for maximum
-                clarity
-            </p>
-
-        </a>
-
-
-        <a class="bd-link"
-           href="https://bulma.io/documentation/elements">
-
-            <h2 class="bd-link-name">
-                <figure class="bd-link-figure">
-
-                    <span class="bd-link-icon has-text-orange">
-                        <i class="fas fa-cube"></i>
-                    </span>
-
-                </figure>
-                Elements
-            </h2>
-            <p class="bd-link-subtitle">
-                Essential interface elements that only
-                require a <strong>single CSS class</strong>
-            </p>
-
-        </a>
-
-
-        <a class="bd-link"
-           href="https://bulma.io/documentation/components">
-
-            <h2 class="bd-link-name">
-                <figure class="bd-link-figure">
-
-                    <span class="bd-link-icon has-text-danger">
-                        <i class="fas fa-cubes"></i>
-                    </span>
-
-                </figure>
-                Components
-            </h2>
-            <p class="bd-link-subtitle">
-                Advanced multi-part components with lots of
-                possibilities
-            </p>
-
-        </a>
-
-
-    </nav>
+                </a>
+            {% endfor %}
+        </nav>
+    {% endif %}
 {% endmacro %}
 
 {% macro prevnext () %}

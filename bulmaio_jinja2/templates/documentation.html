@@ -10,7 +10,7 @@
                     {{ heading(title=page.title, subtitle=page.subtitle) }}
                     {{ tabs() }}
                     <div class="bd-content">
-                        {{ subsections() }}
+                        {{ subsections(entries=page.sections) }}
                     </div>
                 </div>
                 {{ sidebar() }}

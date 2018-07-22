@@ -11,6 +11,57 @@
     - label: Documentation
       href: /documentation.html
       is_active: true
+  sections:
+    - label: Overview
+      subheading:  An overview of what Bulma as a
+                    <strong>framework</strong>
+                    is all about
+      href: /documentation_overview.html
+      accent: primary
+      icon: fas fa-eye
+    - label: Customize
+      subheading: Create your <strong>own theme</strong> with
+                    a simple set of <strong>variables</strong>
+      href: /documentation_overview.html
+      accent: start
+      icon: fas fa-paint-brush
+    - label: Modifiers
+      subheading: An <strong>easy-to-read</strong> naming
+                    system designed for humans
+      href: /documentation_overview.html
+      accent: grey
+      icon: fas fa-cogs
+    - label: Columns
+      subheading: The power of <strong>Flexbox</strong> in a
+                    simple interface
+      href: /documentation_overview.html
+      accent: star
+      icon: fas fa-columns
+    - label: Layout
+      subheading: Design the <strong>structure</strong> of
+                    your webpage with these CSS classes
+      href: /documentation_overview.html
+      accent: success
+      icon: fas fa-warehouse
+    - label: Form
+      subheading: The indispensable <strong>form
+                    controls</strong>, designed for maximum
+                    clarity
+      href: /documentation_overview.html
+      accent: link
+      icon: fab fa-wpforms
+    - label: Elements
+      subheading: Essential interface elements that only
+                    require a <strong>single CSS class</strong>
+      href: /documentation_overview.html
+      accent: orange
+      icon: fas fa-cube
+    - label: Components
+      subheading: Advanced multi-part components with lots of
+                    possibilities
+      href: /documentation_overview.html
+      accent: danger
+      icon: fas fa-cube
 - docname: documentation_overview.html
   template: documentation.html
   title: Overview
@@ -23,6 +74,52 @@
     - label: Overview
       href: /documentation_overview.html
       is_active: true
+  sections:
+    - label: Start
+      subheading: You only need <strong>1 CSS file</strong>
+                                to use Bulma
+      href: /documentation_overview_start.html
+      accent: danger
+      icon: fas fa-rocket
+    - label: Classes
+      subheading: Bulma is simply a
+                                <strong>collection</strong> of CSS classes.
+                                Write the HTML code you
+                                want.
+      href: /documentation_overview_start.html
+      accent: link
+      icon: fab fa-css3
+    - label: Modularity
+      subheading: Just import what you <strong>need</strong>
+      href: /documentation_overview_start.html
+      accent: success
+      icon: fas fa-cubes
+    - label: Responsiveness
+      subheading: Bulma is a <strong>mobile-first</strong>
+                                framework
+      href: /documentation_overview_start.html
+      accent: primary
+      icon: fas fa-arrows-alt-h
+    - label: Colors
+      subheading: The <strong>colors</strong> that
+                                <strong>style</strong>
+                                most Bulma elements and
+                                components
+      href: /documentation_overview_start.html
+      accent: info
+      icon: fas fa-tint
+    - label: Functions
+      subheading: Utility functions to calculate colors and
+                                other values
+      href: /documentation_overview_start.html
+      accent: orange
+      icon: fas fa-code
+    - label: Mixins
+      subheading: Utility mixins for custom elements and
+                                responsive helpers
+      href: /documentation_overview_start.html
+      accent: purple
+      icon: fas fa-plus
 - docname: documentation_overview_start.html
   template: documentation.html
   title: Getting started with Bulma

@@ -22,11 +22,22 @@ class Breadcrumb:
     href: str
     is_active: bool = False
 
+
 @dataclass
 class Tab:
     label: str
     href: str
     is_active: bool = False
+
+
+@dataclass
+class Section:
+    label: str
+    subheading: str
+    href: str
+    accent: str
+    icon: str
+
 
 @dataclass
 class Page:
@@ -35,6 +46,7 @@ class Page:
     subtitle: str = None
     breadcrumbs: Optional[List[Breadcrumb]] = None
     tabs: Optional[List[Tab]] = None
+    sections: Optional[List[Section]] = None
     template: str = 'documentation.html'
 
     @property
