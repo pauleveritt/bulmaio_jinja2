@@ -1,0 +1,13 @@
+{% from 'endmatter.html' import book, newsletter, social, expo, links %}
+
+{{ book() }}
+{{ newsletter() }}
+
+
+<footer class="footer">
+    <div class="container">
+        {{ social() }}
+        {{ expo() }}
+        {{ links() }}
+    </div>
+</footer>
