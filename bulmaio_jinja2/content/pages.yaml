@@ -1,8 +1,11 @@
 - docname: index.html
   template: homepage.html
+  title: Homepage
 - docname: documentation.html
   template: documentation_homepage.html
+  title: Documentation
 - docname: documentation_overview.html
   template: documentation_overview.html
+  title: Overview
 - docname: documentation_start.html
-
+  title: Start

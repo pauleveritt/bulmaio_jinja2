@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" class="route-index">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
-          content="Bulma is an open source CSS framework based on Flexbox and built with Sass.
-            It's 100% responsive, fully modular, and available for free.">
-
-    <title>Bulma: a modern CSS framework based on Flexbox</title>
-
+          content="{{ site.description }}">
+    <title>{{ page.title }} | {{ site.title }}</title>
     <link rel="shortcut icon"
-          href="{{ url_for('static', filename='favicons/favicon.ico') }}">
+          href="{{ url_for('static', filename=site.favicon) }}">
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/bulmaio.css') }}">
     <script defer

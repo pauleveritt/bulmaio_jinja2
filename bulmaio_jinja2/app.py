@@ -24,21 +24,28 @@ def sourcemaps():
 
 @app.route('/static/favicons/favicon.ico')
 def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'),
-                               'favicon.ico',
-                               mimetype='image/vnd.microsoft.icon')
+    return send_from_directory(
+        os.path.join(app.root_path, 'static', 'favicons'),
+        'favicon.ico',
+        mimetype='image/vnd.microsoft.icon')
 
 
 @app.route('/', defaults={'pagename': 'index.html'})
 @app.route('/<pagename>')
 def page_view(pagename):
+    # Get some globals. Jam them in here so that livereload will get them,
+    # slows down requests for development, but that's ok.
     pages = Pages()
     pages.load_pages()
     navbar = load_yaml('navbar')
+    site = load_yaml('site')
+
+    # Get this page and make a context
     page = pages.get(pagename)
     context = dict(
+        site=site,
+        navbar=navbar,
         page=page,
-        navbar=navbar
     )
 
     return render_template(page.template, **context)

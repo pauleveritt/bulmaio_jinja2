@@ -18,6 +18,7 @@ def load_yaml(filename):
 @dataclass
 class Page:
     docname: str
+    title: str
     template: str = 'documentation.html'
 
     @property
