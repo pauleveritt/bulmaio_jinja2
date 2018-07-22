@@ -8,9 +8,14 @@
                 <div class="bd-lead">
                     {{ breadcrumbs(entries=page.breadcrumbs) }}
                     {{ heading(title=page.title, subtitle=page.subtitle) }}
-                    {{ tabs() }}
+                    {{ tabs(entries=page.tabs) }}
                     <div class="bd-content">
                         {{ subsections(entries=page.sections) }}
+                        {% if page.content %}
+                            <div class="bd-content">
+                                {{ page.content | safe }}
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
                 {{ sidebar() }}

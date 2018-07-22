@@ -134,3 +134,19 @@
     - label: Start
       href: /documentation__overview_start.html
       is_active: true
+  tabs:
+    - label: Start
+      href: /documentation_overview_start.html
+      is_active: true
+    - label: Classes
+      href: /documentation_overview_start.html
+    - label: Modularity
+      href: /documentation_overview_start.html
+    - label: Responsiveness
+      href: /documentation_overview_start.html
+    - label: Colors
+      href: /documentation_overview_start.html
+    - label: Functions
+      href: /documentation_overview_start.html
+    - label: Mixins
+      href: /documentation_overview_start.html
