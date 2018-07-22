@@ -1,35 +1,28 @@
-{% macro breadcrumbs () %}
-    <div class="bd-breadcrumb">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-            <ul>
-
-
-                <li>
-                    <a href="https://bulma.io">Home</a>
-                </li>
-
-
-                <li class="is-active">
-                    <a href="https://bulma.io/documentation">Documentation</a>
-                </li>
-
-            </ul>
-        </nav>
-
-
-    </div>
+{% macro breadcrumbs (entries) %}
+    {% if entries %}
+        <div class="bd-breadcrumb">
+            <nav class="breadcrumb" aria-label="breadcrumbs">
+                <ul>
+                    {% for entry in entries %}
+                        <li class="{{ 'is-active' if entry.is_active else '' }}">
+                            <a href="{{ entry.href }}">{{ entry.label }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+    {% endif %}
 {% endmacro %}
 
-{% macro heading () %}
+{% macro heading (title, subtitle) %}
     <header class="bd-header">
         <div class="bd-header-titles">
             <h1 class="title">
-                Documentation
+                {{ title }}
             </h1>
             <p class="subtitle is-4">
 
-                Everything you need to <strong>create a
-                website</strong> with Bulma
+                {{ subtitle | safe }}
 
             </p>
 

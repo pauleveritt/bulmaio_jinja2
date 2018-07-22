@@ -4,6 +4,13 @@
 - docname: documentation.html
   template: documentation_homepage.html
   title: Documentation
+  subtitle: Everything you need to <strong>make a website</strong> with Bulma
+  breadcrumbs:
+    - label: Home
+      href: /
+    - label: Documentation
+      href: /documentation.html
+      is_active: true
 - docname: documentation_overview.html
   template: documentation_overview.html
   title: Overview

@@ -6,9 +6,8 @@
         <div class="bd-main-container container">
             <div class="bd-duo">
                 <div class="bd-lead">
-
-                    {{ breadcrumbs() }}
-                    {{ heading() }}
+                    {{ breadcrumbs(entries=page.breadcrumbs) }}
+                    {{ heading(title=page.title, subtitle=page.subtitle) }}
                     {{ tabs() }}
 
                     <div class="bd-content">

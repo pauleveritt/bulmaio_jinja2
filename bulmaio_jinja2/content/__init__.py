@@ -2,6 +2,7 @@ from collections import UserDict
 from dataclasses import dataclass
 from os.path import join
 from pathlib import Path
+from typing import List, Optional
 
 from yaml import Loader, load
 
@@ -16,9 +17,18 @@ def load_yaml(filename):
 
 
 @dataclass
+class Breadcrumb:
+    title: str
+    href: str
+    is_active: bool = False
+
+
+@dataclass
 class Page:
     docname: str
     title: str
+    subtitle: str = None
+    breadcrumbs: Optional[List[Breadcrumb]] = None
     template: str = 'documentation.html'
 
     @property
