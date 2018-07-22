@@ -27,7 +27,7 @@
         <div id="navMenuIndex" class="navbar-menu">
 
             {{ navbar.start(entries=menu['start']) }}
-            {{ navbar.end(entries=menu['end']) }}
+            {{ navbar.end(links=menu['end'].links, buttons=menu['end'].buttons) }}
 
         </div>
 

@@ -86,33 +86,32 @@
 {% endmacro %}
 
 
-{% macro end(entries) %}
+{% macro end(links, buttons) %}
     <div class="navbar-end">
-        {% for entry in entries %}
+        {% for link in links %}
             <a class="navbar-item is-hidden-touch is-hidden-desktop-only"
-               href="{{ entry.href }}"
+               href="{{ link.href }}"
                target="_blank">
-                    <span class="icon" style="color: {{ '#' }}{{ entry.color }}">
-                        <i class="fab fa-lg fa-{{ entry.icon }}"></i>
+                    <span class="icon"
+                          style="color: {{ '#' }}{{ link.color }}">
+                        <i class="fab fa-lg fa-{{ link.icon }}"></i>
                     </span>
             </a>
         {% endfor %}
 
-        <div class="navbar-item">
-            <div class="field is-grouped is-grouped-multiline">
-                <p class="control">
-                    <a class="button is-primary"
-                       href="#">
-                        <strong>Download</strong>
-                    </a>
-                </p>
-                <p class="control">
-                    <a class="button is-default"
-                       href="#">
-                        <strong>Contact</strong>
-                    </a>
-                </p>
+        {% if buttons %}
+            <div class="navbar-item">
+                <div class="field is-grouped is-grouped-multiline">
+                    {% for button in buttons %}
+                        <p class="control">
+                            <a class="button is-{{ button.accent }}"
+                               href="{{ button.href }}">
+                                <strong>{{ button.label }}</strong>
+                            </a>
+                        </p>
+                    {% endfor %}
+                </div>
             </div>
-        </div>
+        {% endif %}
     </div>
 {% endmacro %}

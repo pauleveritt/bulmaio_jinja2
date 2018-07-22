@@ -45,9 +45,17 @@ start:
     href: /more/bootstrap.html
 
 end:
-- color: 333
-  href: https://github.com/jgthms/bulma
-  icon: github-alt
-- color: 55acee
-  href: https://twitter.com/jgthms
-  icon: twitter
+  links:
+    - color: 333
+      href: https://github.com/jgthms/bulma
+      icon: github-alt
+    - color: 55acee
+      href: https://twitter.com/jgthms
+      icon: twitter
+  buttons:
+    - accent: danger
+      href: https://www.patreon.com/jgthms
+      label: Donate
+    - accent: primary
+      href: https://github.com/jgthms/bulma/releases/download/0.7.1/bulma-0.7.1.zip
+      label: Download
