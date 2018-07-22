@@ -3,6 +3,33 @@ description: Bulma is an open source CSS framework based on Flexbox and built wi
   It's 100% responsive, fully modular, and available for free.
 favicon: favicons/favicon.ico
 
+sidebar:
+  - label: Overview
+    is_active: true
+    entries:
+      - label: Start
+        href: /documentation_overview_start.html
+      - label: Classes
+        href: /documentation_overview_start.html
+      - label: Modularity
+        href: /documentation_overview_start.html
+      - label: Responsiveness
+        href: /documentation_overview_start.html
+      - label: Colors
+        href: /documentation_overview_start.html
+      - label: Functions
+        href: /documentation_overview_start.html
+      - label: Mixins
+        href: /documentation_overview_start.html
+  - label: Customize
+  - label: Modifiers
+  - label: Columns
+    is_new: true
+  - label: Layout
+  - label: Form
+  - label: Elements
+  - label: Components
+
 footer:
   links:
     columns:

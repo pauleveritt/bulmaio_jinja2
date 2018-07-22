@@ -5326,6 +5326,15 @@ a.navbar-item,
   box-shadow: 0 1.5rem 1.5rem -1.25rem rgba(10, 10, 10, 0.05);
   display: block; }
 
+.bd-category-name .tag {
+  border-radius: 2px;
+  font-family: Verdana;
+  font-size: .5rem;
+  font-weight: 700;
+  height: 2.25em;
+  margin-left: .5em;
+  vertical-align: text-bottom; }
+
 .bd-main {
   overflow: hidden;
   position: relative; }
@@ -6852,6 +6861,7 @@ svg {
 
 .bd-book-pattern,
 .bd-book-modal-column.bd-is-cover {
+  background-image: url("/src/static/images/hab/lightpaperfibers_@2X.png");
   background-repeat: repeat;
   background-size: 250px 150px; }
   .bd-book-pattern::before,
