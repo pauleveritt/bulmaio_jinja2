@@ -1,4 +1,20 @@
 {% extends 'layout.html' %}
+{% from 'macros/article.html' import breadcrumbs, heading, tabs, subsections, sidebar %}
 {% block body %}
-    {{ page.content|safe }}
+    <main class="bd-main">
+        <div class="bd-side-background"></div>
+        <div class="bd-main-container container">
+            <div class="bd-duo">
+                <div class="bd-lead">
+                    {{ breadcrumbs(entries=page.breadcrumbs) }}
+                    {{ heading(title=page.title, subtitle=page.subtitle) }}
+                    {{ tabs() }}
+                    <div class="bd-content">
+                        {{ subsections() }}
+                    </div>
+                </div>
+                {{ sidebar() }}
+            </div>
+        </div>
+    </main>
 {% endblock %}
