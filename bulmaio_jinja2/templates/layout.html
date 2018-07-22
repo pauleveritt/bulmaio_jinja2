@@ -18,23 +18,9 @@
             src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
 </head>
 <body class="layout-default">
-
-<nav id="navbar" class="navbar has-shadow is-spaced">
-    {% from 'navbar.html' import brand, start, end %}
-    <div class="container">
-        {{ brand(alt='Bulma: a modern CSS framework based on Flexbox', href='/') }}
-        <div id="navMenuIndex" class="navbar-menu">
-            {{ start(entries=navbar['start']) }}
-            {{ end(links=navbar['end'].links, buttons=navbar['end'].buttons) }}
-        </div>
-    </div>
-</nav>
-
+{% include 'header.html' %}
 
 {% block body %}{% endblock %}
-
-
-
 
 {% include 'footer.html' %}
 
