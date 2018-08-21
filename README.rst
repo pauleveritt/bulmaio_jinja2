@@ -44,7 +44,31 @@ Python Development
 
 - pip install -r requirements.txt
 
-- You can also run the livereload Flask server
+You can also run the livereload Flask server:
+
+.. code-block:: bash
+
+  $ python -m bulmaio_jinja2.livereload
+
+This launches a Flask app with a ``/<pagename>`` route that does the
+following:
+
+- Uses dummy content in the ``content`` directory
+
+- Site content is mimicked in ``site.yaml``
+
+- Individual pages are mimicked in ``pages.yaml`` with corresponding
+  ``.html`` files
+
+- The ``pagename`` is looked up from pages
+
+- A Jinja2 ``context`` is assembled that includes the ``site``,
+  the ``navbar``, and the ``page``
+
+- The template assigned in the ``page`` is rendered with the context
+
+- Whenever anything in the ``bulmaio_jinja2`` directory changes,
+  the browser reloads
 
 Web Development
 ===============
