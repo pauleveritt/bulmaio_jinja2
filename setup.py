@@ -10,22 +10,24 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 setup(
     name='bulmaio_jinja2',
     version='0.0.1',
-    description='Jinja2 templating for the bulma.io site structure and styling',
+    description='Jinja2 templating for the bulma.io site structure and '
+                'styling',
     long_description=long_description,
     url='https://github.com/pauleveritt/bulmaio_jinja2',
     author='Paul Everitt',
     author_email='pauleveritt@me.com',
     classifiers=[
-        'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
-        'Topic :: Software Development :: Documentation',
-        'License :: OSI Approved :: Apache Software License',
-        'Programming Language :: Python :: 3.y',
+        'Topic :: Software Development',
+        'License :: OSI Approved :: MIT',
+        'Programming Language :: Python :: 3.6',
     ],
     keywords='bulma jinja2',
     packages=find_packages(exclude=['docs', 'tests']),
     install_requires=[
         'jinja2',
+        'pydantic',
+        'importlib_resources;python_version<"3.4"',
     ],
     include_package_data=True
 )

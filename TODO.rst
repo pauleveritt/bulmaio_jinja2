@@ -1,12 +1,14 @@
 Now
 ===
 
-- Update the README
+- importlib.resource backport support
+
+    - Get the importlib.resources dependency if needed
+
+    - Write a function with a test
 
 Next
 ====
-
-- __main__ for the livereload
 
 - Generate wheels
 
@@ -17,7 +19,6 @@ Next
 Soon
 ====
 
-- importlib.resource backport support
 
 - Resolver for static path support using package names
 
@@ -31,4 +32,11 @@ Eventually
 - Sphinx theme
 
 - pydantic models
+
+Done
+====
+
+- Update the README
+
+- __main__ for the livereload
 
