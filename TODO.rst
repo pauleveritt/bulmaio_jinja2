@@ -1,18 +1,13 @@
 Now
 ===
 
-- importlib.resource backport support
+- Macros and snippets
 
-    - Get the importlib.resources dependency if needed
-
-    - Write a function with a test
 
 Next
 ====
 
 - Generate wheels
-
-- Macros and snippets
 
 - Unit tests and integration tests
 

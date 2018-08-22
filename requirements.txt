@@ -2,3 +2,7 @@ livereload==2.5.1
 flask
 formic
 pyyaml
+pytest
+pytest-fixtures
+beautifulsoup4
+html5lib
