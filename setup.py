@@ -29,5 +29,10 @@ setup(
         'pydantic',
         'importlib_resources;python_version<"3.4"',
     ],
-    include_package_data=True
+    include_package_data=True,
+    entry_points={
+        'sphinx.html_themes': [
+            'bulmaio_jinja2 = bulmaio_jinja2',
+        ]
+    },
 )
