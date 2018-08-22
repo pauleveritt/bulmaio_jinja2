@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
           content="{{ site.description }}">
-    <title>{{ title }} | {{ site.title }}</title>
+    <title>{{ page.title }} | {{ site.title }}</title>
     <link rel="shortcut icon"
-          href="{{ pathto('_static/' + favicon, 1) }}">
-    <link rel="stylesheet"
-          href="{{ pathto('_static/css/bulmaio.css', 1) }}">
+          href="{{ site.static_path(site.favicon) }}">
+    <link rel="stylesheet" id="bulmaio-jinja2-styleshet"
+          href="{{ site.static_path('css/bulmaio.css') }}">
     <script defer
             src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
 </head>

@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, render_template, send_from_directory, make_response
 
-from bulmaio_jinja2.content import (
+from bulmaio_jinja2.sample import (
     Pages,
     load_yaml
 )

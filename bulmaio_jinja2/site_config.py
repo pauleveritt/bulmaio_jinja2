@@ -1,6 +1,7 @@
 from typing import List
 
 from pydantic import BaseModel
+from sphinx.util import relative_uri
 
 
 class Logo(BaseModel):
@@ -89,3 +90,6 @@ class SiteConfig(BaseModel):
     description: str = None
     navbar: Navbar = None
     footer: Footer = None
+
+    def static_path(self, other):
+        return relative_uri('index', '_static/' + other)

@@ -1,14 +1,38 @@
 import inspect
 import os
-
-from sphinx.application import Sphinx
+from typing import Optional
 
 import bulmaio_jinja2
-from sphinx.jinja2glue import SphinxFileSystemLoader
+from bulmaio_jinja2.models import Page
+from docutils import nodes
+from docutils.nodes import Node
+from sphinx.application import Sphinx
+
+
+def get_rst_title(rst_doc: Node) -> Optional[str]:
+    """ Given some RST, extract what docutils thinks is the title """
+
+    if rst_doc:
+        for title in rst_doc.traverse(nodes.title):
+            return title.astext()
+
+    return None
 
 
 def html_context(app, pagename, templatename, context, doctree):
     context['site'] = app.config.bulmaio_jinja2_siteconfig
+
+    # This theme expects all values to come in through
+    # validated models. No more globals. So extract the
+    # page-specific stuff into an instance
+    if doctree is None:
+        pass
+    title = get_rst_title(doctree)
+
+    context['page'] = Page(
+        docname=pagename,
+        title=title,
+    )
 
 
 def add_template_dir(app: Sphinx):
@@ -22,10 +46,7 @@ def add_template_dir(app: Sphinx):
     template_bridge = app.builder.templates
     t = os.path.join(os.path.dirname(inspect.getfile(bulmaio_jinja2)),
                      'templates')
-    template_bridge.loaders.append(SphinxFileSystemLoader(t))
-    # m = os.path.join(os.path.dirname(inspect.getfile(bulmaio_jinja2)),
-    #                  'templates/macros')
-    # template_bridge.loaders.append(SphinxFileSystemLoader(m))
+    template_bridge.loaders[0].searchpath.append(t)
 
 
 def setup_sphinx(app: Sphinx):
