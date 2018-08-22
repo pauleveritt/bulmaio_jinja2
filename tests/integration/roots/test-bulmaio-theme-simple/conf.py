@@ -1,4 +1,4 @@
-from bulmaio_jinja2 import SiteConfig
+from bulmaio_jinja2.site_config import SiteConfig
 
 extensions = [
     'bulmaio_jinja2'
