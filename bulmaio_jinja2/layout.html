@@ -6,21 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
           content="{{ site.description }}">
-    <title>{{ page.title }} | {{ site.title }}</title>
+    <title>{{ title }} | {{ site.title }}</title>
     <link rel="shortcut icon"
-          href="{{ url_for('static', filename=site.favicon) }}">
+          href="{{ pathto('_static/' + favicon, 1) }}">
     <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/bulmaio.css') }}">
+          href="{{ pathto('_static/css/bulmaio.css', 1) }}">
     <script defer
             src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
 </head>
 <body class="layout-default">
-{% include 'header.html' %}
+{#{% include 'header.html' %}#}
 
 {% block body %}{% endblock %}
 
-{% include 'footer.html' %}
+{#{% include 'footer.html' %}#}
 
-<script defer src="{{ url_for('static', filename='js/bulmaio.js') }}"></script>
+<script defer src="{{ pathto('_static/js/bulmaio.js', 1) }}"></script>
+
 </body>
 </html>
