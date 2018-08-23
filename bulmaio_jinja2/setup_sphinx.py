@@ -32,6 +32,7 @@ def html_context(app, pagename, templatename, context, doctree):
     context['page'] = Page(
         docname=pagename,
         title=title,
+        body=context['body']
     )
 
 

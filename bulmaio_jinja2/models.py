@@ -26,6 +26,7 @@ class Section(BaseModel):
 class Page(BaseModel):
     docname: str
     title: str = None
+    body: str = None
     subtitle: str = None
     breadcrumbs: Optional[List[Breadcrumb]] = None
     tabs: Optional[List[Tab]] = None

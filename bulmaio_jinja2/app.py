@@ -1,5 +1,6 @@
 import os
 
+from bulmaio_jinja2.site_config import SiteConfig
 from flask import Flask, render_template, send_from_directory, make_response
 
 from bulmaio_jinja2.sample import (
@@ -38,7 +39,8 @@ def page_view(pagename):
     pages = Pages()
     pages.load_pages()
     navbar = load_yaml('navbar')
-    site = load_yaml('site')
+    site = SiteConfig(**load_yaml('site'))
+    site.static_dirname = 'static/'  # Don't use Sphinx name
 
     # Get this page and make a context
     page = pages.get(pagename)

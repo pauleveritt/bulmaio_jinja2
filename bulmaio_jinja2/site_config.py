@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import List
 
 from pydantic import BaseModel
@@ -90,6 +91,8 @@ class SiteConfig(BaseModel):
     description: str = None
     navbar: Navbar = None
     footer: Footer = None
+    static_dirname: str = '_static/'
 
     def static_path(self, other):
-        return relative_uri('index', '_static/' + other)
+        full_other = Path(self.static_dirname + other)
+        return relative_uri('index', str(full_other))
