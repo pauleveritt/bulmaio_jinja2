@@ -9,6 +9,8 @@
     <div class="container">
         {{ social() }}
         {{ expo() }}
-        {{ links(columns=footer.links.columns) }}
+        {% if footer.links %}
+            {{ links(columns=footer.links.columns) }}
+        {% endif %}
     </div>
 </footer>
