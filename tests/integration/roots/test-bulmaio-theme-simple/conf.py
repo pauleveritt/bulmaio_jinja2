@@ -1,4 +1,4 @@
-from bulmaio_jinja2.site_config import SiteConfig
+from bulmaio_jinja2.models import Site
 
 extensions = [
     'bulmaio_jinja2'
@@ -8,7 +8,7 @@ html_theme = 'bulmaio_jinja2'
 master_doc = 'index'
 exclude_patterns = ['_build']
 
-bulmaio_jinja2_siteconfig = SiteConfig(
+bulmaio_jinja2_siteconfig = Site(
     title='bulmaio_jinja2',
     favicon='jetbrains_favicon.ico',
     # logo=dict(
@@ -151,7 +151,8 @@ bulmaio_jinja2_siteconfig = SiteConfig(
     #                                 label='Love',
     #                                 icon='heart',
     #                                 accent='danger',
-    #                                 subtitle='Fans of Bulma around the world',
+    #                                 subtitle='Fans of Bulma around the
+    # world',
     #                                 href='/x'
     #                             ),
     #                             dict(

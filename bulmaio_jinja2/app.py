@@ -1,12 +1,15 @@
 import os
 
-from bulmaio_jinja2.site_config import SiteConfig
-from flask import Flask, render_template, send_from_directory, make_response
-
+from bulmaio_jinja2.models import (
+    Navbar,
+    Site,
+    Footer
+)
 from bulmaio_jinja2.sample import (
     Pages,
     load_yaml
 )
+from flask import Flask, render_template, send_from_directory, make_response
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -38,15 +41,17 @@ def page_view(pagename):
     # slows down requests for development, but that's ok.
     pages = Pages()
     pages.load_pages()
-    navbar = load_yaml('navbar')
-    site = SiteConfig(**load_yaml('site'))
+
+    # Make a Site with a Navbar and a Footer
+    site = Site(**load_yaml('site'))
+    site.navbar = Navbar(**load_yaml('navbar'))
+    site.footer = Footer(**load_yaml('footer'))
     site.static_dirname = 'static/'  # Don't use Sphinx name
 
     # Get this page and make a context
     page = pages.get(pagename)
     context = dict(
         site=site,
-        navbar=navbar,
         page=page,
     )
 

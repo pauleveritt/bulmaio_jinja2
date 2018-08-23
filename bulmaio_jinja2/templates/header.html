@@ -1,4 +1,5 @@
-{% from 'macros/navbar.html' import brand, start, end %}
+{% from 'macros/navbar_macros.html' import brand, start, end %}
+{% set navbar = site.navbar %}
 <nav id="navbar" class="navbar has-shadow is-spaced">
     <div class="container">
         {{ brand(alt='Bulma: a modern CSS framework based on Flexbox', href='/') }}

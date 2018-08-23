@@ -1,4 +1,5 @@
-{% from 'macros/endmatter.html' import book, newsletter, social, expo, links %}
+{% from 'macros/endmatter_macros.html' import book, newsletter, social, expo, links %}
+{% set footer = site.footer %}
 
 {{ book() }}
 {{ newsletter() }}
@@ -8,6 +9,6 @@
     <div class="container">
         {{ social() }}
         {{ expo() }}
-        {{ links(columns=site.footer.links.columns) }}
+        {{ links(columns=footer.links.columns) }}
     </div>
 </footer>
