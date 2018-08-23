@@ -1,25 +1,29 @@
 {% macro brand(
+    logo=None,
     href='/',
-    alt='Bulma: a modern CSS framework based on Flexbox'
+    alt=''
     ) -%}
     <div class="navbar-brand">
-        <a class="navbar-item" href="{{ href }}">
-            <img src="static/images/bulma-logo.png"
-                 alt={{ alt }} width="112" height="28">
-        </a>
+        {% if logo %}
+            <a class="navbar-item bulmaio-brand" href="{{ href }}">
+                <img src="{{ logo }}"
+                     class="bulmaio-logo-image"
+                     alt="{{ alt }}" width="112" height="28">
+            </a>
+        {% endif %}
 
         <a class="navbar-item is-hidden-desktop"
            href="https://github.com/jgthms/bulma" target="_blank">
-                <span class="icon" style="color: #333;">
-                    <i class="fab fa-lg fa-github-alt"></i>
-                </span>
+            <span class="icon" style="color: #333;">
+                <i class="fab fa-lg fa-github-alt"></i>
+            </span>
         </a>
 
         <a class="navbar-item is-hidden-desktop"
            href="https://twitter.com/jgthms" target="_blank">
-                <span class="icon" style="color: #55acee;">
-                    <i class="fab fa-lg fa-twitter"></i>
-                </span>
+            <span class="icon" style="color: #55acee;">
+                <i class="fab fa-lg fa-twitter"></i>
+            </span>
         </a>
 
         <div id="navbarBurger" class="navbar-burger burger"
@@ -70,13 +74,13 @@
                     </span>
                     {% if entry.label_narrow %}
                         <span class="is-hidden-touch is-hidden-widescreen">
-                        {{ entry.label_narrow }}
-                    </span>
-                        <span class="is-hidden-desktop-only">
-                        {{ entry.label }}
-                    </span>
+                            {{ entry.label_narrow }}
+                        </span>
+                        <span class="is-hidden-desktop-only bulmaio-menu-label">
+                            {{ entry.label }}
+                        </span>
                     {% else %}
-                        <span>{{ entry.label }}</span>
+                        <span class="bulmaio-menu-label">{{ entry.label }}</span>
                     {% endif %}
                 </a>
             {% endif %}
@@ -92,10 +96,10 @@
             <a class="navbar-item is-hidden-touch is-hidden-desktop-only"
                href="{{ link.href }}"
                target="_blank">
-                    <span class="icon"
-                          style="color: {{ '#' }}{{ link.color }}">
-                        <i class="fab fa-lg fa-{{ link.icon }}"></i>
-                    </span>
+                <span class="icon"
+                      style="color: {{ '#' }}{{ link.color }}">
+                    <i class="fab fa-lg fa-{{ link.icon }}"></i>
+                </span>
             </a>
         {% endfor %}
 

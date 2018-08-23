@@ -28,11 +28,12 @@ def html_context(app, pagename, templatename, context, doctree):
     if doctree is None:
         pass
     title = get_rst_title(doctree)
+    body = context.get('body', '')  # genindex has no body
 
     context['page'] = Page(
         docname=pagename,
         title=title,
-        body=context['body']
+        body=body
     )
 
 

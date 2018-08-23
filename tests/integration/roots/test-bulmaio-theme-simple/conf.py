@@ -9,8 +9,34 @@ master_doc = 'index'
 exclude_patterns = ['_build']
 
 bulmaio_jinja2_siteconfig = Site(
+    homepage_url='/index.html',
+    logo=dict(
+        img_file='images/bulma-logo.png',
+        alt='Bulma Logo'
+    ),
     title='bulmaio_jinja2',
     favicon='jetbrains_favicon.ico',
+    navbar=dict(
+        start=[
+            dict(
+                css_class='documentation',
+                accent='primary',
+                icon='book',
+                label='Documentation',
+                label_narrow='Docs',
+                href='documentation.html',
+            )
+        ],
+        end=dict(
+            links=[
+                dict(
+                    color='333',
+                    href='https://github.com/jgthms/bulma',
+                    icon='github-alt',
+                )
+            ]
+        )
+    )
     # logo=dict(
     #     img_file='PyCharm_Logo.svg.png',
     #     alt='Kaybee Logo Alt'

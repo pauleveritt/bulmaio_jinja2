@@ -2,7 +2,11 @@
 {% set navbar = site.navbar %}
 <nav id="navbar" class="navbar has-shadow is-spaced">
     <div class="container">
-        {{ brand(alt='Bulma: a modern CSS framework based on Flexbox', href='/') }}
+        {{ brand(
+            logo=site.static_path(site.logo.img_file),
+            alt=site.logo.alt,
+            href=site.homepage_url)
+                }}
         <div id="navMenuIndex" class="navbar-menu">
             {{ start(entries=navbar['start']) }}
             {{ end(links=navbar['end'].links, buttons=navbar['end'].buttons) }}

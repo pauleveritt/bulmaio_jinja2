@@ -70,8 +70,8 @@ class NavbarEndButton(BaseModel):
 
 
 class NavbarEnd(BaseModel):
-    links: List[NavbarEndLink]
-    buttons: List[NavbarEndButton]
+    links: List[NavbarEndLink] = []
+    buttons: List[NavbarEndButton] = []
 
 
 class Navbar(BaseModel):
@@ -113,6 +113,7 @@ class Footer(BaseModel):
 
 
 class Site(BaseModel):
+    homepage_url: str = '/'
     logo: Logo = None
     title: str = None
     social_media: SocialMedia = None

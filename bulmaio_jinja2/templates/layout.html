@@ -9,7 +9,7 @@
     <title>{{ page.title }} | {{ site.title }}</title>
     <link rel="shortcut icon"
           href="{{ site.static_path(site.favicon) }}">
-    <link rel="stylesheet" id="bulmaio-jinja2-styleshet"
+    <link rel="stylesheet" id="bulmaio-stylesheet"
           href="{{ site.static_path('css/bulmaio.css') }}">
     <script defer
             src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
@@ -19,7 +19,7 @@
 
 {% block body %}{% endblock %}
 
-{% include 'footer.html' %}
+{#{% include 'footer.html' %}#}
 
 <script defer src="{{ site.static_path('js/bulmaio.js') }}"></script>
 
