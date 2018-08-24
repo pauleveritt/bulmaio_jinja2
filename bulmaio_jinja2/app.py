@@ -26,6 +26,7 @@ def sourcemaps():
     return make_response((body, headers))
 
 
+@app.route('/favicon.ico')
 @app.route('/static/favicons/favicon.ico')
 def favicon():
     return send_from_directory(

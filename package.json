@@ -2,9 +2,10 @@
   "name": "bulmaio_jinja2",
   "version": "0.0.1",
   "description": "Style and structure from the bulma.io site",
-  "main": "bulmaio_jinja2/index.js",
+  "main": "src/index.tsx",
   "scripts": {
-    "build": "parcel build -d bulmaio_jinja2/static -o bulmaio_jinja2 bulmaio_jinja2/index.tsx"
+    "start": "parcel ./src/index.html",
+    "build": "parcel build -d bulmaio_jinja2/static -o bulmaio_jinja2 src/index.tsx"
   },
   "repository": {
     "type": "git",
