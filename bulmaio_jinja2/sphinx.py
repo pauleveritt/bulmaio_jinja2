@@ -23,7 +23,9 @@ def get_rst_title(rst_doc: Node) -> Optional[str]:
 
 
 def inject_site(app, pagename, templatename, context, doctree):
-    context['site'] = site = app.config.bulmaio_jinja2_siteconfig
+    sc = app.config.bulmaio_jinja2_siteconfig
+    t = type(sc)
+    context['site'] = app.config.bulmaio_jinja2_siteconfig
 
 
 def inject_page(app, pagename, templatename, context, doctree):
@@ -93,17 +95,16 @@ def setup_sphinx(app: Sphinx):
         'bulmaio_jinja2_siteconfig', None, 'html'
     )
 
-    theme_name = app.config.html_theme
-    if theme_name == 'bulmaio_jinja2':
-        app.add_html_theme(
-            'bulmaio_jinja2',
-            os.path.abspath(os.path.dirname(__file__))
-        )
+    app.add_html_theme(
+        'bulmaio_jinja2',
+        os.path.abspath(os.path.dirname(__file__))
+    )
 
     app.connect('builder-inited', add_template_dir)
     app.connect('html-collect-pages', copy_static)
     app.connect('html-page-context', inject_site)
     app.connect('html-page-context', inject_page)
+
 
     return dict(
         parallel_read_safe=True

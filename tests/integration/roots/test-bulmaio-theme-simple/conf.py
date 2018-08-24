@@ -1,8 +1,8 @@
 from bulmaio_jinja2.models import Site
 
-# extensions = [
-#     'bulmaio_jinja2'
-# ]
+extensions = [
+    'bulmaio_jinja2'
+]
 
 html_theme = 'bulmaio_jinja2'
 master_doc = 'index'
