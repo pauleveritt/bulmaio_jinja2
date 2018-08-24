@@ -16,12 +16,12 @@ app.config['DEBUG'] = True
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 
-@app.route('/bulmaio.map')
+@app.route('/bulmaio_jinja2.map')
 def sourcemaps():
     # Likely a problem with Parcel encoding an absolute path in the .js
     # to point at the .map
     headers = {}
-    with open('bulmaio_jinja2/static/js/bulmaio.map', 'r') as f:
+    with open('bulmaio_jinja2/static/bulmaio_jinja2.map', 'r') as f:
         body = f.read()
     return make_response((body, headers))
 
