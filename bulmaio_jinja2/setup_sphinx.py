@@ -7,6 +7,7 @@ from bulmaio_jinja2.models import Page
 from docutils import nodes
 from docutils.nodes import Node
 from sphinx.application import Sphinx
+from sphinx.util import relative_uri
 
 
 def get_rst_title(rst_doc: Node) -> Optional[str]:
@@ -20,7 +21,7 @@ def get_rst_title(rst_doc: Node) -> Optional[str]:
 
 
 def html_context(app, pagename, templatename, context, doctree):
-    context['site'] = app.config.bulmaio_jinja2_siteconfig
+    context['site'] = site = app.config.bulmaio_jinja2_siteconfig
 
     # This theme expects all values to come in through
     # validated models. No more globals. So extract the
@@ -30,11 +31,26 @@ def html_context(app, pagename, templatename, context, doctree):
     title = get_rst_title(doctree)
     body = context.get('body', '')  # genindex has no body
 
-    context['page'] = Page(
+    # Make a page
+    page = Page(
         docname=pagename,
         title=title,
         body=body
     )
+
+    # Make some breadcrumbs
+    root_href = relative_uri(pagename, 'index')+ '.html'
+    breadcrumbs = [dict(label='Home', href=root_href)]
+    parents = context['parents']
+    for parent in parents:
+        breadcrumbs.append(
+            dict(
+                label=parent['title'],
+                href=parent['link']
+            )
+        )
+    page.breadcrumbs = breadcrumbs
+    context['page'] = page
 
 
 def add_template_dir(app: Sphinx):
