@@ -1,0 +1,7 @@
+@import "../../../node_modules/bulma/sass/utilities/derived-variables";
+
+.kbb-breadcrumb {
+  li, li+li {
+    margin-top: 0;
+  }
+}
