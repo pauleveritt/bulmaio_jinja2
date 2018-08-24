@@ -156,6 +156,7 @@ class Site(CustomBaseModel):
     static_dirname: str = '_static/'
     sidebar: List[SidebarEntry] = None
 
-    def static_path(self, other):
-        full_other = Path(self.static_dirname + other)
-        return relative_uri('index', str(full_other))
+    def static_path(self, docname, other):
+        full_other = Path(self.static_dirname, other)
+        target = relative_uri(docname, str(full_other))
+        return target

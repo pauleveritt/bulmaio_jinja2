@@ -2,9 +2,9 @@
 <head>
     <title>{{ page.title }} | {{ site.title }}</title>
     <link rel="shortcut icon"
-          href="{{ site.static_path(site.favicon) }}">
+          href="{{ site.static_path(page.docname, site.favicon) }}">
     <link rel="stylesheet" id="bulmaio-stylesheet"
-          href="{{ site.static_path('bulmaio_jinja2.css') }}">
+          href="{{ site.static_path(page.docname, 'bulmaio_jinja2.css') }}">
 </head>
 <body>
 <body class="layout-default">
@@ -14,7 +14,7 @@
 
 {% include 'footer.html' %}
 
-<script defer src="{{ site.static_path('bulmaio_jinja2.js') }}"></script>
+<script defer src="{{ site.static_path(page.docname, 'bulmaio_jinja2.js') }}"></script>
 
 </body>
 </body>

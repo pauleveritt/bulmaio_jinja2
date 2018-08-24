@@ -45,6 +45,8 @@ def test_breadcrumbs(page):
     # Sanity check
     title = page.find('title').string
     assert 'Nested Breadcrumb | bulmaio_jinja2' == title
+    stylesheet = page.find(id='bulmaio-stylesheet')
+    assert '../../_static/bulmaio_jinja2.css' == stylesheet.attrs['href']
 
     breadcrumbs = page.find(class_='bd-breadcrumb')
     entries = breadcrumbs.find_all('a')

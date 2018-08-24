@@ -3,7 +3,7 @@
 <nav id="navbar" class="navbar has-shadow is-spaced">
     <div class="container">
         {{ brand(
-            logo=site.static_path(site.logo.img_file),
+            logo=site.static_path(page.docname, site.logo.img_file),
             alt=site.logo.alt,
             href=site.homepage_url)
                 }}
