@@ -30,7 +30,7 @@ def sourcemaps():
 def favicon():
     return send_from_directory(
         os.path.join(app.root_path, 'static', 'favicons'),
-        'favicon.ico',
+        'bulma-logo.png',
         mimetype='image/vnd.microsoft.icon')
 
 

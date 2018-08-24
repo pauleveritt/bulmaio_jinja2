@@ -2,7 +2,7 @@
   template: homepage.html
   title: Homepage
 - docname: documentation.html
-  template: documentation.html
+  template: page.html
   title: Documentation
   subtitle: Everything you need to <strong>make a website</strong> with Bulma
   breadcrumbs:
@@ -63,7 +63,7 @@
       accent: danger
       icon: fas fa-cube
 - docname: documentation_overview.html
-  template: documentation.html
+  template: page.html
   title: Overview
   subtitle: An overview of what Bulma as a <strong>framework</strong> is all about
   breadcrumbs:
@@ -121,7 +121,7 @@
       accent: purple
       icon: fas fa-plus
 - docname: documentation_overview_start.html
-  template: documentation.html
+  template: page.html
   title: Getting started with Bulma
   subtitle: You only need <strong>1 CSS file</strong> to use Bulma
   breadcrumbs:
