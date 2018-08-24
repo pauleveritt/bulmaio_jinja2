@@ -1,0 +1,29 @@
+{
+  "name": "bulmaio_jinja2",
+  "version": "0.0.1",
+  "description": "Style and structure from the bulma.io site",
+  "main": "bulmaio_jinja2/index.js",
+  "scripts": {
+    "build": "parcel build -d bulmaio_jinja2/static -o bulmaio_jinja2 bulmaio_jinja2/index.tsx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pauleveritt/bulmaio_jinja2.git"
+  },
+  "author": "Paul Everitt <pauleveritt@me.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/pauleveritt/bulmaio_jinja2/issues"
+  },
+  "homepage": "https://github.com/pauleveritt/bulmaio_jinja2#readme",
+  "dependencies": {
+    "bulma": "^0.7.1",
+    "bulma-steps-component": "^0.5.3"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.0",
+    "parcel-bundler": "^1.9.4",
+    "tslint": "^5.9.1",
+    "typescript": "^2.9.2"
+  }
+}
