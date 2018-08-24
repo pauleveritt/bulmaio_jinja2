@@ -1,10 +1,11 @@
 from bulmaio_jinja2.models import Site
 
-# extensions = [
-#     'bulmaio_jinja2'
-# ]
+extensions = [
+    'bulmaio_jinja2'
+]
 
-html_theme = 'bulmaio_jinja2'
+html_theme = 'testtheme'
+html_theme_path = ['.']
 master_doc = 'index'
 exclude_patterns = ['_build']
 
@@ -14,7 +15,7 @@ bulmaio_jinja2_siteconfig = Site(
         img_file='images/bulma-logo.png',
         alt='Bulma Logo'
     ),
-    title='bulmaio_jinja2',
+    title='Theme Without Theme',
     favicon='jetbrains_favicon.ico',
     navbar=dict(
         start=[

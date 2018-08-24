@@ -53,6 +53,14 @@ def page(content, request):
 
 
 @pytest.fixture()
+def static_asset(content, request):
+    pagename = request.param
+    c = (content.outdir / pagename).text()
+
+    yield c
+
+
+@pytest.fixture()
 def json_page(content, request):
     pagename = request.param
     c = (content.outdir / pagename).text()

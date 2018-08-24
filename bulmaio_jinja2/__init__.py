@@ -1,5 +1,5 @@
-from bulmaio_jinja2 import setup_sphinx
+from bulmaio_jinja2 import sphinx
 
 
 def setup(app):
-    setup_sphinx.setup_sphinx(app)
+    sphinx.setup_sphinx(app)
