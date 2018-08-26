@@ -19,15 +19,16 @@ def test_environment(env):
 
 @pytest.fixture
 def context1():
-    return dict(name='hello')
+    return dict(name='World')
 
 
 @pytest.mark.parametrize(
-    'render',
+    'page',
     [
         ['hello.html', context1],
     ],
     indirect=True
 )
-def test_templates(render):
-    assert 9 == render
+def test_rendering(page):
+    h1 = page.find('h1').string
+    assert 'Hello World' == h1

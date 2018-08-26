@@ -23,10 +23,10 @@ def env(template_dir):
 
 
 @pytest.fixture
-def render(env, request):
-    templatename = request.param[0]
+def page(env, request):
+    template_name = request.param[0]
     context = request.param[1]()
-    template = env.get_template(templatename)
+    template = env.get_template(template_name)
     result = template.render(context)
     soup = BeautifulSoup(result, 'html5lib')
     return soup
