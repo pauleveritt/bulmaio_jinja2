@@ -39,6 +39,25 @@ def context_start():
     return dict(site=site)
 
 
+@pytest.fixture
+def context_end():
+    site = Site(
+        navbar=dict(
+            end=dict(
+                links=[
+                    dict(
+                        color='333',
+                        href='https://github.com/jgthms/bulma',
+                        icon='github-alt',
+                    )
+                ]
+            )
+        )
+    )
+
+    return dict(site=site)
+
+
 @pytest.mark.parametrize(
     'page', [['macros_brand.html', context_brand], ], indirect=True
 )
@@ -56,3 +75,20 @@ def test_brand(page):
 def test_start(page):
     a = page.find_all('a', class_='navbar-item')
     assert 1 == len(a)
+    assert 'documentation.html' == a[0].attrs['href']
+    assert 'bd-navbar-item-documentation' in a[0].attrs['class']
+    span = a[0].find('span')
+    assert 'has-text-primary' in span.attrs['class']
+    icon = a[0].find('i')
+    assert 'fa-book' in icon.attrs['class']
+
+
+@pytest.mark.parametrize(
+    'page', [['macros_end.html', context_end], ], indirect=True
+)
+def test_end(page):
+    a = page.find_all('a', class_='navbar-item')
+    assert 1 == len(a)
+    assert 'https://github.com/jgthms/bulma' == a[0].attrs['href']
+    icon = a[0].find('i')
+    assert 'fa-github-alt' in icon.attrs['class']
