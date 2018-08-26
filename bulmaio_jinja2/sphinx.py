@@ -1,6 +1,5 @@
 import inspect
 import os
-from os import path
 from typing import Optional
 
 import bulmaio_jinja2
@@ -10,6 +9,20 @@ from docutils.nodes import Node
 from sphinx.application import Sphinx
 from sphinx.util import relative_uri
 from sphinx.util.fileutil import copy_asset
+from sphinx.writers.html import HTMLTranslator
+
+
+class RemoveCssClasses(HTMLTranslator):
+    """ Get rid of Sphinx .content and .section that interfere with Bulma """
+
+    def visit_section(self, node):
+        self.section_level += 1
+        self.body.append(
+            self.starttag(node, 'div', CLASS=''))
+
+    def depart_section(self, node):
+        self.section_level -= 1
+        self.body.append('</div>\n')
 
 
 def get_rst_title(rst_doc: Node) -> Optional[str]:
@@ -100,11 +113,12 @@ def setup_sphinx(app: Sphinx):
         os.path.abspath(os.path.dirname(__file__))
     )
 
+    app.set_translator('html', RemoveCssClasses)
+
     app.connect('builder-inited', add_template_dir)
     app.connect('html-collect-pages', copy_static)
     app.connect('html-page-context', inject_site)
     app.connect('html-page-context', inject_page)
-
 
     return dict(
         parallel_read_safe=True
