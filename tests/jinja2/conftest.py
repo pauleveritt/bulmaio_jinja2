@@ -1,5 +1,5 @@
 import pytest
-from _pytest.fixtures import FixtureRequest
+from _pytest.fixtures import SubRequest
 from bs4 import BeautifulSoup
 from jinja2 import (
     ChoiceLoader,
@@ -23,7 +23,7 @@ def env(template_dir):
 
 
 @pytest.fixture
-def page(env, request):
+def page(env, request: SubRequest):
     template_name = request.param[0]
     context = request.param[1]()
     template = env.get_template(template_name)
