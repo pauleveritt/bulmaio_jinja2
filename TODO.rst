@@ -1,12 +1,10 @@
 Now
 ===
 
+- Series (tutorial with steps)
+
 Next
 ====
-
-- More realistic sample data with linking
-
-- Series (tutorial with steps)
 
 Soon
 ====
@@ -44,4 +42,6 @@ Done
     - Dropdown menu, breadcrumbs, heading, footer
 
     - Sidebar, subsections
+
+- More realistic sample data with linking
 

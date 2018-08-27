@@ -36,6 +36,10 @@ class PrevNext(CustomBaseModel):
     title: str
 
 
+class Step(CustomBaseModel):
+    title: str
+
+
 class Page(CustomBaseModel):
     docname: str
     title: str = None
@@ -47,6 +51,7 @@ class Page(CustomBaseModel):
     template: str = 'page.html'
     prev: PrevNext = None
     next: PrevNext = None
+    steps: List[Step] = None
 
 
 class Logo(CustomBaseModel):

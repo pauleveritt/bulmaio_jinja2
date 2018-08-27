@@ -63,6 +63,6 @@ def page_view(pagename):
         if category.href[1:-6] in page.docname
     ]
     if active_category:
-       active_category[0].is_active = True
+        active_category[0].is_active = True
 
     return render_template(page.template, **context)

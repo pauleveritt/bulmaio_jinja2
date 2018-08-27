@@ -1,1 +1,8 @@
 @import "../../../node_modules/bulma/sass/utilities/derived-variables";
+
+.bd-content.content > h1:first-child {
+  // Sphinx inserts the page title in a way that we'd like to control,
+  // so let's hide it. This is tricky to get just the one we want.
+  display: none;
+}
+

@@ -5,6 +5,11 @@ start:
   label: Documentation
   label_narrow: Docs
   href: /documentation.html
+- css_class: expo
+  accent: star
+  icon: star
+  label: Tutorials
+  href: /tutorial.html
 - css_class: videos
   accent: success
   icon: play-circle
@@ -15,11 +20,6 @@ start:
   icon: rss
   label: Blog
   href: /blog.html
-- css_class: expo
-  accent: star
-  icon: star
-  label: Expo
-  href: /expo.html
 - css_class: love
   accent: danger
   icon: heart

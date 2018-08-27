@@ -199,3 +199,13 @@
     - label: Start
       href: /documentation_customize_concepts.html
       is_active: true
+- docname: tutorial.html
+  template: page.html
+  title: Tutorial
+  subtitle: A TypeScript tutorial <em>series</em>
+  breadcrumbs:
+    - label: Home
+      href: /
+    - label: Tutorial
+      href: /tutorial.html
+      is_active: true
