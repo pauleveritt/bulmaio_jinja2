@@ -7,21 +7,25 @@
         <div class="bd-main-container container">
             <div class="bd-duo">
                 <div class="bd-lead">
-                    {{ breadcrumbs(entries=page.breadcrumbs) }}
+                    {{ breadcrumbs(
+                    entries=page.breadcrumbs,
+                    prev=page.prev,
+                    next=page.next
+                            ) }}
                     {{ heading(title=page.title, subtitle=page.subtitle) }}
 
                     <div class="bd-content content">
                         {{ page.body|safe }}
                     </div>
                 </div>
-{#                {{ article_sidebar(#}
-{#                    resource,#}
-{#                    resources,#}
-{#                    references,#}
-{#                    prev,#}
-{#                    next,#}
-{#                    resource.steps(resources),#}
-{#                    pathto) }}#}
+                {#                {{ article_sidebar(#}
+                {#                    resource,#}
+                {#                    resources,#}
+                {#                    references,#}
+                {#                    prev,#}
+                {#                    next,#}
+                {#                    resource.steps(resources),#}
+                {#                    pathto) }}#}
             </div>
         </div>
     </main>

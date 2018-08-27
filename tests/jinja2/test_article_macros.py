@@ -55,6 +55,14 @@ def context_fullpage():
                 is_active=True
             ),
         ],
+        prev=dict(
+            title='Previous Page',
+            href='/previous.html'
+        ),
+        next=dict(
+            title='Next Page',
+            href='/next.html'
+        ),
         tabs=[
             dict(
                 label='Tab 1',
@@ -101,6 +109,10 @@ def test_no_breadcrumbs(page):
     bcs = page.find_all('div', class_='bd-breadcrumb')
     assert 0 == len(bcs)
 
+    # Prev/next
+    prevnext = page.find_all('bd-prev-next')
+    assert 0 == len(prevnext)
+
 
 @pytest.mark.parametrize(
     'page',
@@ -123,6 +135,16 @@ def test_breadcrumbs(page):
     a1 = bcsli[1].find('a')
     assert '/documentation.html' == a1.attrs['href']
     assert 'Documentation' == a1.string.strip()
+
+    # Prev/next
+    breadcrumbs = bcs[0]
+    prevnext = breadcrumbs.find('nav', 'bd-prev-next')
+    prev = prevnext.find_all('a')[0]
+    assert 'Previous Page' == prev.attrs['title']
+    assert '/previous.html' == prev.attrs['href']
+    next = prevnext.find_all('a')[1]
+    assert 'Next Page' == next.attrs['title']
+    assert '/next.html' == next.attrs['href']
 
 
 # Subtitle

@@ -31,6 +31,11 @@ class Subsection(CustomBaseModel):
     icon: str
 
 
+class PrevNext(CustomBaseModel):
+    href: str
+    title: str
+
+
 class Page(CustomBaseModel):
     docname: str
     title: str = None
@@ -40,6 +45,8 @@ class Page(CustomBaseModel):
     tabs: Optional[List[Tab]] = None
     subsections: Optional[List[Subsection]] = None
     template: str = 'page.html'
+    prev: PrevNext = None
+    next: PrevNext = None
 
 
 class Logo(CustomBaseModel):

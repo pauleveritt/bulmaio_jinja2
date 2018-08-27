@@ -124,6 +124,12 @@
   template: page.html
   title: Getting started with Bulma
   subtitle: You only need <strong>1 CSS file</strong> to use Bulma
+  prev:
+    title: Some Previous
+    href: /some_previous.html
+  next:
+    title: Some Next
+    href: /some_next.html
   breadcrumbs:
     - label: Home
       href: /
