@@ -1,7 +1,7 @@
 Now
 ===
 
-- Write template tests, Flask, Sphinx for:
+- Write template tests, Flask for:
 
     - Dropdown menu, breadcrumbs, heading, footer
 
