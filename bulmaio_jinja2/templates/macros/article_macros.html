@@ -20,14 +20,12 @@
             <h1 class="title">
                 {{ title }}
             </h1>
-            <p class="subtitle is-4">
-
-                {{ subtitle | safe }}
-
-            </p>
-
+            {% if subtitle %}
+                <p class="subtitle is-4">
+                    {{ subtitle | safe }}
+                </p>
+            {% endif %}
         </div>
-
     </header>
 {% endmacro %}
 

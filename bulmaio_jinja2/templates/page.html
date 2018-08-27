@@ -1,7 +1,7 @@
 {%- extends "layout.html" %}
 {% from 'macros/article_macros.html' import breadcrumbs, prevnext, heading, article_sidebar %}
 {% block body %}
-    <main class="bd-main bulmaio-body content">
+    <main class="bd-main bulmaio-body">
 
         <div class="bd-side-background"></div>
         <div class="bd-main-container container">
@@ -10,7 +10,7 @@
                     {{ breadcrumbs(entries=page.breadcrumbs) }}
                     {{ heading(title=page.title, subtitle=page.subtitle) }}
 
-                    <div class="bd-content">
+                    <div class="bd-content content">
                         {{ page.body|safe }}
                     </div>
                 </div>
