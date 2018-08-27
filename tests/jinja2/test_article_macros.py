@@ -30,6 +30,15 @@ def context_no_tabs():
 
 
 @pytest.fixture
+def context_no_subsections():
+    page = Page(
+        docname='about',
+        title='Some Title'
+    )
+    return dict(page=page)
+
+
+@pytest.fixture
 def context_fullpage():
     page = Page(
         docname='about',
@@ -166,3 +175,23 @@ def test_tabs(page):
     assert 'tab2.html' == tab1_a.attrs['href']
     assert 'Tab 2' == tab1_a.string.strip()
 
+
+# Subsections
+
+@pytest.mark.parametrize(
+    'page',
+    [['macros_subsections.html', context_no_subsections], ],
+    indirect=True
+)
+def test_no_subsections(page):
+    subsections = page.find_all('nav', class_='bd-links')
+    assert 0 == len(subsections)
+
+
+@pytest.mark.parametrize(
+    'page',
+    [['macros_subsections.html', context_fullpage], ],
+    indirect=True
+)
+def test_subsections(page):
+    subsections = page.find_all('nav', class_='bd-links')
