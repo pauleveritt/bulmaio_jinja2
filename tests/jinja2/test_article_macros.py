@@ -12,9 +12,11 @@ def context_no_breadcrumbs():
 
 
 @pytest.fixture
-def context_breadcrumbs():
+def context_fullpage():
     page = Page(
         docname='about',
+        title='Some Page',
+        subtitle='Some Subtitle',
         breadcrumbs=[
             dict(
                 label='Home',
@@ -42,7 +44,7 @@ def test_no_breadcrumbs(page):
 
 @pytest.mark.parametrize(
     'page',
-    [['macros_breadcrumbs.html', context_breadcrumbs], ],
+    [['macros_breadcrumbs.html', context_fullpage], ],
     indirect=True
 )
 def test_breadcrumbs(page):

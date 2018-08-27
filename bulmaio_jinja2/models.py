@@ -25,7 +25,7 @@ class Tab(CustomBaseModel):
 
 class Section(CustomBaseModel):
     label: str
-    subheading: str
+    subtitle: str
     href: str
     accent: str
     icon: str
