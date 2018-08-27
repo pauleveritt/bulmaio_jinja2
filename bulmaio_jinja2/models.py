@@ -143,6 +143,7 @@ class SidebarSubEntry(CustomBaseModel):
 
 class SidebarEntry(CustomBaseModel):
     label: str
+    href: str
     is_active: bool = False
     is_new: bool = False
     entries: List[SidebarSubEntry] = []

@@ -1,6 +1,6 @@
 import pytest
 
-from bulmaio_jinja2.models import Page
+from bulmaio_jinja2.models import Page, Site
 
 
 @pytest.fixture
@@ -37,14 +37,6 @@ def context_no_subsections():
     )
     return dict(page=page)
 
-
-@pytest.fixture
-def context_no_sidebar():
-    page = Page(
-        docname='about',
-        title='Some Title'
-    )
-    return dict(page=page)
 
 
 @pytest.fixture
@@ -106,6 +98,51 @@ def context_fullpage():
     )
     return dict(page=page)
 
+@pytest.fixture
+def context_no_sidebar():
+    site = Site(
+        title='Some Site'
+    )
+    return dict(site=site)
+
+
+@pytest.fixture
+def context_sidebar():
+    site = Site(
+        title='Some Site',
+        sidebar=[
+            dict(
+                label='Overview',
+                href='/documentation/overview/index.html',
+                is_active=True,
+                is_new=True,
+                entries=[
+                    dict(
+                        label='Start',
+                        href='/documentation/overview/start.html'
+                    ),
+                    dict(
+                        label='Classes',
+                        href='/documentation/overview/classes.html'
+                    ),
+                ]
+            ),
+            dict(
+                label='Customize',
+                href='/documentation/customize/index.html',
+                entries=[
+                    dict(
+                        label='Sub Customize',
+                        href='/documentation/customize/sub_customize.html'
+                    ),
+                ]
+            ),
+        ]
+    )
+    page = Page(
+        docname='/documentation/overview.html'
+    )
+    return dict(site=site, page=page)
 
 # Breadcrumbs
 
@@ -251,7 +288,7 @@ def test_subsections(page):
     assert 'Subtitle' == ss0_em.string.strip()
 
 
-# Subsections
+# Sidebar
 
 @pytest.mark.parametrize(
     'page',
@@ -261,3 +298,24 @@ def test_subsections(page):
 def test_no_sidebar(page):
     sidebar = page.find_all('aside', class_='bd-side')
     assert 0 == len(sidebar)
+
+
+@pytest.mark.parametrize(
+    'page',
+    [['macros_sidebar.html', context_sidebar], ],
+    indirect=True
+)
+def test_sidebar(page):
+    sidebar = page.find('aside', class_='bd-side')
+    categories = sidebar.find_all('div', 'bd-category')
+    assert 2 == len(categories)
+
+    # Category 1
+    c0 = categories[0]
+    assert ['bd-category', 'is-active'] == c0.attrs['class']
+    c0_is_new = c0.find_all('span', class_='tag is-success')
+    assert 1 == len(c0_is_new)
+    category_list = c0.find('ul')
+    c0_entries = category_list.find_all('a')
+    assert 2 == len(c0_entries)
+    assert '/documentation/overview/start.html' == c0_entries[0].attrs['href']
