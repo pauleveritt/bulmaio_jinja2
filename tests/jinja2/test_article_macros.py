@@ -69,6 +69,22 @@ def context_fullpage():
                 label='Tab 3',
                 href='tab3.html',
             ),
+        ],
+        subsections=[
+            dict(
+                label='Start',
+                subtitle='Start <em>Subtitle</em>',
+                href='/start.html',
+                accent='danger',
+                icon='fas fa-rocket'
+            ),
+            dict(
+                label='Classes',
+                subtitle='Classes Subtitle',
+                href='/classes.html',
+                accent='link',
+                icon='fas fa-css3'
+            ),
         ]
     )
     return dict(page=page)
@@ -194,4 +210,11 @@ def test_no_subsections(page):
     indirect=True
 )
 def test_subsections(page):
-    subsections = page.find_all('nav', class_='bd-links')
+    subsections = page.find_all('a', class_='bd-link')
+    assert 2 == len(subsections)
+
+    ss0_a = subsections[0]
+    assert '/start.html' == ss0_a.attrs['href']
+    ss0_subtitle = ss0_a.find('p', class_='bd-link-subtitle')
+    ss0_em = ss0_subtitle.find('em')
+    assert 'Subtitle' == ss0_em.string.strip()
