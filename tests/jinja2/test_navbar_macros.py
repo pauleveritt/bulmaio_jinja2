@@ -122,6 +122,8 @@ def test_start(page):
     assert 'fa-plus' in se0_i.attrs['class']
     se0_strong = se0.find('strong')
     assert 'More1' == se0_strong.string.strip()
+    se0_description = se0.find('span', class_='bulmaio-dropdown-description')
+    assert 'More1 Description' == se0_description.string.strip()
     se0_br = se0.find_all('br')
     assert 1 == len(se0_br)
 
