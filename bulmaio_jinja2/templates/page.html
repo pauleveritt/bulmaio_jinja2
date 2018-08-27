@@ -1,5 +1,5 @@
 {%- extends "layout.html" %}
-{% from 'macros/article_macros.html' import breadcrumbs, prevnext, heading, article_sidebar %}
+{% from 'macros/article_macros.html' import breadcrumbs, prevnext, heading, sidebar %}
 {% block body %}
     <main class="bd-main bulmaio-body">
 
@@ -18,14 +18,7 @@
                         {{ page.body|safe }}
                     </div>
                 </div>
-                {#                {{ article_sidebar(#}
-                {#                    resource,#}
-                {#                    resources,#}
-                {#                    references,#}
-                {#                    prev,#}
-                {#                    next,#}
-                {#                    resource.steps(resources),#}
-                {#                    pathto) }}#}
+                {{ sidebar(entries=site.sidebar) }}
             </div>
         </div>
     </main>

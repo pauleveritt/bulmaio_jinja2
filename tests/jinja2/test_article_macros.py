@@ -39,6 +39,15 @@ def context_no_subsections():
 
 
 @pytest.fixture
+def context_no_sidebar():
+    page = Page(
+        docname='about',
+        title='Some Title'
+    )
+    return dict(page=page)
+
+
+@pytest.fixture
 def context_fullpage():
     page = Page(
         docname='about',
@@ -240,3 +249,15 @@ def test_subsections(page):
     ss0_subtitle = ss0_a.find('p', class_='bd-link-subtitle')
     ss0_em = ss0_subtitle.find('em')
     assert 'Subtitle' == ss0_em.string.strip()
+
+
+# Subsections
+
+@pytest.mark.parametrize(
+    'page',
+    [['macros_sidebar.html', context_no_sidebar], ],
+    indirect=True
+)
+def test_no_sidebar(page):
+    sidebar = page.find_all('aside', class_='bd-side')
+    assert 0 == len(sidebar)
