@@ -18,11 +18,11 @@ logo:
 
 sidebar:
 - label: Overview
-  href: /documentation/overview/index.html
+  href: /documentation_overview.html
   is_active: true
   entries:
   - label: Start
-    href: /documentation/overview/start.html
+    href: /documentation_overview_start.html
   - label: Classes
     href: /documentation/overview/start.html
   - label: Modularity
@@ -36,15 +36,15 @@ sidebar:
   - label: Mixins
     href: /documentation/overview/start.html
 - label: Customize
-  href: /documentation/customize/index.html
+  href: /documentation_customize.html
   entries:
   - label: Sub Customize
     href: /documentation/customize/sub_customize.html
 - label: Modifiers
   href: /documentation/modifiers/index.html
   entries:
-  - label: Sub Modifiers
-    href: /documentation/modifiers/sub_modifiers.html
+  - label: Concepts
+    href: /documentation_modifiers_concepts.html
 - label: Columns
   href: /documentation/columns/index.html
   entries:

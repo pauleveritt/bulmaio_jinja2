@@ -22,7 +22,7 @@
     - label: Customize
       subtitle: Create your <strong>own theme</strong> with
                     a simple set of <strong>variables</strong>
-      href: /documentation_overview.html
+      href: /documentation_customize.html
       accent: start
       icon: fas fa-paint-brush
     - label: Modifiers
@@ -63,7 +63,7 @@
       accent: danger
       icon: fas fa-cube
 - docname: documentation_overview.html
-  template: page.html
+  template: section.html
   title: Overview
   subtitle: An overview of what Bulma as a <strong>framework</strong> is all about
   breadcrumbs:
@@ -156,3 +156,26 @@
       href: /documentation_overview_start.html
     - label: Mixins
       href: /documentation_overview_start.html
+- docname: documentation_customize.html
+  template: section.html
+  title: Customize
+  subtitle: Create your <strong>own theme</strong> with a simple set of variables
+  breadcrumbs:
+    - label: Home
+      href: /
+    - label: Documentation
+      href: /documentation.html
+    - label: Customize
+      href: /documentation_customize.html
+      is_active: true
+  subsections:
+    - label: Concepts
+      subtitle: What makes Bulma <strong>customizable</strong>
+      href: /documentation_customize_concepts.html
+      accent: danger
+      icon: fas fa-rocket
+    - label: Variables
+      subtitle: See how Bulma uses <strong>SASS variables</strong>
+      href: /documentation_customize_variables.html
+      accent: link
+      icon: fab fa-css3

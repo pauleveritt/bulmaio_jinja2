@@ -1,12 +1,6 @@
 Now
 ===
 
-- Write template tests, Flask for:
-
-    - Dropdown menu, breadcrumbs, heading, footer
-
-    - Sidebar, subsections
-
 Next
 ====
 
@@ -44,4 +38,10 @@ Done
 - Sphinx theme
 
 - pydantic models
+
+- Write template tests, Flask for:
+
+    - Dropdown menu, breadcrumbs, heading, footer
+
+    - Sidebar, subsections
 
