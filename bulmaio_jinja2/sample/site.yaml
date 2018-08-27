@@ -2,50 +2,60 @@ title: "Bulma: a modern CSS framework based on Flexbox"
 description: Bulma is an open source CSS framework based on Flexbox and built with Sass.
   It's 100% responsive, fully modular, and available for free.
 favicon: favicons/favicon.ico
+project_title: Bulma
+software_license:
+  name: MIT
+  url: https://opensource.org/licenses/mit-license.php
+website_license:
+  name: CC BY-NC-SA 4.0
+  url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+author:
+  name: Jeremy Thomas
+  website: https://jgthms.com
 logo:
   img_file: images/bulma-logo.png
   alt: Bulma Logo
 
 sidebar:
-  - label: Overview
-    href: /documentation/overview/index.html
-    is_active: true
-    entries:
-      - label: Start
-        href: /documentation/overview/start.html
-      - label: Classes
-        href: /documentation/overview/start.html
-      - label: Modularity
-        href: /documentation/overview/start.html
-      - label: Responsiveness
-        href: /documentation/overview/start.html
-      - label: Colors
-        href: /documentation/overview/start.html
-      - label: Functions
-        href: /documentation/overview/start.html
-      - label: Mixins
-        href: /documentation/overview/start.html
-  - label: Customize
-    href: /documentation/customize/index.html
-    entries:
-      - label: Sub Customize
-        href: /documentation/customize/sub_customize.html
-  - label: Modifiers
-    href: /documentation/modifiers/index.html
-    entries:
-      - label: Sub Modifiers
-        href: /documentation/modifiers/sub_modifiers.html
-  - label: Columns
-    href: /documentation/columns/index.html
-    entries:
-    - label: Sub Columns
-      href: /documentation/colums/sub_columns.html
-    is_new: true
-  - label: Layout
-    href: /documentation/layout/index.html
-  - label: Form
-    href: /documentation/form/index.html
-  - label: Elements
-    href: /documentation/elements/index.html
-  - label: Components
-    href: /documentation/components/index.html
+- label: Overview
+  href: /documentation/overview/index.html
+  is_active: true
+  entries:
+  - label: Start
+    href: /documentation/overview/start.html
+  - label: Classes
+    href: /documentation/overview/start.html
+  - label: Modularity
+    href: /documentation/overview/start.html
+  - label: Responsiveness
+    href: /documentation/overview/start.html
+  - label: Colors
+    href: /documentation/overview/start.html
+  - label: Functions
+    href: /documentation/overview/start.html
+  - label: Mixins
+    href: /documentation/overview/start.html
+- label: Customize
+  href: /documentation/customize/index.html
+  entries:
+  - label: Sub Customize
+    href: /documentation/customize/sub_customize.html
+- label: Modifiers
+  href: /documentation/modifiers/index.html
+  entries:
+  - label: Sub Modifiers
+    href: /documentation/modifiers/sub_modifiers.html
+- label: Columns
+  href: /documentation/columns/index.html
+  entries:
+  - label: Sub Columns
+    href: /documentation/colums/sub_columns.html
+  is_new: true
+- label: Layout
+  href: /documentation/layout/index.html
+- label: Form
+  href: /documentation/form/index.html
+- label: Elements
+  href: /documentation/elements/index.html
+- label: Components
+  href: /documentation/components/index.html

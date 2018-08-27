@@ -127,12 +127,22 @@ class FooterColumn(CustomBaseModel):
     fullsize: bool = False
 
 
+class FooterShareTwitter(CustomBaseModel):
+    url: str
+    related: str
+
+
+class FooterShare(CustomBaseModel):
+    twitter: FooterShareTwitter
+
+
 class FooterLinks(CustomBaseModel):
     columns: List[FooterColumn] = []
 
 
 class Footer(CustomBaseModel):
     links: FooterLinks = None
+    share: FooterShare = None
 
 
 class SidebarSubEntry(CustomBaseModel):
@@ -149,15 +159,30 @@ class SidebarEntry(CustomBaseModel):
     entries: List[SidebarSubEntry] = []
 
 
+class Author(CustomBaseModel):
+    name: str
+    website: str = None
+    twitter: str = None
+
+
+class License(CustomBaseModel):
+    name: str
+    url: str
+
+
 class Site(CustomBaseModel):
     homepage_url: str = '/'
     logo: Logo = None
     title: str = None
     social_media: SocialMedia = None
+    project_title: str = None
+    author: Author = None
     copyright: str = 'All Rights Reserved'
     feed_url: str = ''
     favicon: str = None
     is_debug = False
+    software_license: License = None
+    website_license: License = None
     description: str = None
     navbar: Navbar = None
     footer: Footer = None

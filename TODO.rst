@@ -5,26 +5,26 @@ Now
 
     - Dropdown menu, breadcrumbs, heading, footer
 
+    - Sidebar, subsections
+
 Next
 ====
 
-- Sidebar
+- More realistic sample data with linking
 
-- Subsections (tests, Flask)
-
-- Generate wheels
+- Series (tutorial with steps)
 
 Soon
 ====
 
-- Tests, Flask for:
+- Tabs
 
-    - subsections, tabs
+- Write Sphinx docs
+
+- Generate wheels
 
 Eventually
 ==========
-
-- Write Sphinx docs
 
 Done
 ====

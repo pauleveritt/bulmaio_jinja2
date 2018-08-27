@@ -1,27 +1,38 @@
-
-{% macro social() %}
+{% macro social(site) %}
     <div class="columns">
         <div class="column is-4">
-            <h4 class="bd-footer-title">
-                <strong>Bulma</strong> by <a
-                    href="https://jgthms.com"
-                    property="cc:attributionName" rel="cc:attributionURL"
-                    target="_blank">Jeremy Thomas</a>.
-            </h4>
+            {% if site.project_title %}
+                <h4 class="bd-footer-title bio-footer-projectitle">
+                    <strong>{{ site.project_title }}</strong> by <a
+                        href="{{ site.author.website }}"
+                        property="cc:attributionName" rel="cc:attributionURL"
+                        target="_blank">{{ site.author.name }}</a>.
+                </h4>
+            {% endif %}
 
-            <div class="bd-footer-iframe">
-                <a href="https://twitter.com/jgthms"
-                   class="twitter-follow-button" data-show-count="true"
-                   data-lang="en" data-size="large">@jgthms</a>
-            </div>
+            {% if site.author.twitter %}
+                <div class="bd-footer-iframe">
+                    <a href="https://twitter.com/{{ site.author.twitter }}"
+                       class="twitter-follow-button" data-show-count="true"
+                       data-lang="en"
+                       data-size="large">@{{ site.author.twitter }}</a>
+                </div>
+            {% endif %}
 
             <div class="bd-footer-tsp">
-                Source code licensed <a
-                    href="https://opensource.org/licenses/mit-license.php">MIT</a>.
-                <br>
-                Website content licensed <a rel="license"
-                                            href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC
-                BY-NC-SA 4.0</a>
+                {% if site.software_license %}
+                    <div>
+                        Source code licensed <a
+                            href="{{ site.software_license.url }}">{{ site.software_license.name }}</a>.
+                    </div>
+                {% endif %}
+                {% if site.website_license %}
+                    <div>
+                        Website content licensed
+                        <a rel="license"
+                           href="{{ site.website_license.url }}">{{ site.website_license.name }}</a>
+                    </div>
+                {% endif %}
             </div>
 
         </div>
@@ -39,30 +50,25 @@
                         frameborder="0" scrolling="0" width="170px"
                         height="30px"></iframe>
             </div>
-
         </div>
-        <div class="column is-4">
-            <h4 class="bd-footer-title">
-                <strong>Share</strong> on social media
-            </h4>
 
-            <div class="bd-footer-iframe">
-                <a href="https://twitter.com/share"
-                   class="twitter-share-button"
-                   data-text="Bulma: a modern CSS framework based on Flexbox"
-                   data-url="https://bulma.io"
-                   data-count="horizontal" data-via="jgthms"
-                   data-related="jgthms:Creator of Bulma"
-                   data-size="large">Tweet</a>
+        {% if site.footer.share %}
+            <div class="column is-4">
+                <h4 class="bd-footer-title">
+                    <strong>Share</strong> on social media
+                </h4>
 
-                <div class="fb-like"
-                     data-href="https://www.facebook.com/bulmaio"
-                     data-layout="button"
-                     data-action="like" data-size="large"
-                     data-show-faces="false" data-share="true"></div>
+                <div class="bd-footer-iframe">
+                    <a href="https://twitter.com/share"
+                       class="twitter-share-button"
+                       data-text="site.title"
+                       data-url="{{ site.footer.share.twitter.url }}"
+                       data-count="horizontal" data-via="site.author.twitter"
+                       data-related="{{ site.footer.share.twitter.related }}"
+                       data-size="large">Tweet</a>
+                </div>
             </div>
-
-        </div>
+        {% endif %}
     </div>
 {% endmacro %}
 
