@@ -56,4 +56,12 @@ def page_view(pagename):
         page=page,
     )
 
+    # One last thing....set the correct is_active on the sidebar
+    active_category = next(
+        category
+        for category in site.sidebar
+        if category.href[1:-6] in page.docname
+    )
+    active_category.is_active = True
+
     return render_template(page.template, **context)

@@ -19,7 +19,6 @@ logo:
 sidebar:
 - label: Overview
   href: /documentation_overview.html
-  is_active: true
   entries:
   - label: Start
     href: /documentation_overview_start.html
