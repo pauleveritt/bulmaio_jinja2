@@ -23,7 +23,7 @@ class Tab(CustomBaseModel):
     is_active: bool = False
 
 
-class Section(CustomBaseModel):
+class Subsection(CustomBaseModel):
     label: str
     subtitle: str
     href: str
@@ -38,7 +38,7 @@ class Page(CustomBaseModel):
     subtitle: str = None
     breadcrumbs: Optional[List[Breadcrumb]] = None
     tabs: Optional[List[Tab]] = None
-    sections: Optional[List[Section]] = None
+    subsections: Optional[List[Subsection]] = None
     template: str = 'page.html'
 
 

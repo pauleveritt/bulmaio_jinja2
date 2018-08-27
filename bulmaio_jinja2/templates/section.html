@@ -10,7 +10,7 @@
                     {{ heading(title=page.title, subtitle=page.subtitle) }}
                     {{ tabs(entries=page.tabs) }}
                     <div class="bd-content">
-                        {{ subsections(entries=page.sections) }}
+                        {{ subsections(entries=page.subsections) }}
                         {% if page.content %}
                             <div class="bd-content">
                                 {{ page.content | safe }}

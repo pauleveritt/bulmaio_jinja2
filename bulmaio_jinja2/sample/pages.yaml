@@ -2,7 +2,7 @@
   template: homepage.html
   title: Homepage
 - docname: documentation.html
-  template: page.html
+  template: section.html
   title: Documentation
   subtitle: Everything you need to <strong>make a website</strong> with Bulma
   breadcrumbs:
@@ -11,7 +11,7 @@
     - label: Documentation
       href: /documentation.html
       is_active: true
-  sections:
+  subsections:
     - label: Overview
       subtitle:  An overview of what Bulma as a
                     <strong>framework</strong>
@@ -74,7 +74,7 @@
     - label: Overview
       href: /documentation_overview.html
       is_active: true
-  sections:
+  subsections:
     - label: Start
       subtitle: You only need <strong>1 CSS file</strong>
                                 to use Bulma
