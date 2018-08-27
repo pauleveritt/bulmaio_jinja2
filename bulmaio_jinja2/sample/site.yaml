@@ -37,8 +37,10 @@ sidebar:
 - label: Customize
   href: /documentation_customize.html
   entries:
-  - label: Sub Customize
-    href: /documentation/customize/sub_customize.html
+  - label: Concepts
+    href: /documentation_customize_concepts.html
+  - label: Variables
+    href: /documentation_customize_variables.html
 - label: Modifiers
   href: /documentation/modifiers/index.html
   entries:

@@ -138,7 +138,7 @@
     - label: Overview
       href: /documentation_overview.html
     - label: Start
-      href: /documentation__overview_start.html
+      href: /documentation_overview_start.html
       is_active: true
   tabs:
     - label: Start
@@ -179,3 +179,23 @@
       href: /documentation_customize_variables.html
       accent: link
       icon: fab fa-css3
+- docname: documentation_customize_concepts.html
+  template: page.html
+  title: Concepts
+  subtitle: What makes Bulma so <strong>customizable</strong>
+  prev:
+    title: Some Previous
+    href: /some_previous.html
+  next:
+    title: Some Next
+    href: /some_next.html
+  breadcrumbs:
+    - label: Home
+      href: /
+    - label: Documentation
+      href: /documentation.html
+    - label: Customize
+      href: /documentation_customize.html
+    - label: Start
+      href: /documentation_customize_concepts.html
+      is_active: true
