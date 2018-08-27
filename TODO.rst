@@ -1,32 +1,30 @@
 Now
 ===
 
-- Macros and snippets
+- Write template tests, Flask, Sphinx for:
 
+    - Dropdown menu, breadcrumbs, heading, footer
 
 Next
 ====
 
-- Generate wheels
+- Sidebar
 
-- Unit tests and integration tests
+- Subsections (tests, Flask)
+
+- Generate wheels
 
 Soon
 ====
 
+- Tests, Flask for:
 
-- Resolver for static path support using package names
-
-- Sphinx helper to inject the path resolver
+    - subsections, tabs
 
 Eventually
 ==========
 
 - Write Sphinx docs
-
-- Sphinx theme
-
-- pydantic models
 
 Done
 ====
@@ -34,4 +32,16 @@ Done
 - Update the README
 
 - __main__ for the livereload
+
+- Macros and snippets
+
+- Unit tests and integration tests
+
+- Resolver for static path support using package names
+
+- Sphinx helper to inject the path resolver
+
+- Sphinx theme
+
+- pydantic models
 
