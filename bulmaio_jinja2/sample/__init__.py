@@ -3,16 +3,9 @@ from os.path import join
 from pathlib import Path
 
 from bulmaio_jinja2.models import Page
-from yaml import Loader, load
+from bulmaio_jinja2.utils import load_yaml
 
 cwd = Path(__file__).parents[0]
-
-
-def load_yaml(filename):
-    fn = join(cwd, filename + '.yaml')
-    with open(fn, 'r') as f:
-        data = load(f, Loader=Loader)
-        return data
 
 
 class Pages(UserDict):
@@ -20,7 +13,7 @@ class Pages(UserDict):
         self.data[page.docname] = page
 
     def load_pages(self):
-        pages = load_yaml('pages')
+        pages = load_yaml('pages', base_dir=cwd)
         for page_data in pages:
             page = Page(**page_data)
             self.add(page)

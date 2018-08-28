@@ -1,6 +1,16 @@
+from os.path import join
 from pathlib import Path
 
+from yaml import Loader, load
+
 SEP = "/"
+
+
+def load_yaml(filename, base_dir):
+    fn = join(base_dir, filename + '.yaml')
+    with open(fn, 'r') as f:
+        data = load(f, Loader=Loader)
+        return data
 
 
 # Taken from Sphinx

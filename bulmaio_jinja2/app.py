@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 from bulmaio_jinja2.models import (
     Site,
@@ -7,8 +8,8 @@ from bulmaio_jinja2.models import (
 from bulmaio_jinja2.navbar.models import Navbar
 from bulmaio_jinja2.sample import (
     Pages,
-    load_yaml
 )
+from bulmaio_jinja2.utils import load_yaml
 from flask import Flask, render_template, send_from_directory, make_response
 from jinja2 import ChoiceLoader, PackageLoader
 
@@ -20,6 +21,7 @@ app.jinja_loader = ChoiceLoader([
     PackageLoader('bulmaio_jinja2', '.'),
 ])
 
+cwd = Path(__file__).parents[0]
 
 @app.route('/bulmaio_jinja2.map')
 def sourcemaps():
@@ -49,15 +51,15 @@ def page_view(pagename):
     pages.load_pages()
 
     # Make a Site with a Footer
-    site = Site(**load_yaml('site'))
-    site.footer = Footer(**load_yaml('footer'))
+    site = Site(**load_yaml('sample/site', base_dir=cwd))
+    site.footer = Footer(**load_yaml('sample/footer', base_dir=cwd))
     site.static_dirname = 'static/'  # Don't use Sphinx name
 
     # Get this page
     page = pages.get(pagename)
 
     # Make a navbar with site-specific and page-specific data
-    navbar = Navbar(**load_yaml('navbar'))
+    navbar = Navbar(**load_yaml('sample/navbar', base_dir=cwd))
     navbar.update(site, page)
 
     # Make a context
