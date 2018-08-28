@@ -2,7 +2,7 @@ from typing import List
 from typing import Optional
 
 from bulmaio_jinja2.base_model import CustomBaseModel
-from bulmaio_jinja2.footer.social.models import FooterSocial
+from bulmaio_jinja2.footer.models import Footer
 from bulmaio_jinja2.utils import static_path
 
 
@@ -73,40 +73,6 @@ class Page(CustomBaseModel):
 class SocialMedia(CustomBaseModel):
     twitter: str = None
     github: str = None
-
-
-class FooterGroupMore(CustomBaseModel):
-    label: str
-    href: str
-
-
-class FooterEntry(CustomBaseModel):
-    label: str
-    href: str
-    icon: str = None
-    subtitle: str = None
-    accent: str = None
-
-
-class FooterGroup(CustomBaseModel):
-    label: str
-    href: str = None
-    more: FooterGroupMore = None
-    entries: List[FooterEntry] = []
-
-
-class FooterColumn(CustomBaseModel):
-    groups: List[FooterGroup] = None
-    fullsize: bool = False
-
-
-class FooterLinks(CustomBaseModel):
-    columns: List[FooterColumn] = []
-
-
-class Footer(CustomBaseModel):
-    social: FooterSocial = None
-    links: FooterLinks = None
 
 
 class SectionSidebarSubEntry(CustomBaseModel):

@@ -1,58 +1,8 @@
-{% macro expo() %}
-    <div class="bd-footer-stars">
-        <a class="bd-footer-star bd-is-bootstrap"
-           href="https://bulma.io/alternative-to-bootstrap">
-            <header class="bd-footer-star-header">
-                <h4 class="bd-footer-title">
-                    <strong>Coming from Bootstrap</strong>
-                </h4>
-                <p class="bd-footer-subtitle">
-                    An alternative to Bootstrap
-                </p>
-            </header>
 
-            <figure class="bd-footer-star-figure">
-                <img src="static/images/footer/bootstrap-to-bulma.png"
-                     width="160" height="48">
-            </figure>
-        </a>
-
-        <a class="bd-footer-star bd-is-expo" href="https://bulma.io/expo"
-           style="background-image: url('static/images/footer/expo-examples.png');">
-            <header class="bd-footer-star-header">
-                <h4 class="bd-footer-title">
-                    <span class="icon has-text-star">
-                        <i class="fas fa-star"></i>
-                    </span>
-                    <strong>Expo</strong>
-                </h4>
-                <p class="bd-footer-subtitle">
-                    See what you can build with Bulma
-                </p>
-            </header>
-        </a>
-
-        <a class="bd-footer-star bd-is-love" href="https://bulma.io/love"
-           style="background-image: url('static/images/footer/love.png');">
-            <header class="bd-footer-star-header">
-                <h4 class="bd-footer-title">
-                    <span class="icon has-text-danger">
-                        <i class="fas fa-heart"></i>
-                    </span>
-                    <strong>Love</strong>
-                </h4>
-                <p class="bd-footer-subtitle">
-                    Fans of Bulma
-                </p>
-            </header>
-        </a>
-    </div>
-{% endmacro %}
-
-{% macro links(columns) %}
+{% macro links(footer_links) %}
     <div class="bd-footer-links">
         <div class="columns">
-            {% for column in columns %}
+            {% for column in footer_links.columns %}
                 {% if column.fullsize %}
                     <div class="column is-6">
                         {% for group in column.groups %}

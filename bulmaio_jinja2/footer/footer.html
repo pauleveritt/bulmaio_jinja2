@@ -1,12 +1,12 @@
 {% from 'footer/social/macros.html' import social %}
-{% from 'macros/footer_macros.html' import expo, links %}
+{% from 'footer/links/macros.html' import links %}
 {% set footer = site.footer %}
 <footer class="footer">
     <div class="container">
         {{ social(footer.social) }}
 {#        {{ expo() }}#}
         {% if footer.links %}
-            {{ links(columns=footer.links.columns) }}
+            {{ links(footer.links) }}
         {% endif %}
     </div>
 </footer>
