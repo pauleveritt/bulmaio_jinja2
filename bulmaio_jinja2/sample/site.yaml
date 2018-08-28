@@ -14,46 +14,47 @@ author:
   website: https://jgthms.com
 
 section_sidebar:
-- label: Overview
-  href: /documentation_overview.html
   entries:
-  - label: Start
-    href: /documentation_overview_start.html
-  - label: Classes
-    href: /documentation/overview/start.html
-  - label: Modularity
-    href: /documentation/overview/start.html
-  - label: Responsiveness
-    href: /documentation/overview/start.html
-  - label: Colors
-    href: /documentation/overview/start.html
-  - label: Functions
-    href: /documentation/overview/start.html
-  - label: Mixins
-    href: /documentation/overview/start.html
-- label: Customize
-  href: /documentation_customize.html
-  entries:
-  - label: Concepts
-    href: /documentation_customize_concepts.html
-  - label: Variables
-    href: /documentation_customize_variables.html
-- label: Modifiers
-  href: /documentation/modifiers/index.html
-  entries:
-  - label: Concepts
-    href: /documentation_modifiers_concepts.html
-- label: Columns
-  href: /documentation/columns/index.html
-  entries:
-  - label: Sub Columns
-    href: /documentation/colums/sub_columns.html
-  is_new: true
-- label: Layout
-  href: /documentation/layout/index.html
-- label: Form
-  href: /documentation/form/index.html
-- label: Elements
-  href: /documentation/elements/index.html
-- label: Components
-  href: /documentation/components/index.html
+  - label: Overview
+    href: /documentation_overview.html
+    entries:
+    - label: Start
+      href: /documentation_overview_start.html
+    - label: Classes
+      href: /documentation/overview/start.html
+    - label: Modularity
+      href: /documentation/overview/start.html
+    - label: Responsiveness
+      href: /documentation/overview/start.html
+    - label: Colors
+      href: /documentation/overview/start.html
+    - label: Functions
+      href: /documentation/overview/start.html
+    - label: Mixins
+      href: /documentation/overview/start.html
+  - label: Customize
+    href: /documentation_customize.html
+    entries:
+    - label: Concepts
+      href: /documentation_customize_concepts.html
+    - label: Variables
+      href: /documentation_customize_variables.html
+  - label: Modifiers
+    href: /documentation/modifiers/index.html
+    entries:
+    - label: Concepts
+      href: /documentation_modifiers_concepts.html
+  - label: Columns
+    href: /documentation/columns/index.html
+    entries:
+    - label: Sub Columns
+      href: /documentation/colums/sub_columns.html
+    is_new: true
+  - label: Layout
+    href: /documentation/layout/index.html
+  - label: Form
+    href: /documentation/form/index.html
+  - label: Elements
+    href: /documentation/elements/index.html
+  - label: Components
+    href: /documentation/components/index.html

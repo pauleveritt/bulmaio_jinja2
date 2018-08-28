@@ -1,0 +1,26 @@
+{% macro subsections (page_subsections) %}
+    {% if page_subsections.entries %}
+        <nav class="bd-links">
+            {% for entry in page_subsections.entries %}
+                <a class="bd-link"
+                   href="{{ entry.href }}">
+                    <h2 class="bd-link-name">
+                        <figure class="bd-link-figure">
+
+                            <span class="bd-link-icon has-text-{{ entry.accent }}">
+                                <i class="{{ entry.icon }}"></i>
+                            </span>
+
+                        </figure>
+                        {{ entry.label }}
+                    </h2>
+                    {% if entry.subtitle %}
+                        <p class="bd-link-subtitle">
+                            {{ entry.subtitle | safe }}
+                        </p>
+                    {% endif %}
+                </a>
+            {% endfor %}
+        </nav>
+    {% endif %}
+{% endmacro %}

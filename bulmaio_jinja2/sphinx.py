@@ -3,7 +3,7 @@ import os
 from typing import Optional
 
 import bulmaio_jinja2
-from bulmaio_jinja2.models import Page
+from bulmaio_jinja2.page.models import Page
 from docutils import nodes
 from docutils.nodes import Node
 from sphinx.application import Sphinx

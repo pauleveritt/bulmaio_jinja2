@@ -46,15 +46,15 @@ def favicon():
 @app.route('/', defaults={'pagename': 'index.html'})
 @app.route('/<pagename>')
 def page_view(pagename):
-    # Get some globals. Jam them in here so that livereload will get them,
-    # slows down requests for development, but that's ok.
-    pages = Pages()
-    pages.load_pages()
-
     # Make a Site with a Footer
     site = Site(**load_yaml('sample/site', base_dir=cwd))
     site.footer = Footer(**load_yaml('sample/footer', base_dir=cwd))
     site.static_dirname = 'static/'  # Don't use Sphinx name
+
+    # Get some globals. Jam them in here so that livereload will get them,
+    # slows down requests for development, but that's ok.
+    pages = Pages()
+    pages.load_pages()
 
     # Get this page
     page = pages.get(pagename)
@@ -71,11 +71,14 @@ def page_view(pagename):
     )
 
     # One last thing....set the correct is_active on the section_sidebar
-    active_category = [
-        category
-        for category in site.section_sidebar
-        if category.href[1:-6] in page.docname
-    ]
+    try:
+        active_category = [
+            category
+            for category in site.section_sidebar.entries
+            if category.href[1:-6] in page.docname
+        ]
+    except AttributeError:
+        pass
     if active_category:
         active_category[0].is_active = True
 

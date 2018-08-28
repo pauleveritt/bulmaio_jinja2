@@ -1,5 +1,8 @@
 {%- extends "layout.html" %}
-{% from 'macros/article_macros.html' import breadcrumbs, prevnext, heading, section_sidebar, steps_listing %}
+{% from 'page/breadcrumbs/macros.html' import breadcrumbs %}
+{% from 'page/heading/macros.html' import heading %}
+{% from 'page/sidebar/macros.html' import sidebar %}
+{% from 'page/../tutorial/steps/macros.html' import steps_listing %}
 {% block body %}
     <main class="bd-main bulmaio-body">
 
@@ -7,12 +10,8 @@
         <div class="bd-main-container container">
             <div class="bd-duo">
                 <div class="bd-lead">
-                    {{ breadcrumbs(
-                    entries=page.breadcrumbs,
-                    prev=page.prev,
-                    next=page.next
-                            ) }}
-                    {{ heading(title=page.title, subtitle=page.subtitle) }}
+                    {{ breadcrumbs(page.breadcrumbs) }}
+                    {{ heading(page.heading) }}
 
                     <div class="bd-content content">
                         {{ page.body|safe }}
@@ -20,7 +19,7 @@
 
                     {{ steps_listing(entries=page.steps) }}
                 </div>
-                {{ section_sidebar(entries=site.section_sidebar) }}
+                {{ sidebar(site.section_sidebar) }}
             </div>
         </div>
     </main>

@@ -1,0 +1,14 @@
+{% macro heading (page_heading) %}
+    <header class="bd-header">
+        <div class="bd-header-titles">
+            <h1 class="title">
+                {{ page_heading.title }}
+            </h1>
+            {% if page_heading.subtitle %}
+                <p class="subtitle is-4">
+                    {{ page_heading.subtitle | safe }}
+                </p>
+            {% endif %}
+        </div>
+    </header>
+{% endmacro %}

@@ -1,0 +1,32 @@
+{% macro breadcrumbs (page_breadcrumbs) %}
+    {% if page_breadcrumbs.entries %}
+        <div class="bd-breadcrumb">
+            <nav class="breadcrumb" aria-label="breadcrumbs">
+                <ul>
+                    {% for entry in page_breadcrumbs.entries %}
+                        <li class="{{ 'is-active' if entry.is_active else '' }}">
+                            <a href="{{ entry.href }}">{{ entry.label }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+            {% if page_breadcrumbs.prev or page_breadcrumbs.next %}
+                <nav class="bd-prev-next">
+                    {% if page_breadcrumbs.prev %}
+                        <a href="{{ page_breadcrumbs.prev.href }}"
+                           title="{{ page_breadcrumbs.prev.title }}">
+                            ←
+                        </a>
+                    {% endif %}
+
+                    {% if page_breadcrumbs.next %}
+                        <a href="{{ page_breadcrumbs.next.href }}"
+                           title="{{ page_breadcrumbs.next.title }}">
+                            →
+                        </a>
+                    {% endif %}
+                </nav>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endmacro %}

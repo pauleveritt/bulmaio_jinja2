@@ -3,70 +3,75 @@
   title: Homepage
 - docname: documentation.html
   template: section.html
-  title: Documentation
-  subtitle: Everything you need to <strong>make a website</strong> with Bulma
+  heading:
+    title: Documentation
+    subtitle: Everything you need to <strong>make a website</strong> with Bulma
   breadcrumbs:
+    entries:
     - label: Home
       href: /
     - label: Documentation
       href: /documentation.html
       is_active: true
   subsections:
+    entries:
     - label: Overview
       subtitle:  An overview of what Bulma as a
-                    <strong>framework</strong>
-                    is all about
+        <strong>framework</strong>
+        is all about
       href: /documentation_overview.html
       accent: primary
       icon: fas fa-eye
     - label: Customize
       subtitle: Create your <strong>own theme</strong> with
-                    a simple set of <strong>variables</strong>
+        a simple set of <strong>variables</strong>
       href: /documentation_customize.html
       accent: start
       icon: fas fa-paint-brush
     - label: Modifiers
       subtitle: An <strong>easy-to-read</strong> naming
-                    system designed for humans
+        system designed for humans
       href: /documentation_overview.html
       accent: grey
       icon: fas fa-cogs
     - label: Columns
       subtitle: The power of <strong>Flexbox</strong> in a
-                    simple interface
+        simple interface
       href: /documentation_overview.html
       accent: star
       icon: fas fa-columns
     - label: Layout
       subtitle: Design the <strong>structure</strong> of
-                    your webpage with these CSS classes
+        your webpage with these CSS classes
       href: /documentation_overview.html
       accent: success
       icon: fas fa-warehouse
     - label: Form
       subtitle: The indispensable <strong>form
-                    controls</strong>, designed for maximum
-                    clarity
+        controls</strong>, designed for maximum
+        clarity
       href: /documentation_overview.html
       accent: link
       icon: fab fa-wpforms
     - label: Elements
       subtitle: Essential interface elements that only
-                    require a <strong>single CSS class</strong>
+        require a <strong>single CSS class</strong>
       href: /documentation_overview.html
       accent: orange
       icon: fas fa-cube
     - label: Components
       subtitle: Advanced multi-part components with lots of
-                    possibilities
+        possibilities
       href: /documentation_overview.html
       accent: danger
       icon: fas fa-cube
 - docname: documentation_overview.html
   template: section.html
-  title: Overview
-  subtitle: An overview of what Bulma as a <strong>framework</strong> is all about
+  heading:
+    title: Overview
+    subtitle: An overview of what Bulma as a <strong>framework</strong> is all about
   breadcrumbs:
+    entries:
     - label: Home
       href: /
     - label: Documentation
@@ -75,17 +80,18 @@
       href: /documentation_overview.html
       is_active: true
   subsections:
+    entries:
     - label: Start
       subtitle: You only need <strong>1 CSS file</strong>
-                                to use Bulma
+        to use Bulma
       href: /documentation_overview_start.html
       accent: danger
       icon: fas fa-rocket
     - label: Classes
       subtitle: Bulma is simply a
-                                <strong>collection</strong> of CSS classes.
-                                Write the HTML code you
-                                want.
+        <strong>collection</strong> of CSS classes.
+        Write the HTML code you
+        want.
       href: /documentation_overview_start.html
       accent: link
       icon: fab fa-css3
@@ -96,41 +102,43 @@
       icon: fas fa-cubes
     - label: Responsiveness
       subtitle: Bulma is a <strong>mobile-first</strong>
-                                framework
+        framework
       href: /documentation_overview_start.html
       accent: primary
       icon: fas fa-arrows-alt-h
     - label: Colors
       subtitle: The <strong>colors</strong> that
-                                <strong>style</strong>
-                                most Bulma elements and
-                                components
+        <strong>style</strong>
+        most Bulma elements and
+        components
       href: /documentation_overview_start.html
       accent: info
       icon: fas fa-tint
     - label: Functions
       subtitle: Utility functions to calculate colors and
-                                other values
+        other values
       href: /documentation_overview_start.html
       accent: orange
       icon: fas fa-code
     - label: Mixins
       subtitle: Utility mixins for custom elements and
-                                responsive helpers
+        responsive helpers
       href: /documentation_overview_start.html
       accent: purple
       icon: fas fa-plus
 - docname: documentation_overview_start.html
   template: section.html
-  title: Getting started with Bulma
-  subtitle: You only need <strong>1 CSS file</strong> to use Bulma
-  prev:
-    title: Some Previous
-    href: /some_previous.html
-  next:
-    title: Some Next
-    href: /some_next.html
+  heading:
+    title: Getting started with Bulma
+    subtitle: You only need <strong>1 CSS file</strong> to use Bulma
   breadcrumbs:
+    prev:
+      title: Some Previous
+      href: /some_previous.html
+    next:
+      title: Some Next
+      href: /some_next.html
+    entries:
     - label: Home
       href: /
     - label: Documentation
@@ -141,6 +149,7 @@
       href: /documentation_overview_start.html
       is_active: true
   tabs:
+    entries:
     - label: Start
       href: /documentation_overview_start.html
       is_active: true
@@ -158,9 +167,11 @@
       href: /documentation_overview_start.html
 - docname: documentation_customize.html
   template: section.html
-  title: Customize
-  subtitle: Create your <strong>own theme</strong> with a simple set of variables
+  heading:
+    title: Customize
+    subtitle: Create your <strong>own theme</strong> with a simple set of variables
   breadcrumbs:
+    entries:
     - label: Home
       href: /
     - label: Documentation
@@ -169,6 +180,7 @@
       href: /documentation_customize.html
       is_active: true
   subsections:
+    entries:
     - label: Concepts
       subtitle: What makes Bulma <strong>customizable</strong>
       href: /documentation_customize_concepts.html
@@ -181,15 +193,17 @@
       icon: fab fa-css3
 - docname: documentation_customize_concepts.html
   template: section.html
-  title: Concepts
-  subtitle: What makes Bulma so <strong>customizable</strong>
-  prev:
-    title: Some Previous
-    href: /some_previous.html
-  next:
-    title: Some Next
-    href: /some_next.html
+  heading:
+    title: Concepts
+    subtitle: What makes Bulma so <strong>customizable</strong>
   breadcrumbs:
+    prev:
+      title: Some Previous
+      href: /some_previous.html
+    next:
+      title: Some Next
+      href: /some_next.html
+    entries:
     - label: Home
       href: /
     - label: Documentation
@@ -201,42 +215,46 @@
       is_active: true
 - docname: tutorial.html
   template: tutorial.html
-  title: Tutorial
-  subtitle: A TypeScript tutorial <em>series</em>
+  heading:
+    title: Tutorial
+    subtitle: A TypeScript tutorial <em>series</em>
   breadcrumbs:
+    entries:
     - label: Home
       href: /
     - label: Tutorial
       href: /tutorial.html
       is_active: true
   steps:
-    - title: Project Setup
-      logo: http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg
-      href: /tutorial_project_setup.html
-      subtitle: Use PyCharm to create and open the project with all
-        dependencies, then see some of the IDE features in action.
-      author:
-        name: Paul Everitt
-        website: http://site
-        thumbnail_url: https://pauleveritt.github.io/pycharm_guide/authors/pauleveritt/paul_headshotx24.jpeg
-      rtype: article
-      references:
-        - title: react
-          href: http://react
-        - title: typescript
-          href: http://typescript
-      duration: 2m32s
-      published: '2018-02-25'
+  - title: Project Setup
+    logo: http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg
+    href: /tutorial_project_setup.html
+    subtitle: Use PyCharm to create and open the project with all
+      dependencies, then see some of the IDE features in action.
+    author:
+      name: Paul Everitt
+      website: http://site
+      thumbnail_url: https://pauleveritt.github.io/pycharm_guide/authors/pauleveritt/paul_headshotx24.jpeg
+    rtype: article
+    references:
+    - title: react
+      href: http://react
+    - title: typescript
+      href: http://typescript
+    duration: 2m32s
+    published: '2018-02-25'
 - docname: tutorial_project_setup.html
   published: '2018-02-25'
   template: page.html
-  title: Project Setup
-  subtitle: Use PyCharm to create and open the project with all dependencies,
-    then see some of the IDE features in action.
-  next:
-    title: Next Step
-    href: /some_next.html
+  heading:
+    title: Project Setup
+    subtitle: Use PyCharm to create and open the project with all dependencies,
+      then see some of the IDE features in action.
   breadcrumbs:
+    next:
+      title: Next Step
+      href: /some_next.html
+    entries:
     - label: Home
       href: /
     - label: Tutorial

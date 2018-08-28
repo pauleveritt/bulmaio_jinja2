@@ -1,0 +1,17 @@
+{% macro tabs (page_tabs) %}
+    {% if page_tabs.entries %}
+        <nav class="bd-tabs">
+            <div class="tabs">
+                <ul>
+                    {% for entry in page_tabs.entries %}
+                        <li class="{{ 'is-active' if entry.is_active else '' }}">
+                            <a href="{{ entry.href }}">
+                                {{ entry.label }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </nav>
+    {% endif %}
+{% endmacro %}

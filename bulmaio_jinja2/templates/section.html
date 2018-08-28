@@ -1,16 +1,21 @@
 {% extends "layout.html" %}
-{% from "macros/article_macros.html" import breadcrumbs, heading, tabs, subsections, section_sidebar %}
-{% block body %}
+{% from 'page/breadcrumbs/macros.html' import breadcrumbs  %}
+{% from 'page/heading/macros.html' import heading  %}
+{% from 'page/sidebar/macros.html' import sidebar  %}
+{% from 'page/tabs/macros.html' import tabs  %}
+{% from 'page/subsections/macros.html' import subsections  %}
+{% from 'section/sidebar/macros.html' import sidebar  %}
+\{% block body %}
     <main class="bd-main">
         <div class="bd-side-background"></div>
         <div class="bd-main-container container">
             <div class="bd-duo">
                 <div class="bd-lead">
-                    {{ breadcrumbs(entries=page.breadcrumbs) }}
-                    {{ heading(title=page.title, subtitle=page.subtitle) }}
-                    {{ tabs(entries=page.tabs) }}
+                    {{ breadcrumbs(page.breadcrumbs) }}
+                    {{ heading(page.heading) }}
+                    {{ tabs(page.tabs) }}
                     <div class="bd-content">
-                        {{ subsections(entries=page.subsections) }}
+                        {{ subsections(page.subsections) }}
                         {% if page.content %}
                             <div class="bd-content">
                                 {{ page.content | safe }}
@@ -18,7 +23,7 @@
                         {% endif %}
                     </div>
                 </div>
-                {{ section_sidebar(entries=site.section_sidebar) }}
+                {{ sidebar(site.section_sidebar) }}
             </div>
         </div>
     </main>

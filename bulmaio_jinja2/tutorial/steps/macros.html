@@ -1,0 +1,37 @@
+{% from 'page/article_card/macros.html' import article_card %}
+{% macro steps_listing(entries) %}
+    <div class="bio-card-listing">
+        {% for entry in entries %}
+            {{ article_card(entry) }}
+        {% endfor %}
+    </div>
+{% endmacro %}
+
+{% macro steps_sidebar(entries) %}
+    <h1 class="title is-2">Steps</h1>
+    <ul class="steps has-content-centered is-vertical">
+        <li class="steps-segment">
+            <span class="steps-marker"></span>
+            <div class="steps-content">
+                <p class="is-size-4">Step 1</p>
+                <p>This is the first step, which means you start here.</p>
+            </div>
+        </li>
+        <li class="steps-segment">
+            <span class="steps-marker"></span>
+            <div class="steps-content">
+                <p class="is-size-4">Step 2</p>
+                <p>This is the second step. Once you complete the first step,
+                    you will end up here.</p>
+            </div>
+        </li>
+        <li class="steps-segment is-active">
+            <span class="steps-marker"></span>
+            <div class="steps-content">
+                <p class="is-size-4">Step 3</p>
+                <p>This is the third step. This is halfway between the start
+                    and the end.</p>
+            </div>
+        </li>
+    </ul>
+{% endmacro %}

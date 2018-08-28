@@ -1,0 +1,40 @@
+{% macro sidebar (section_sidebar) %}
+    {% if section_sidebar.entries %}
+        <aside class="bd-side">
+            <nav id="categories" class="bd-categories">
+                {% for topentry in section_sidebar.entries %}
+                    <div class="bd-category {{ 'is-active' if topentry.is_active else '' }}">
+                        <header class="bd-category-header">
+                            <a class="bd-category-toggle">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </span>
+                            </a>
+                            <a class="bd-category-name "
+                               href="{{ topentry.href }}">
+                                <strong>{{ topentry.label }}</strong>
+                                {% if topentry.is_new %}
+                                    <span class="tag is-success">
+                                        New!
+                                    </span>
+                                {% endif %}
+                            </a>
+                        </header>
+
+                        {% if topentry.entries %}
+                            <ul class="bd-category-list">
+                                {% for subentry in topentry.entries %}
+                                    <li>
+                                        <a href="{{ subentry.href }}">
+                                            {{ subentry.label }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </nav>
+        </aside>
+    {% endif %}
+{% endmacro %}
