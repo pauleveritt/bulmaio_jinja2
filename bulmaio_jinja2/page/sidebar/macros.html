@@ -1,27 +1,28 @@
-{% macro sidebar_published () %}
+{% macro published (sidebar_published) %}
     <div id="kb-sidenav-published-heading">
-        {% set authors = references.resource_references(resource)['author'] %}
+        {#        {% set authors = references.resource_references(resource)['author'] %}#}
 
-        {% if resource.is_published %}
-            <p class="menu-label">
+        {% if sidebar_published.published_date %}
+            <p class="menu-label bio-page-sidebar-published">
                 Published
             </p>
             <ul class="menu-list">
                 <li>
-                    Published on
-                    {{ resource.props.published.strftime('%Y-%m-%d') }}
+                    <span class="bio-page-sidebar-published-date">
+                        Published
+                        on {{ sidebar_published.published_date }}</span>
                     at
-                    {{ resource.props.published.strftime('%H:%M') }}
+                    <span class="bio-page-sidebar-published-time">{{ sidebar_published.published_time }}</span>
                     {% if authors %}
                         by:
                         {% for author in authors %}
-                            <a href="{{ pathto(author.docname) }}">
+                            <a href="{{ author.website }}">
                                 <figure class="image is-rounded is-24x24"
                                         style="display: inline-block; margin: 0.5rem">
-                                    <img src="{{ pathto(author.headshot_thumbnail('icon_24'), 1) }}">
+                                    <img src="{{ author.thumbnail_url }}">
                                 </figure>
                                 <span
-                                        style="display: inline-block; vertical-align: super">{{ author.title }}</span>
+                                        style="display: inline-block; vertical-align: super">{{ author.name }}</span>
                             </a>
                         {% endfor %}
                     {% endif %}
@@ -45,7 +46,7 @@
 {% endmacro %}
 
 
-{% macro sidebar_prev_next (prev, next) %}
+{% macro prev_next (prev, next) %}
     {% if prev %}
         <p class="menu-label">
             Previous
@@ -68,7 +69,7 @@
 {% endmacro %}
 
 
-{% macro sidebar_references (references={}) %}
+{% macro references (references={}) %}
     {% for reference_label in references.keys() %}
         {% if reference_label != 'author' %}
             <div>
@@ -91,8 +92,8 @@
 
 {% macro sidebar (entries) %}
     <aside class="bd-side">
-        {{ sidebar_published () }}
-        {{ sidebar_prev_next () }}
-        {{ sidebar_references () }}
+        {{ published () }}
+        {{ prev_next () }}
+        {#        {{ references () }}#}
     </aside>
 {% endmacro %}

@@ -262,3 +262,11 @@
     - label: Project Setup
       href: /tutorial_project_setup.html
       is_active: true
+  sidebar:
+    published:
+      published_date: '2018-02-25'
+      published_time: '12:00'
+      author:
+        name: Paul Everitt
+        website: http://site
+        thumbnail_url: https://pauleveritt.github.io/pycharm_guide/authors/pauleveritt/paul_headshotx24.jpeg
