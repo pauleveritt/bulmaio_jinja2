@@ -2,8 +2,8 @@ brand:
   homepage_href: /index.html
   img_src: images/bulma-logo.png
   alt: Bulma Logo
-  github_url: xxx
-  twitter_url: xxx
+  github_url: http://github
+  twitter_url: http://twitter
 
 start:
   entries:

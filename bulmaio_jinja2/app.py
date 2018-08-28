@@ -23,6 +23,7 @@ app.jinja_loader = ChoiceLoader([
 
 cwd = Path(__file__).parents[0]
 
+
 @app.route('/bulmaio_jinja2.map')
 def sourcemaps():
     # Likely a problem with Parcel encoding an absolute path in the .js

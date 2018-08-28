@@ -1,17 +1,17 @@
+from pathlib import Path
+
 import pytest
 
 from bulmaio_jinja2.navbar.brand.models import NavbarBrand
+from bulmaio_jinja2.utils import load_yaml
+
+sample = Path(__file__).parents[3] / 'bulmaio_jinja2' / 'sample'
 
 
 @pytest.fixture
 def context_brand():
-    navbar_brand = NavbarBrand(
-        homepage_href='../../index.html',
-        img_src='images/bulma-logo.png',
-        alt='Bulma Logo',
-        github_url='http://github',
-        twitter_url='http://twitter',
-    )
+    yaml = load_yaml('navbar', base_dir=sample)
+    navbar_brand = NavbarBrand(**yaml['brand'])
 
     return dict(navbar_brand=navbar_brand)
 
@@ -23,7 +23,7 @@ def context_brand():
 )
 def test_navbar_brand(page):
     a = page.find('a', class_='bio-navbar-brand')
-    assert '../../index.html' == a.attrs['href']
+    assert '/index.html' == a.attrs['href']
     logo = page.find('img', class_='bio-navbar-logo-image')
     assert 'images/bulma-logo.png' == logo.attrs['src']
     assert 'Bulma Logo' == logo.attrs['alt']

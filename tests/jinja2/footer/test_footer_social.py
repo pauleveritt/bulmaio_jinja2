@@ -1,46 +1,16 @@
+from pathlib import Path
+
 import pytest
 from bulmaio_jinja2.footer.social.models import FooterSocial
+from bulmaio_jinja2.utils import load_yaml
+
+sample = Path(__file__).parents[3] / 'bulmaio_jinja2' / 'sample'
 
 
 @pytest.fixture
 def context_social():
-    footer_social = FooterSocial(
-        project=dict(
-            title='Bulma',
-            author=dict(
-                name='Jeremy',
-                website='http://jeremy',
-                twitter='jb',
-            ),
-            license=dict(
-                name='MIT',
-                href='https://opensource.org/licenses/mit-license.php'
-            ),
-            github=dict(
-                user='',
-                repo='',
-            )
-        ),
-        site=dict(
-            title='Bulma',
-            license=dict(
-                name='MIT',
-                href='https://opensource.org/licenses/mit-license.php'
-            ),
-            author=dict(
-                name='Jeremy',
-                website='http://jeremy',
-                twitter='jb',
-            ),
-        ),
-        share=dict(
-            twitter=dict(
-                url='http://social',
-                related='user:Some Related'
-            )
-        )
-    )
-
+    yaml = load_yaml('footer', base_dir=sample)
+    footer_social = FooterSocial(**yaml['social'])
     return dict(footer_social=footer_social)
 
 

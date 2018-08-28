@@ -4,12 +4,13 @@ import pytest
 from bulmaio_jinja2.footer.links.models import FooterLinks
 from bulmaio_jinja2.utils import load_yaml
 
-cwd = Path(__file__).parents[0]
+sample = Path(__file__).parents[3] / 'bulmaio_jinja2' / 'sample'
 
 
 @pytest.fixture
 def context_links():
-    footer_links = FooterLinks(**load_yaml('footer_links', base_dir=cwd))
+    yaml = load_yaml('footer', base_dir=sample)
+    footer_links = FooterLinks(**yaml['links'])
 
     return dict(footer_links=footer_links)
 
