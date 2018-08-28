@@ -133,9 +133,102 @@
     {% endif %}
 {% endmacro %}
 
+{% macro page_sidebar_published () %}
+    <div id="kb-sidenav-published-heading">
+        {% set authors = references.resource_references(resource)['author'] %}
+
+        {% if resource.is_published %}
+            <p class="menu-label">
+                Published
+            </p>
+            <ul class="menu-list">
+                <li>
+                    Published on
+                    {{ resource.props.published.strftime('%Y-%m-%d') }}
+                    at
+                    {{ resource.props.published.strftime('%H:%M') }}
+                    {% if authors %}
+                        by:
+                        {% for author in authors %}
+                            <a href="{{ pathto(author.docname) }}">
+                                <figure class="image is-rounded is-24x24"
+                                        style="display: inline-block; margin: 0.5rem">
+                                    <img src="{{ pathto(author.headshot_thumbnail('icon_24'), 1) }}">
+                                </figure>
+                                <span
+                                        style="display: inline-block; vertical-align: super">{{ author.title }}</span>
+                            </a>
+                        {% endfor %}
+                    {% endif %}
+                </li>
+            </ul>
+        {% else %}
+            <p class="menu-label">
+                Draft
+            </p>
+            <ul class="menu-list">
+                <li>
+                    <a href="#">
+                        This article does not have a
+                        current published date.
+                    </a>
+                </li>
+                te
+            </ul>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+
+{% macro page_sidebar_prev_next (prev, next) %}
+    {% if prev %}
+        <p class="menu-label">
+            Previous
+        </p>
+        <ul class="menu-list">
+            <a href="{{ prev.link|e }}"
+               title="{{ _('previous chapter') }}">{{ prev.title }}</a>
+        </ul>
+    {% endif %}
+
+    {% if next %}
+        <p class="menu-label">
+            Next
+        </p>
+        <ul class="menu-list">
+            <a href="{{ next.link|e }}"
+               title="{{ _('next chapter') }}">{{ next.title }}</a>
+        </ul>
+    {% endif %}
+{% endmacro %}
+
+
+{% macro page_sidebar_references (references={}) %}
+    {% for reference_label in references.keys() %}
+        {% if reference_label != 'author' %}
+            <div>
+                <p class="menu-label">
+                    <span style="text-transform: uppercase">{{ reference_label }}</span>
+                </p>
+                <p>
+                    {% for reference in references.resource_references(resource)[reference_label] %}
+                        <a href="{{ pathto(reference.docname, 1) + '.html' }}">
+                            <span class="tag">{{ reference.props.label }}</span>
+                        </a>
+                    {% endfor %}
+                </p>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+
+
 {% macro page_sidebar (entries) %}
     <aside class="bd-side">
-        hello
+        {{ page_sidebar_published () }}
+        {{ page_sidebar_prev_next () }}
+        {{ page_sidebar_references () }}
     </aside>
 {% endmacro %}
 
