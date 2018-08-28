@@ -1,0 +1,28 @@
+{%- extends "layout.html" %}
+{% from 'macros/article_macros.html' import breadcrumbs, prevnext, heading, sidebar, steps_listing %}
+{% block body %}
+    <main class="bd-main bulmaio-body">
+
+        <div class="bd-side-background"></div>
+        <div class="bd-main-container container">
+            <div class="bd-duo">
+                <div class="bd-lead">
+                    {{ breadcrumbs(
+                    entries=page.breadcrumbs,
+                    prev=page.prev,
+                    next=page.next
+                            ) }}
+                    {{ heading(title=page.title, subtitle=page.subtitle) }}
+
+                    <div class="bd-content content">
+                        {{ page.body|safe }}
+                    </div>
+
+                    {{ steps_listing(entries=page.steps) }}
+                </div>
+                {{ sidebar(entries=site.sidebar) }}
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

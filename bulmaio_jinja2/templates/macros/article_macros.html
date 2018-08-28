@@ -133,3 +133,99 @@
     {% endif %}
 {% endmacro %}
 
+{% macro steps_listing(entries) %}
+<div class="kbb-fl">
+    {% for entry in entries %}
+        <div class="kbb-fl-result box">
+            <article class="media">
+                <div class="media-left">
+                    <figure class="image is-64x64 }">
+                        {% set logo = entry.logo if entry.logo else "https://cdn.worldvectorlogo.com/logos/python-5.svg" %}
+                        <img src="{{ logo }}"/>
+                    </figure>
+                </div>
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            <a href="{{ entry.href }}">
+                                <strong>{{ entry.title }}</strong>
+                            </a>
+                            <br/>
+                            <span>{{ entry.subtitle }}</span>
+                        </p>
+                    </div>
+                    <nav class="level is-mobile">
+                        <div class="level-left">
+                            {% if entry.author and entry.rtype != 'author' %}
+                                <a class="level-item bio-author"
+                                   href="{{ entry.author.website }}">
+                                    <figure class="image is-rounded is-24x24">
+                                        {% if entry.author.thumbnail_url %}
+                                            <img src="{{ entry.author.thumbnail_url }}"
+                                                 height="24" width="24"/>
+                                        {% endif %}
+                                    </figure>
+                                    <span>{{ entry.author.name }}</span>
+                                </a>
+                            {% endif %}
+                            {% if entry.references %}
+                                <span class="level-item">
+                                    <div class="tags">
+                                        {% for reference in entry.references %}
+                                            <span class="tag is-rounded">
+                                                <a href="{{ reference.href }}">
+                                                    {{ reference.title }}
+                                                </a>
+                                            </span>
+                                        {% endfor %}
+                                    </div>
+                            </span>
+                            {% endif %}
+                        </div>
+                        <div class="level-right is-size-7 has-text-grey">
+                            {% if entry.duration %}
+                                <span class="kbb-fl-duration level-item">
+                                    <span class="icon">
+                                        <i class="fas fa-video"></i>
+                                    </span>
+                                    <span>{{ entry.duration }}</span>
+                                </span>
+                            {% endif %}
+                            <span class="level-item">
+                                {{ entry.published }}
+                            </span>
+                        </div>
+                    </nav>
+                </div>
+            </article>
+        </div>
+    {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro steps_sidebar(entries) %}
+    <h1 class="title is-2">Steps</h1>
+    <ul class="steps has-content-centered is-vertical">
+      <li class="steps-segment">
+        <span class="steps-marker"></span>
+        <div class="steps-content">
+          <p class="is-size-4">Step 1</p>
+          <p>This is the first step, which means you start here.</p>
+        </div>
+      </li>
+      <li class="steps-segment">
+        <span class="steps-marker"></span>
+        <div class="steps-content">
+          <p class="is-size-4">Step 2</p>
+          <p>This is the second step. Once you complete the first step, you will end up here.</p>
+        </div>
+      </li>
+      <li class="steps-segment is-active">
+        <span class="steps-marker"></span>
+        <div class="steps-content">
+          <p class="is-size-4">Step 3</p>
+          <p>This is the third step. This is halfway between the start and the end.</p>
+        </div>
+      </li>
+    </ul>
+ {% endmacro %}

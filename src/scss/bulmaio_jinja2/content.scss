@@ -6,3 +6,21 @@
   display: none;
 }
 
+.image {
+  &.is-rounded {
+    img {
+      object-fit: cover;
+      object-position: center center;
+      height: 100%;
+      width: 100%;
+      border-radius: 250983px;
+    }
+  }
+}
+
+
+.bio-author {
+  span {
+    padding: 0 0.3rem;
+  }
+}

@@ -1,22 +1,32 @@
 Now
 ===
 
-- Series (tutorial with steps)
+- Extract "card" to another macro
+
+- Finish listing
+
+- Series sidebar
+
+- Resource sidebar
 
 Next
 ====
 
+- Integrate with kaybee
+
+- Integrate with kaybee_bulma
+
+- Publish wheels
+
 Soon
 ====
 
-- Tabs
-
 - Write Sphinx docs
-
-- Generate wheels
 
 Eventually
 ==========
+
+- Tabs
 
 Done
 ====

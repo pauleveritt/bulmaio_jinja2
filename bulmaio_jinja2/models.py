@@ -11,6 +11,13 @@ class CustomBaseModel(BaseModel):
         ignore_extra = False
 
 
+class Author(CustomBaseModel):
+    name: str
+    website: str = None
+    twitter: str = None
+    thumbnail_url: str = None
+
+
 class Breadcrumb(CustomBaseModel):
     label: str
     href: str
@@ -36,8 +43,21 @@ class PrevNext(CustomBaseModel):
     title: str
 
 
-class Step(CustomBaseModel):
+class StepReference(CustomBaseModel):
+    href: str
     title: str
+
+
+class Step(CustomBaseModel):
+    logo: str = None
+    title: str
+    href: str
+    subtitle: str
+    author: Author
+    rtype: str
+    references: List[StepReference] = None
+    duration: str = None
+    published: str
 
 
 class Page(CustomBaseModel):
@@ -162,12 +182,6 @@ class SidebarEntry(CustomBaseModel):
     is_active: bool = False
     is_new: bool = False
     entries: List[SidebarSubEntry] = []
-
-
-class Author(CustomBaseModel):
-    name: str
-    website: str = None
-    twitter: str = None
 
 
 class License(CustomBaseModel):
