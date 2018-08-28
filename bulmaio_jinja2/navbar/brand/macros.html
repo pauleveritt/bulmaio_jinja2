@@ -1,0 +1,36 @@
+{% macro brand( navbar_brand ) -%}
+    <div class="navbar-brand">
+        <a class="navbar-item bio-navbar-brand"
+           href="{{ navbar_brand.homepage_href }}">
+            <img src="{{ navbar_brand.img_src }}"
+                 class="bio-navbar-logo-image"
+                 alt="{{ navbar_brand.alt }}" width="112" height="28">
+        </a>
+
+        {% if navbar_brand.github_url %}
+            <a class="navbar-item is-hidden-desktop bio-navbar-brand-github"
+               href="{{ navbar_brand.github_url }}" target="_blank">
+                <span class="icon" style="color: #333;">
+                    <i class="fab fa-lg fa-github-alt"></i>
+                </span>
+            </a>
+        {% endif %}
+
+        {% if navbar_brand.twitter_url %}
+            <a class="navbar-item is-hidden-desktop bio-navbar-brand-twitter"
+               href="{{ navbar_brand.twitter_url }}" target="_blank">
+                <span class="icon" style="color: #55acee;">
+                    <i class="fab fa-lg fa-twitter"></i>
+                </span>
+            </a>
+        {% endif %}
+
+        <div id="navbarBurger" class="navbar-burger burger"
+             data-target="navMenuIndex">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+{%- endmacro %}
+

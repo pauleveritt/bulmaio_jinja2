@@ -1,19 +1,24 @@
 import os
 
 from bulmaio_jinja2.models import (
-    Navbar,
     Site,
     Footer
 )
+from bulmaio_jinja2.navbar.models import Navbar
 from bulmaio_jinja2.sample import (
     Pages,
     load_yaml
 )
 from flask import Flask, render_template, send_from_directory, make_response
+from jinja2 import ChoiceLoader, PackageLoader
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
 app.config['TEMPLATES_AUTO_RELOAD'] = True
+app.jinja_loader = ChoiceLoader([
+    PackageLoader('bulmaio_jinja2', 'templates'),
+    PackageLoader('bulmaio_jinja2', '.'),
+])
 
 
 @app.route('/bulmaio_jinja2.map')
@@ -43,17 +48,23 @@ def page_view(pagename):
     pages = Pages()
     pages.load_pages()
 
-    # Make a Site with a Navbar and a Footer
+    # Make a Site with a Footer
     site = Site(**load_yaml('site'))
-    site.navbar = Navbar(**load_yaml('navbar'))
     site.footer = Footer(**load_yaml('footer'))
     site.static_dirname = 'static/'  # Don't use Sphinx name
 
-    # Get this page and make a context
+    # Get this page
     page = pages.get(pagename)
+
+    # Make a navbar with site-specific and page-specific data
+    navbar = Navbar(**load_yaml('navbar'))
+    navbar.update(site, page)
+
+    # Make a context
     context = dict(
         site=site,
         page=page,
+        navbar=navbar,
     )
 
     # One last thing....set the correct is_active on the section_sidebar

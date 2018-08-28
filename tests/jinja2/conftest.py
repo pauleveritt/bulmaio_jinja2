@@ -9,16 +9,17 @@ from jinja2 import (
 )
 
 
-@pytest.fixture(scope='module')
+@pytest.fixture()
 def template_dir(request):
     return str(request.fspath.join('../templates'))
 
 
 @pytest.fixture
 def env(template_dir):
-    loader1 = PackageLoader('bulmaio_jinja2', 'templates')
-    loader2 = FileSystemLoader(template_dir)
-    loader = ChoiceLoader((loader1, loader2))
+    loader1 = PackageLoader('bulmaio_jinja2', '.')
+    loader2 = PackageLoader('bulmaio_jinja2', 'templates')
+    loader3 = FileSystemLoader(template_dir)
+    loader = ChoiceLoader((loader1, loader2, loader3))
     return Environment(loader=loader)
 
 

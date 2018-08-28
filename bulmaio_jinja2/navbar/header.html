@@ -1,0 +1,12 @@
+{% from "navbar/brand/macros.html" import brand %}
+{% from "navbar/start/macros.html" import start %}
+{% from "navbar/end/macros.html" import end %}
+<nav id="navbar" class="navbar has-shadow is-spaced">
+    <div class="container">
+        {{ brand(navbar.brand) }}
+        <div id="navMenuIndex" class="navbar-menu">
+            {{ start(navbar.start) }}
+            {{ end(navbar.end) }}
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,29 @@
+{% macro end(navbar_end) %}
+    <div class="navbar-end">
+        {% for link in navbar_end.links %}
+            <a class="navbar-item is-hidden-touch is-hidden-desktop-only"
+               href="{{ link.href }}"
+               target="_blank">
+                <span class="icon"
+                      style="color: {{ '#' }}{{ link.color }}">
+                    <i class="fab fa-lg fa-{{ link.icon }}"></i>
+                </span>
+            </a>
+        {% endfor %}
+
+        {% if navbar_end.buttons %}
+            <div class="navbar-item">
+                <div class="field is-grouped is-grouped-multiline">
+                    {% for button in navbar_end.buttons %}
+                        <p class="control">
+                            <a class="button is-{{ button.accent }}"
+                               href="{{ button.href }}">
+                                <strong>{{ button.label }}</strong>
+                            </a>
+                        </p>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}

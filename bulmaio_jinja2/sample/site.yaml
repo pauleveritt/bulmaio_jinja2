@@ -12,9 +12,6 @@ website_license:
 author:
   name: Jeremy Thomas
   website: https://jgthms.com
-logo:
-  img_file: images/bulma-logo.png
-  alt: Bulma Logo
 
 section_sidebar:
 - label: Overview

@@ -71,21 +71,21 @@ def context_published():
     return dict(page=page)
 
 
-@pytest.mark.parametrize(
-    'page',
-    [['macros_page_sidebar_published.html', context_no_published], ],
-    indirect=True
-)
-def test_no_published(page):
-    bcs = page.find_all('div', class_='bd-breadcrumb')
-    assert 0 == len(bcs)
-
-
-@pytest.mark.parametrize(
-    'page',
-    [['macros_page_sidebar_published.html', context_published], ],
-    indirect=True
-)
-def test_published(page):
-    bcs = page.find_all('div', class_='bd-breadcrumb')
-    assert 1 == len(bcs)
+# @pytest.mark.parametrize(
+#     'page',
+#     [['macros_page_sidebar_published.html', context_no_published], ],
+#     indirect=True
+# )
+# def test_no_published(page):
+#     bcs = page.find_all('div', class_='bd-breadcrumb')
+#     assert 0 == len(bcs)
+#
+#
+# @pytest.mark.parametrize(
+#     'page',
+#     [['macros_page_sidebar_published.html', context_published], ],
+#     indirect=True
+# )
+# def test_published(page):
+#     bcs = page.find_all('div', class_='bd-breadcrumb')
+#     assert 1 == len(bcs)

@@ -1,29 +1,12 @@
 import pytest
 
-from bulmaio_jinja2.models import Site, Page
-
-
-@pytest.fixture
-def context_brand():
-    page = Page(
-        docname='about'
-    )
-    site = Site(
-        homepage_url='/index.html',
-        logo=dict(
-            img_file='images/bulma-logo.png',
-            alt='Bulma Logo'
-        ),
-    )
-
-    return dict(site=site, page=page)
+from bulmaio_jinja2.navbar.start.models import NavbarStart
 
 
 @pytest.fixture
 def context_start():
-    site = Site(
-        navbar=dict(
-            start=[
+    navbar_start = NavbarStart(
+        entries=[
                 dict(
                     css_class='documentation',
                     accent='primary',
@@ -57,46 +40,17 @@ def context_start():
                     ]
                 )
             ]
-        )
     )
 
-    return dict(site=site)
-
-
-@pytest.fixture
-def context_end():
-    site = Site(
-        navbar=dict(
-            end=dict(
-                links=[
-                    dict(
-                        color='333',
-                        href='https://github.com/jgthms/bulma',
-                        icon='github-alt',
-                    )
-                ]
-            )
-        )
-    )
-
-    return dict(site=site)
+    return dict(navbar_start=navbar_start)
 
 
 @pytest.mark.parametrize(
-    'page', [['macros_brand.html', context_brand], ], indirect=True
+    'page',
+    [['test_navbar_start.html', context_start], ],
+    indirect=True
 )
-def test_brand(page):
-    a = page.find('a', class_='bulmaio-brand')
-    assert '/index.html' == a.attrs['href']
-    logo = page.find('img', class_='bulmaio-logo-image')
-    assert '_static/images/bulma-logo.png' == logo.attrs['src']
-    assert 'Bulma Logo' == logo.attrs['alt']
-
-
-@pytest.mark.parametrize(
-    'page', [['macros_start.html', context_start], ], indirect=True
-)
-def test_start(page):
+def test_navbar_start(page):
     a = page.find_all('a', class_='navbar-item')
     assert 3 == len(a)
     assert 'documentation.html' == a[0].attrs['href']
@@ -108,7 +62,7 @@ def test_start(page):
 
     # Let's look at the dropdown menu
     dropdown = page.find('div', class_='has-dropdown')
-    dropdown_a = dropdown.find('a', class_='bulmaio-dropdown-main')
+    dropdown_a = dropdown.find('a', class_='bio-dropdown-main')
     assert 'more.html' == dropdown_a.attrs['href']
     assert 'More' == dropdown_a.string.strip()
     submenu = dropdown.find('div', class_='navbar-dropdown')
@@ -122,7 +76,7 @@ def test_start(page):
     assert 'fa-plus' in se0_i.attrs['class']
     se0_strong = se0.find('strong')
     assert 'More1' == se0_strong.string.strip()
-    se0_description = se0.find('span', class_='bulmaio-dropdown-description')
+    se0_description = se0.find('span', class_='bio-dropdown-description')
     assert 'More1 Description' == se0_description.string.strip()
     se0_br = se0.find_all('br')
     assert 1 == len(se0_br)
@@ -130,14 +84,3 @@ def test_start(page):
     # Make sure no br on second one
     se1_br = submenu_entries[1].find_all('br')
     assert 0 == len(se1_br)
-
-
-@pytest.mark.parametrize(
-    'page', [['macros_end.html', context_end], ], indirect=True
-)
-def test_end(page):
-    a = page.find_all('a', class_='navbar-item')
-    assert 1 == len(a)
-    assert 'https://github.com/jgthms/bulma' == a[0].attrs['href']
-    icon = a[0].find('i')
-    assert 'fa-github-alt' in icon.attrs['class']

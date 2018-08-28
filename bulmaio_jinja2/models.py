@@ -1,14 +1,8 @@
-from pathlib import Path
 from typing import List
 from typing import Optional
 
-from pydantic import BaseModel
-from sphinx.util import relative_uri
-
-
-class CustomBaseModel(BaseModel):
-    class Config:
-        ignore_extra = False
+from bulmaio_jinja2.base_model import CustomBaseModel
+from bulmaio_jinja2.utils import static_path
 
 
 class Author(CustomBaseModel):
@@ -75,57 +69,9 @@ class Page(CustomBaseModel):
     published: str = None
 
 
-class Logo(CustomBaseModel):
-    img_url: str = None
-    img_file: str = None
-    alt: str = None
-
-
 class SocialMedia(CustomBaseModel):
     twitter: str = None
     github: str = None
-
-
-class NavbarStartSubEntry(CustomBaseModel):
-    css_class: str = None
-    accent: str = None
-    icon: str = None
-    label: str
-    description: str = None
-    label_narrow: str = None
-    href: str
-
-
-class NavbarStartEntry(CustomBaseModel):
-    css_class: str = None
-    accent: str = None
-    icon: str = None
-    label: str
-    label_narrow: str = None
-    href: str
-    submenu: List[NavbarStartSubEntry] = None
-
-
-class NavbarEndLink(CustomBaseModel):
-    color: str
-    href: str
-    icon: str
-
-
-class NavbarEndButton(CustomBaseModel):
-    accent: str
-    href: str
-    label: str
-
-
-class NavbarEnd(CustomBaseModel):
-    links: List[NavbarEndLink] = []
-    buttons: List[NavbarEndButton] = []
-
-
-class Navbar(CustomBaseModel):
-    start: List[NavbarStartEntry] = []
-    end: NavbarEnd = None
 
 
 class FooterGroupMore(CustomBaseModel):
@@ -192,7 +138,6 @@ class License(CustomBaseModel):
 
 class Site(CustomBaseModel):
     homepage_url: str = '/'
-    logo: Logo = None
     title: str = None
     social_media: SocialMedia = None
     project_title: str = None
@@ -204,12 +149,9 @@ class Site(CustomBaseModel):
     software_license: License = None
     website_license: License = None
     description: str = None
-    navbar: Navbar = None
     footer: Footer = None
     static_dirname: str = '_static/'
     section_sidebar: List[SectionSidebarEntry] = None
 
     def static_path(self, docname, other):
-        full_other = Path(self.static_dirname, other)
-        target = relative_uri(docname, str(full_other))
-        return target
+        return static_path(self.static_dirname, docname, other)

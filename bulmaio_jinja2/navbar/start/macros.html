@@ -1,0 +1,53 @@
+{% macro start(navbar_start) %}
+    <div class="navbar-start">
+        {% for entry in navbar_start.entries %}
+            {% if entry.submenu %}
+                <div class="navbar-item has-dropdown is-hoverable">
+
+                    <a class="navbar-link bio-dropdown-main"
+                       href="{{ entry.href }}">
+                        {{ entry.label }}
+                    </a>
+                    <div id="moreDropdown" class="navbar-dropdown">
+                        {% for subentry in entry.submenu %}
+                            <a class="navbar-item " href="{{ subentry.href }}">
+                                <span>
+                                    <span class="icon has-text-{{ subentry.accent }}">
+                                        <i class="fas fa-{{ subentry.icon }}"></i>
+                                    </span>
+                                    <strong>{{ subentry.label }}</strong>
+                                    {% if subentry.description %}
+                                        <br>
+                                        <span class="bio-dropdown-description">{{ subentry.description }}</span>
+                                    {% endif %}
+                                </span>
+                            </a>
+                            {% if not loop.last %}
+                                <hr class="navbar-divider">
+                            {% endif %}
+                        {% endfor %}
+
+                    </div>
+                </div>
+            {% else %}
+                <a class="navbar-item bd-navbar-item-{{ entry.css_class }}"
+                   href="{{ entry.href }}">
+                    <span class="icon has-text-{{ entry.accent }}">
+                        <i class="fas fa-{{ entry.icon }}"></i>
+                    </span>
+                    {% if entry.label_narrow %}
+                        <span class="is-hidden-touch is-hidden-widescreen">
+                            {{ entry.label_narrow }}
+                        </span>
+                        <span class="is-hidden-desktop-only bulmaio-menu-label">
+                            {{ entry.label }}
+                        </span>
+                    {% else %}
+                        <span class="bulmaio-menu-label">{{ entry.label }}</span>
+                    {% endif %}
+                </a>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+{% endmacro %}
