@@ -1,0 +1,26 @@
+/*
+
+The "card" listing used on section pages, toctree, etc.
+
+ */
+
+.bio-card-listing {
+  //min-height: 40rem; // To prevent flashing
+
+  .bio-card-result figure {
+    // More Sphinx crap, sticks margins on figure
+    margin: 0;
+  }
+
+  .bio-card-author {
+    figure {
+      // Sphinx sticks a "content" class in a parent, triggering
+      // a Bulma margin everywhere
+      margin: 0;
+    }
+    span {
+      padding-left: 0.4em;
+    }
+  }
+
+}
