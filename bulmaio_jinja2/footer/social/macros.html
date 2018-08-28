@@ -1,0 +1,76 @@
+{% macro social(footer_social) %}
+    <div class="columns">
+        <div class="column is-4">
+            {% if footer_social.site.title %}
+                <h4 class="bd-footer-title bio-footer-projectitle">
+                    <strong>{{ footer_social.site.title }}</strong> by <a
+                        href="{{ footer_social.project.author.website }}"
+                        property="cc:attributionName" rel="cc:attributionURL"
+                        target="_blank">{{ footer_social.project.author.name }}</a>.
+                </h4>
+            {% endif %}
+
+            {% if footer_social.project.author.twitter %}
+                <div class="bd-footer-iframe">
+                    <a href="https://twitter.com/{{ footer_social.project.author.twitter }}"
+                       class="twitter-follow-button" data-show-count="true"
+                       data-lang="en"
+                       data-size="large">@{{ footer_social.project.author.twitter }}</a>
+                </div>
+            {% endif %}
+
+            <div class="bd-footer-tsp">
+                {% if footer_social.project.license %}
+                    <div>
+                        Source code licensed <a
+                            href="{{ footer_social.project.license.href }}">{{ footer_social.project.license.name }}</a>.
+                    </div>
+                {% endif %}
+                {% if footer_social.site.license %}
+                    <div>
+                        Website content licensed
+                        <a rel="license"
+                           href="{{ footer_social.site.license.href }}">{{ footer_social.site.license.name }}</a>
+                    </div>
+                {% endif %}
+            </div>
+
+        </div>
+        {% if footer_social.project.github %}
+            {% set gh = footer_social.project.github %}
+            <div class="column is-4">
+                <h4 class="bd-footer-title">
+                    <strong>Contribute</strong> on GitHub
+                </h4>
+
+                <div class="bd-footer-iframe">
+                    <iframe src="https://ghbtns.com/github-btn.html?user={{ gh.user }}&repo={{ gh.repo }}&type=star&count=true&size=large"
+                            allowtransparency="true" frameborder="0"
+                            scrolling="0" width="160px" height="30px"></iframe>
+
+                    <iframe src="https://ghbtns.com/github-btn.html?user={{ gh.user }}&type=follow&count=true&size=large"
+                            frameborder="0" scrolling="0" width="170px"
+                            height="30px"></iframe>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if footer_social.share %}
+            <div class="column is-4">
+                <h4 class="bd-footer-title">
+                    <strong>Share</strong> on social media
+                </h4>
+
+                <div class="bd-footer-iframe">
+                    <a href="https://twitter.com/share"
+                       class="twitter-share-button"
+                       data-text="footer_social.site.title"
+                       data-url="{{ footer_social.share.twitter.url }}"
+                       data-count="horizontal" data-via="footer_social.site.author.twitter"
+                       data-related="{{ footer_social.share.twitter.related }}"
+                       data-size="large">Tweet</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}

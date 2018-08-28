@@ -2,6 +2,7 @@ from typing import List
 from typing import Optional
 
 from bulmaio_jinja2.base_model import CustomBaseModel
+from bulmaio_jinja2.footer.social.models import FooterSocial
 from bulmaio_jinja2.utils import static_path
 
 
@@ -99,22 +100,13 @@ class FooterColumn(CustomBaseModel):
     fullsize: bool = False
 
 
-class FooterShareTwitter(CustomBaseModel):
-    url: str
-    related: str
-
-
-class FooterShare(CustomBaseModel):
-    twitter: FooterShareTwitter
-
-
 class FooterLinks(CustomBaseModel):
     columns: List[FooterColumn] = []
 
 
 class Footer(CustomBaseModel):
+    social: FooterSocial = None
     links: FooterLinks = None
-    share: FooterShare = None
 
 
 class SectionSidebarSubEntry(CustomBaseModel):

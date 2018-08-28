@@ -1,8 +1,29 @@
-share:
-  twitter:
-    url: https://bulma.io
-    related: jgthms:Creator of Bulma
-
+social:
+  project:
+    title: Bulma
+    author:
+      name: Jeremy
+      website: http://jeremy
+      twitter: jb
+    license:
+      name: MIT
+      href: https://opensource.org/licenses/mit-license.php
+    github:
+      user: x
+      repo: x
+  site:
+    title: Bulma
+    license:
+      name: MIT
+      href: https://opensource.org/licenses/mit-license.php
+    author:
+      name: Jeremy
+      website: http://jeremy
+      twitter: jb
+  share:
+    twitter:
+      url: https://bulma.io
+      related: jgthms:Creator of Bulma
 links:
   columns:
   # Column 1
