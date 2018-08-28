@@ -72,6 +72,7 @@ class Page(CustomBaseModel):
     prev: PrevNext = None
     next: PrevNext = None
     steps: List[Step] = None
+    published: str = None
 
 
 class Logo(CustomBaseModel):

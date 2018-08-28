@@ -227,3 +227,20 @@
           href: http://typescript
       duration: 2m32s
       published: '2018-02-25'
+- docname: tutorial_project_setup.html
+  published: '2018-02-25'
+  template: page.html
+  title: Project Setup
+  subtitle: Use PyCharm to create and open the project with all dependencies,
+    then see some of the IDE features in action.
+  next:
+    title: Next Step
+    href: /some_next.html
+  breadcrumbs:
+    - label: Home
+      href: /
+    - label: Tutorial
+      href: /tutorial.html
+    - label: Project Setup
+      href: /tutorial_project_setup.html
+      is_active: true

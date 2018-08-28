@@ -1,10 +1,6 @@
 Now
 ===
 
-- Extract "card" to another macro
-
-- Finish listing
-
 - Series sidebar
 
 - Resource sidebar
@@ -54,4 +50,8 @@ Done
     - Sidebar, subsections
 
 - More realistic sample data with linking
+
+- Extract "card" to another macro
+
+- Finish listing
 
