@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% from "macros/article_macros.html" import breadcrumbs, heading, tabs, subsections, sidebar %}
+{% from "macros/article_macros.html" import breadcrumbs, heading, tabs, subsections, section_sidebar %}
 {% block body %}
     <main class="bd-main">
         <div class="bd-side-background"></div>
@@ -18,7 +18,7 @@
                         {% endif %}
                     </div>
                 </div>
-                {{ sidebar(entries=site.sidebar) }}
+                {{ section_sidebar(entries=site.section_sidebar) }}
             </div>
         </div>
     </main>

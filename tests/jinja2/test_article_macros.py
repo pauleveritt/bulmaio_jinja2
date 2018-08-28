@@ -110,7 +110,7 @@ def context_no_sidebar():
 def context_sidebar():
     site = Site(
         title='Some Site',
-        sidebar=[
+        section_sidebar=[
             dict(
                 label='Overview',
                 href='/documentation/overview/index.html',

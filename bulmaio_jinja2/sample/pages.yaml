@@ -121,7 +121,7 @@
       accent: purple
       icon: fas fa-plus
 - docname: documentation_overview_start.html
-  template: page.html
+  template: section.html
   title: Getting started with Bulma
   subtitle: You only need <strong>1 CSS file</strong> to use Bulma
   prev:
@@ -180,7 +180,7 @@
       accent: link
       icon: fab fa-css3
 - docname: documentation_customize_concepts.html
-  template: page.html
+  template: section.html
   title: Concepts
   subtitle: What makes Bulma so <strong>customizable</strong>
   prev:

@@ -171,18 +171,18 @@ class Footer(CustomBaseModel):
     share: FooterShare = None
 
 
-class SidebarSubEntry(CustomBaseModel):
+class SectionSidebarSubEntry(CustomBaseModel):
     label: str
     href: str
     is_active: bool = False
 
 
-class SidebarEntry(CustomBaseModel):
+class SectionSidebarEntry(CustomBaseModel):
     label: str
     href: str
     is_active: bool = False
     is_new: bool = False
-    entries: List[SidebarSubEntry] = []
+    entries: List[SectionSidebarSubEntry] = []
 
 
 class License(CustomBaseModel):
@@ -207,7 +207,7 @@ class Site(CustomBaseModel):
     navbar: Navbar = None
     footer: Footer = None
     static_dirname: str = '_static/'
-    sidebar: List[SidebarEntry] = None
+    section_sidebar: List[SectionSidebarEntry] = None
 
     def static_path(self, docname, other):
         full_other = Path(self.static_dirname, other)

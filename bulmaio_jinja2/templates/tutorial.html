@@ -1,5 +1,5 @@
 {%- extends "layout.html" %}
-{% from 'macros/article_macros.html' import breadcrumbs, prevnext, heading, sidebar, steps_listing %}
+{% from 'macros/article_macros.html' import breadcrumbs, prevnext, heading, section_sidebar, steps_listing %}
 {% block body %}
     <main class="bd-main bulmaio-body">
 
@@ -20,7 +20,7 @@
 
                     {{ steps_listing(entries=page.steps) }}
                 </div>
-                {{ sidebar(entries=site.sidebar) }}
+                {{ section_sidebar(entries=site.section_sidebar) }}
             </div>
         </div>
     </main>

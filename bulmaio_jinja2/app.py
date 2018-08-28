@@ -56,10 +56,10 @@ def page_view(pagename):
         page=page,
     )
 
-    # One last thing....set the correct is_active on the sidebar
+    # One last thing....set the correct is_active on the section_sidebar
     active_category = [
         category
-        for category in site.sidebar
+        for category in site.section_sidebar
         if category.href[1:-6] in page.docname
     ]
     if active_category:

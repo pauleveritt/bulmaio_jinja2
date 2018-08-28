@@ -92,7 +92,7 @@
 {% endmacro %}
 
 
-{% macro sidebar (entries) %}
+{% macro section_sidebar (entries) %}
     {% if entries %}
         <aside class="bd-side">
             <nav id="categories" class="bd-categories">
@@ -131,6 +131,12 @@
             </nav>
         </aside>
     {% endif %}
+{% endmacro %}
+
+{% macro page_sidebar (entries) %}
+    <aside class="bd-side">
+        hello
+    </aside>
 {% endmacro %}
 
 {% macro article_card(entry) %}

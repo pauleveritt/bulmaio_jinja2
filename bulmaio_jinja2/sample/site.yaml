@@ -16,7 +16,7 @@ logo:
   img_file: images/bulma-logo.png
   alt: Bulma Logo
 
-sidebar:
+section_sidebar:
 - label: Overview
   href: /documentation_overview.html
   entries:
