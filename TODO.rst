@@ -1,9 +1,7 @@
 Now
 ===
 
-- Series sidebar
-
-- Resource sidebar
+- Fix Sphinx
 
 Next
 ====
@@ -21,8 +19,6 @@ Soon
 
 Eventually
 ==========
-
-- Tabs
 
 Done
 ====
@@ -55,3 +51,8 @@ Done
 
 - Finish listing
 
+- Series sidebar
+
+- Resource sidebar
+
+- Tabs
