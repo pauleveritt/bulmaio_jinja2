@@ -33,7 +33,7 @@ def context_steps_sidebar_panel():
 
 @pytest.mark.parametrize(
     'page',
-    [['test_tutorial_steps_sidebar_panel.html',
+    [['test_sidebar_tutorial_steps_panel.html',
       context_no_steps_sidebar_panel], ],
     indirect=True
 )
@@ -44,7 +44,7 @@ def test_no_steps_sidebar_panel(page):
 
 @pytest.mark.parametrize(
     'page',
-    [['test_tutorial_steps_sidebar_panel.html',
+    [['test_sidebar_tutorial_steps_panel.html',
       context_steps_sidebar_panel], ],
     indirect=True
 )

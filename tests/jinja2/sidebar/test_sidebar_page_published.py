@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import pytest
-from bulmaio_jinja2.page.sidebar.models import SidebarPublished
+from bulmaio_jinja2.sidebar.page.models import SidebarPublished
 from bulmaio_jinja2.utils import load_yaml
 
 sample = Path(__file__).parents[3] / 'bulmaio_jinja2' / 'sample'
@@ -15,18 +15,16 @@ def context_no_sidebar_published():
 
 @pytest.fixture
 def context_sidebar_published():
-    pages = load_yaml('pages', base_dir=sample)
-    page = pages[7]
-    published = page['sidebar']['published']
+    sidebar_yaml = load_yaml('page_sidebar', base_dir=sample)
+    published = sidebar_yaml['published']
     sidebar_published = SidebarPublished(**published)
     return dict(sidebar_published=sidebar_published)
 
 
 @pytest.fixture
 def context_sidebar_draft():
-    pages = load_yaml('pages', base_dir=sample)
-    page = pages[7]
-    published = page['sidebar']['published']
+    sidebar_yaml = load_yaml('page_sidebar', base_dir=sample)
+    published = sidebar_yaml['published']
     del published['published_date']
     sidebar_published = SidebarPublished(**published)
     return dict(sidebar_published=sidebar_published)
@@ -34,7 +32,7 @@ def context_sidebar_draft():
 
 @pytest.mark.parametrize(
     'page',
-    [['test_page_sidebar_published.html', context_no_sidebar_published], ],
+    [['test_sidebar_page_published.html', context_no_sidebar_published], ],
     indirect=True
 )
 def test_no_sidebar_published(page):
@@ -44,7 +42,7 @@ def test_no_sidebar_published(page):
 
 @pytest.mark.parametrize(
     'page',
-    [['test_page_sidebar_published.html', context_sidebar_published], ],
+    [['test_sidebar_page_published.html', context_sidebar_published], ],
     indirect=True
 )
 def test_sidebar_published(page):
@@ -63,7 +61,7 @@ def test_sidebar_published(page):
 
 @pytest.mark.parametrize(
     'page',
-    [['test_page_sidebar_published.html', context_sidebar_draft], ],
+    [['test_sidebar_page_published.html', context_sidebar_draft], ],
     indirect=True
 )
 def test_sidebar_draft(page):

@@ -1,7 +1,7 @@
 {%- extends "layout.html" %}
 {% from 'page/breadcrumbs/macros.html' import breadcrumbs  %}
 {% from 'page/heading/macros.html' import heading  %}
-{% from 'page/sidebar/macros.html' import sidebar  %}
+{% from 'sidebar/page/macros.html' import sidebar_page  %}
 {% block body %}
     <main class="bd-main bulmaio-body">
 
@@ -16,7 +16,7 @@
                         {{ page.body|safe }}
                     </div>
                 </div>
-                {{ sidebar(page.sidebar) }}
+                {{ sidebar_page(sidebar) }}
             </div>
         </div>
     </main>

@@ -85,7 +85,7 @@
     {% endfor %}
 {% endmacro %}
 
-{% macro sidebar (page_sidebar) %}
+{% macro sidebar_page (page_sidebar) %}
     <aside class="bd-side bio-page-sidebar">
         {{ published (page_sidebar.published) }}
         {{ prev_next (page_sidebar.prev_next) }}

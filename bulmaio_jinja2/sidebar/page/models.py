@@ -34,7 +34,7 @@ class SidebarReferences(CustomBaseModel):
     entries: List[SidebarReferenceGroup] = []
 
 
-class Sidebar(CustomBaseModel):
+class PageSidebar(CustomBaseModel):
     published: SidebarPublished
     prev_next: SidebarPrevNext
     references: SidebarReferences

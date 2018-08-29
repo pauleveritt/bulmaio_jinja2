@@ -4,7 +4,7 @@ import pytest
 from bulmaio_jinja2.footer.models import Footer
 from bulmaio_jinja2.navbar.models import Navbar
 from bulmaio_jinja2.site.models import Site
-from bulmaio_jinja2.tutorial.models import Tutorial
+from bulmaio_jinja2.tutorial.models import Tutorial, TutorialSidebar
 from bulmaio_jinja2.utils import load_yaml
 
 sample = Path(__file__).parents[3] / 'bulmaio_jinja2' / 'sample'
@@ -20,7 +20,10 @@ def context_tutorial():
     footer = Footer(**footer_yaml)
     pages = load_yaml('pages', base_dir=sample)
     tutorial = Tutorial(**pages[6])
-    return dict(site=site, navbar=navbar, page=tutorial, footer=footer)
+    sidebar_yaml = load_yaml('tutorial_sidebar', base_dir=sample)
+    sidebar = TutorialSidebar(**sidebar_yaml)
+    return dict(site=site, navbar=navbar, page=tutorial, sidebar=sidebar,
+                footer=footer)
 
 
 @pytest.mark.parametrize(

@@ -1,0 +1,34 @@
+{% from 'sidebar/page/macros.html' import published, prev_next, references %}
+
+
+# Used for the compact listing in the sidebar
+{% macro sidebar_panel(steps_sidebar_panel) %}
+    {% if steps_sidebar_panel.entries %}
+        <div class="bio-tutorial-steps-sidebar">
+            <h1 class="title is-2">Steps</h1>
+            <ul class="steps has-content-centered is-vertical">
+                {% for entry in steps_sidebar_panel.entries %}
+                    <li class="steps-segment {{ 'is-active' if entry.is_active else '' }}">
+                        <a href="{{ entry.href }}" class="has-text-dark">
+                            <span class="steps-marker"></span>
+                            <div class="steps-content">
+                                <p class="is-size-4">{{ entry.title }}</p>
+                                <p>{{ entry.subtitle }}</p>
+                            </div>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro sidebar_tutorial (tutorial_sidebar) %}
+    {% set ts = tutorial_sidebar %}
+    <aside class="bd-side bio-page-sidebar">
+        {{ published (tutorial_sidebar.published) }}
+        {{ prev_next (tutorial_sidebar.prev_next) }}
+        {{ references (tutorial_sidebar.references) }}
+        {{ sidebar_panel (tutorial_sidebar.steps) }}
+    </aside>
+{% endmacro %}

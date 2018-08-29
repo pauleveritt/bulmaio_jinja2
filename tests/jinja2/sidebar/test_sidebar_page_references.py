@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import pytest
-from bulmaio_jinja2.page.sidebar.models import SidebarReferences
+from bulmaio_jinja2.sidebar.page.models import SidebarReferences
 
 from bulmaio_jinja2.utils import load_yaml
 
@@ -16,16 +16,16 @@ def context_no_sidebar_references():
 
 @pytest.fixture
 def context_sidebar_references():
-    pages = load_yaml('pages', base_dir=sample)
-    page = pages[7]
-    references = page['sidebar']['references']
+    sidebar_yaml = load_yaml('page_sidebar', base_dir=sample)
+    published = sidebar_yaml['published']
+    references = sidebar_yaml['references']
     sidebar_references = SidebarReferences(**references)
     return dict(sidebar_references=sidebar_references)
 
 
 @pytest.mark.parametrize(
     'page',
-    [['test_page_sidebar_references.html', context_no_sidebar_references], ],
+    [['test_sidebar_page_references.html', context_no_sidebar_references], ],
     indirect=True
 )
 def test_no_sidebar_references(page):
@@ -35,7 +35,7 @@ def test_no_sidebar_references(page):
 
 @pytest.mark.parametrize(
     'page',
-    [['test_page_sidebar_references.html', context_sidebar_references], ],
+    [['test_sidebar_page_references.html', context_sidebar_references], ],
     indirect=True
 )
 def test_sidebar_references(page):

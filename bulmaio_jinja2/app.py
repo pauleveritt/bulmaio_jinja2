@@ -91,5 +91,4 @@ def page_view(pagename):
         footer=footer
     )
 
-
     return render_template(page.template, **context)
