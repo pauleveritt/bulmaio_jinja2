@@ -1,8 +1,8 @@
-{% from 'page/article_card/macros.html' import article_card %}
+{% from 'common/resource_card/macros.html' import card %}
 {% macro steps_listing(entries) %}
     <div class="bio-card-listing">
         {% for entry in entries %}
-            {{ article_card(entry) }}
+            {{ card(entry) }}
         {% endfor %}
     </div>
 {% endmacro %}

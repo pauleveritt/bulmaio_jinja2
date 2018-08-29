@@ -227,7 +227,8 @@
       is_active: true
   steps:
   - title: Project Setup
-    logo: http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg
+    logo:
+      href: http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg
     href: /tutorial_project_setup.html
     subtitle: Use PyCharm to create and open the project with all
       dependencies, then see some of the IDE features in action.

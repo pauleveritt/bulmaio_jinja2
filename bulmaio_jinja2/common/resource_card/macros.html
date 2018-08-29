@@ -1,40 +1,42 @@
-{% macro article_card(entry) %}
-    <div class="bio-card-result box">
+{% macro card(resource_card) %}
+    <div class="bio-common-resourcecard box">
         <article class="media">
             <div class="media-left">
                 <figure class="image is-64x64 }">
-                    {% set logo = entry.logo if entry.logo else "https://cdn.worldvectorlogo.com/logos/python-5.svg" %}
-                    <img src="{{ logo }}"/>
+                    <img class="bio-common-resourcecard-logo"
+                            src="{{ resource_card.logo.href }}"/>
                 </figure>
             </div>
             <div class="media-content">
-                <div class="content">
+                <div class="content bio-common-resourcecard-props">
                     <p>
-                        <a href="{{ entry.href }}">
-                            <strong>{{ entry.title }}</strong>
+                        <a href="{{ resource_card.href }}">
+                            <strong>{{ resource_card.title }}</strong>
                         </a>
-                        <br/>
-                        <span>{{ entry.subtitle }}</span>
+                        {% if resource_card.subtitle %}
+                            <br/>
+                            <span>{{ resource_card.subtitle }}</span>
+                        {% endif %}
                     </p>
                 </div>
                 <nav class="level is-mobile">
                     <div class="level-left">
-                        {% if entry.author and entry.rtype != 'author' %}
+                        {% if resource_card.author and resource_card.rtype != 'author' %}
                             <a class="level-item bio-card-author"
-                               href="{{ entry.author.website }}">
+                               href="{{ resource_card.author.website }}">
                                 <figure class="image is-rounded is-24x24">
-                                    {% if entry.author.thumbnail_url %}
-                                        <img src="{{ entry.author.thumbnail_url }}"
+                                    {% if resource_card.author.thumbnail_url %}
+                                        <img src="{{ resource_card.author.thumbnail_url }}"
                                              height="24" width="24"/>
                                     {% endif %}
                                 </figure>
-                                <span>{{ entry.author.name }}</span>
+                                <span>{{ resource_card.author.name }}</span>
                             </a>
                         {% endif %}
-                        {% if entry.references %}
-                            <span class="level-item">
+                        {% if resource_card.references %}
+                            <span class="level-item bio-common-card-references">
                                 <div class="tags">
-                                    {% for reference in entry.references %}
+                                    {% for reference in resource_card.references %}
                                         <span class="tag is-rounded">
                                             <a href="{{ reference.href }}">
                                                 {{ reference.title }}
@@ -46,16 +48,16 @@
                         {% endif %}
                     </div>
                     <div class="level-right is-size-7 has-text-grey">
-                        {% if entry.duration %}
-                            <span class="level-item">
+                        {% if resource_card.duration %}
+                            <span class="level-item bio-common-card-duration">
                                 <span class="icon">
                                     <i class="fas fa-video"></i>
                                 </span>
-                                <span>{{ entry.duration }}</span>
+                                <span>{{ resource_card.duration }}</span>
                             </span>
                         {% endif %}
-                        <span class="level-item">
-                            {{ entry.published }}
+                        <span class="level-item bio-common-card-published">
+                            {{ resource_card.published }}
                         </span>
                     </div>
                 </nav>
