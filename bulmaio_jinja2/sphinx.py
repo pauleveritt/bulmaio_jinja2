@@ -104,9 +104,8 @@ def copy_static(app: Sphinx):
 
 
 def setup_sphinx(app: Sphinx):
-    app.add_config_value(
-        'bulmaio_jinja2_siteconfig', None, 'html'
-    )
+    app.add_config_value('bulmaio_jinja2_site', None, 'html')
+    app.add_config_value('bulmaio_jinja2_navbar', None, 'html')
 
     app.add_html_theme(
         'bulmaio_jinja2',

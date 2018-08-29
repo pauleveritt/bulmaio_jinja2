@@ -1,4 +1,4 @@
-from bulmaio_jinja2.models import BasePage
+from bulmaio_jinja2.common.models import BasePage
 from bulmaio_jinja2.page.subsections.models import PageSubsections
 from bulmaio_jinja2.page.tabs.models import PageTabs
 

@@ -1,20 +1,8 @@
 from bulmaio_jinja2.author.models import Author
 from bulmaio_jinja2.base_model import CustomBaseModel
 from bulmaio_jinja2.footer.models import Footer
-from bulmaio_jinja2.page.breadcrumbs.models import PageBreadcrumbs
-from bulmaio_jinja2.page.heading.models import PageHeading
 from bulmaio_jinja2.section.sidebar.models import SectionSidebar
 from bulmaio_jinja2.utils import static_path
-
-
-class BasePage(CustomBaseModel):
-    docname: str
-    title: str = None
-    body: str = None
-    subtitle: str = None
-    template: str = 'page.html'
-    breadcrumbs: PageBreadcrumbs = None
-    heading: PageHeading = None
 
 
 class SocialMedia(CustomBaseModel):
