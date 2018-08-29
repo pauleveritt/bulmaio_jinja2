@@ -256,7 +256,7 @@
       published: '2018-02-25'
 - docname: tutorial_project_setup.html
   published: '2018-02-25'
-  template: page.html
+  template: tutorialpage.html
   title: Project Setup
   subtitle: Use PyCharm to create and open the project with all dependencies,
     then see some of the IDE features in action.
@@ -275,4 +275,42 @@
       href: /tutorial.html
     - label: Project Setup
       href: /tutorial_project_setup.html
+      is_active: true
+  steps:
+    entries:
+    - title: Project Setup
+      logo:
+        href: http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg
+      href: /tutorial_project_setup.html
+      subtitle: Use PyCharm to create and open the project with all
+        dependencies, then see some of the IDE features in action.
+      author:
+        name: Paul Everitt
+        website: http://site
+        thumbnail_url: https://pauleveritt.github.io/pycharm_guide/authors/pauleveritt/paul_headshotx24.jpeg
+      rtype: article
+      references:
+      - title: react
+        href: http://react
+      - title: typescript
+        href: http://typescript
+      duration: 2m32s
+      published: '2018-02-25'
+- docname: videos.html
+  published: '2018-02-25'
+  template: page.html
+  title: Videos
+  subtitle: A regular page-page
+  heading:
+    title: Videos
+    subtitle: A regular page-page
+  breadcrumbs:
+    next:
+      title: Next Step
+      href: /some_next.html
+    entries:
+    - label: Home
+      href: /
+    - label: Videos
+      href: /videos.html
       is_active: true

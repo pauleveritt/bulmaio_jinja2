@@ -1,0 +1,24 @@
+{%- extends "layout.html" %}
+{% from 'page/breadcrumbs/macros.html' import breadcrumbs  %}
+{% from 'page/heading/macros.html' import heading  %}
+{% from 'sidebar/tutorial/macros.html' import sidebar_tutorial %}
+{% block body %}
+    <main class="bd-main bulmaio-body">
+
+        <div class="bd-side-background"></div>
+        <div class="bd-main-container container">
+            <div class="bd-duo">
+                <div class="bd-lead">
+                    {{ breadcrumbs(page.breadcrumbs) }}
+                    {{ heading(page.heading) }}
+
+                    <div class="bd-content content">
+                        {{ page.body|safe }}
+                    </div>
+                </div>
+                {{ sidebar_tutorial(sidebar) }}
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

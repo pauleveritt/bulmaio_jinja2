@@ -4,7 +4,7 @@ from pathlib import Path
 
 from bulmaio_jinja2.page.models import Page
 from bulmaio_jinja2.section.models import Section
-from bulmaio_jinja2.tutorial.models import Tutorial
+from bulmaio_jinja2.tutorial.models import Tutorial, TutorialPage
 from bulmaio_jinja2.utils import load_yaml
 from pydantic import ValidationError
 
@@ -14,7 +14,8 @@ klasses = {
     'page.html': Page,
     'section.html': Section,
     'homepage.html': Page,
-    'tutorial.html': Tutorial
+    'tutorial.html': Tutorial,
+    'tutorialpage.html': TutorialPage,
 }
 
 

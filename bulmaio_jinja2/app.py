@@ -72,7 +72,7 @@ def page_view(pagename):
     elif page.template == 'page.html':
         page_sidebar = load_yaml('page_sidebar', base_dir=cwd)
         sidebar = PageSidebar(**page_sidebar)
-    elif page.template == 'tutorial.html':
+    elif page.template in ['tutorial.html', 'tutorialpage.html']:
         tutorial_sidebar = load_yaml('tutorial_sidebar', base_dir=cwd)
         sidebar = TutorialSidebar(**tutorial_sidebar)
 
