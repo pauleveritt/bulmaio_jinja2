@@ -36,9 +36,19 @@ def get_rst_title(rst_doc: Node) -> Optional[str]:
 
 
 def inject_site(app, pagename, templatename, context, doctree):
-    sc = app.config.bulmaio_jinja2_siteconfig
-    t = type(sc)
-    context['site'] = app.config.bulmaio_jinja2_siteconfig
+    context['site'] = app.config.bulmaio_jinja2_site
+
+
+def inject_navbar(app, pagename, templatename, context, doctree):
+    context['navbar'] = app.config.bulmaio_jinja2_navbar
+
+
+def inject_sidebar(app, pagename, templatename, context, doctree):
+    context['sidebar'] = app.config.bulmaio_jinja2_sidebar
+
+
+def inject_footer(app, pagename, templatename, context, doctree):
+    context['footer'] = app.config.bulmaio_jinja2_footer
 
 
 def inject_page(app, pagename, templatename, context, doctree):
@@ -81,9 +91,12 @@ def add_template_dir(app: Sphinx):
     # even if a different theme is used.
 
     template_bridge = app.builder.templates
-    t = os.path.join(os.path.dirname(inspect.getfile(bulmaio_jinja2)),
+
+    t1 = os.path.dirname(inspect.getfile(bulmaio_jinja2))
+    template_bridge.loaders[0].searchpath.append(t1)
+    t2 = os.path.join(os.path.dirname(inspect.getfile(bulmaio_jinja2)),
                      'templates')
-    template_bridge.loaders[0].searchpath.append(t)
+    template_bridge.loaders[0].searchpath.append(t2)
 
 
 def copy_static(app: Sphinx):
@@ -106,6 +119,8 @@ def copy_static(app: Sphinx):
 def setup_sphinx(app: Sphinx):
     app.add_config_value('bulmaio_jinja2_site', None, 'html')
     app.add_config_value('bulmaio_jinja2_navbar', None, 'html')
+    app.add_config_value('bulmaio_jinja2_sidebar', None, 'html')
+    app.add_config_value('bulmaio_jinja2_footer', None, 'html')
 
     app.add_html_theme(
         'bulmaio_jinja2',
@@ -117,6 +132,9 @@ def setup_sphinx(app: Sphinx):
     app.connect('builder-inited', add_template_dir)
     app.connect('html-collect-pages', copy_static)
     app.connect('html-page-context', inject_site)
+    app.connect('html-page-context', inject_navbar)
+    app.connect('html-page-context', inject_sidebar)
+    app.connect('html-page-context', inject_footer)
     app.connect('html-page-context', inject_page)
 
     return dict(

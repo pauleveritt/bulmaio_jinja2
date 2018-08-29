@@ -1,4 +1,11 @@
+import inspect
+from pathlib import Path
+
+from bulmaio_jinja2.footer.models import Footer
+from bulmaio_jinja2.navbar.models import Navbar
+from bulmaio_jinja2.sidebar.page.models import PageSidebar
 from bulmaio_jinja2.site.models import Site
+from bulmaio_jinja2.utils import load_yaml
 
 extensions = [
     'bulmaio_jinja2'
@@ -9,70 +16,18 @@ html_theme_path = ['.']
 master_doc = 'index'
 exclude_patterns = ['_build']
 
-bulmaio_jinja2_siteconfig = Site(
-    homepage_url='/index.html',
-    logo=dict(
-        img_file='images/bulma-logo.png',
-        alt='Bulma Logo'
-    ),
-    title='Theme Without Theme',
-    favicon='jetbrains_favicon.ico',
-    navbar=dict(
-        start=[
-            dict(
-                css_class='documentation',
-                accent='primary',
-                icon='book',
-                label='Documentation',
-                label_narrow='Docs',
-                href='documentation.html',
-            )
-        ],
-        end=dict(
-            links=[
-                dict(
-                    color='333',
-                    href='https://github.com/jgthms/bulma',
-                    icon='github-alt',
-                )
-            ]
-        )
-    ),
-    footer=dict(
-        links=dict(
-            columns=[
-                dict(
-                    groups=[
-                        dict(
-                            label='Home',
-                            href='https://bulma.io'
-                        ),
-                        dict(
-                            label='Blog',
-                            href='/blog.html',
-                            more=dict(
-                                label='View all posts',
-                                href='/all_blog.html'
-                            ),
-                            entries=[
-                                dict(
-                                    label='Automatic variables docs',
-                                    href='/1.html',
-                                )
-                            ]
-                        ),
-                    ]
-                ),
-                dict(
-                    groups=[
-                        dict(
-                            label='Documentation',
-                            href='https://bulma.io'
-                        ),
-                    ]
-                ),
+# For test purposes, use the "sample" data for site, navbar, etc.
+sample = Path(inspect.getfile(Site)).parents[2] / 'bulmaio_jinja2' / 'sample'
+site_yaml = load_yaml('site', base_dir=sample)
+site = Site(**site_yaml)
+navbar_yaml = load_yaml('navbar', base_dir=sample)
+navbar = Navbar(**navbar_yaml)
+footer_yaml = load_yaml('footer', base_dir=sample)
+footer = Footer(**footer_yaml)
+sidebar_yaml = load_yaml('page_sidebar', base_dir=sample)
+sidebar = PageSidebar(**sidebar_yaml)
 
-            ]
-        )
-    )
-)
+bulmaio_jinja2_site = site
+bulmaio_jinja2_navbar = navbar
+bulmaio_jinja2_footer = footer
+bulmaio_jinja2_sidebar = sidebar

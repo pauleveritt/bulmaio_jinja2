@@ -21,22 +21,25 @@ pytestmark = pytest.mark.sphinx('html', testroot='theme-without-theme')
 def test_index(page):
     # Check stuff in the head
     title = page.find('title').string
-    assert 'Hello Bulmaio | Theme Without Theme' == title
+    assert 'Hello Bulmaio | Bulma: a modern CSS framework based on Flexbox' == title
 
     h1 = page.find('h1')
     assert 'My Theme' == h1.string
 
     favicon = page.find_all('link', rel='shortcut icon')[0]
-    assert '_static/jetbrains_favicon.ico' == favicon.attrs['href']
+    assert '_static/favicons/favicon.ico' == favicon.attrs['href']
     stylesheet = page.find(id='bulmaio-stylesheet')
     assert '_static/bulmaio_jinja2.css' == stylesheet.attrs['href']
 
     # Navbar stuff: Brand
-    homepage_url = page.find(class_='bulmaio-brand')
-    assert '/index.html' == homepage_url.attrs['href']
-    logo = page.find(class_='bulmaio-logo-image')
-    assert '_static/images/bulma-logo.png' == logo.attrs['src']
+    logo = page.find('img', class_='bio-navbar-logo-image')
+    assert 'images/bulma-logo.png' == logo.attrs['src']
     assert 'Bulma Logo' == logo.attrs['alt']
+
+    github = page.find('a', class_='bio-navbar-brand-github')
+    assert 'http://github' == github.attrs['href']
+    twitter = page.find('a', class_='bio-navbar-brand-twitter')
+    assert 'http://twitter' == twitter.attrs['href']
 
 
 @pytest.mark.parametrize('static_asset', ['_static/bulmaio_jinja2.css', ],
