@@ -14,12 +14,13 @@ sample = Path(__file__).parents[3] / 'bulmaio_jinja2' / 'sample'
 def context_section():
     site_yaml = load_yaml('site', base_dir=sample)
     site = Site(**site_yaml)
-    site.footer = Footer(**load_yaml('footer', base_dir=sample))
     navbar_yaml = load_yaml('navbar', base_dir=sample)
     navbar = Navbar(**navbar_yaml)
+    footer_yaml = load_yaml('footer', base_dir=sample)
+    footer = Footer(**footer_yaml)
     pages = load_yaml('pages', base_dir=sample)
     section = Section(**pages[1])
-    return dict(site=site, navbar=navbar, page=section)
+    return dict(site=site, navbar=navbar, page=section, footer=footer)
 
 
 @pytest.mark.parametrize(

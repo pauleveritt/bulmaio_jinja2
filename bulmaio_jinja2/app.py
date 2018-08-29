@@ -44,7 +44,6 @@ def favicon():
 def page_view(pagename):
     # Make a Site with a Footer
     site = Site(**load_yaml('sample/site', base_dir=cwd))
-    site.footer = Footer(**load_yaml('sample/footer', base_dir=cwd))
     site.static_dirname = 'static/'  # Don't use Sphinx name
 
     # Get some globals. Jam them in here so that livereload will get them,
@@ -59,11 +58,15 @@ def page_view(pagename):
     navbar = Navbar(**load_yaml('sample/navbar', base_dir=cwd))
     navbar.update(site, page)
 
+    # Make a footer
+    footer = Footer(**load_yaml('sample/footer', base_dir=cwd))
+
     # Make a context
     context = dict(
         site=site,
         page=page,
         navbar=navbar,
+        footer=footer
     )
 
     # One last thing....set the correct is_active on the section_sidebar
