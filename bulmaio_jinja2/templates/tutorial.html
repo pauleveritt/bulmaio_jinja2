@@ -1,8 +1,8 @@
 {%- extends "layout.html" %}
 {% from 'page/breadcrumbs/macros.html' import breadcrumbs %}
 {% from 'page/heading/macros.html' import heading %}
-{% from 'page/sidebar/macros.html' import sidebar %}
-{% from 'page/../tutorial/steps/macros.html' import steps_listing %}
+{% from 'tutorial/steps/macros.html' import sidebar %}
+{% from 'tutorial/steps/macros.html' import listing %}
 {% block body %}
     <main class="bd-main bulmaio-body">
 
@@ -17,9 +17,9 @@
                         {{ page.body|safe }}
                     </div>
 
-                    {{ steps_listing(entries=page.steps) }}
+                    {{ listing(page.steps) }}
                 </div>
-                {{ sidebar(site.section_sidebar) }}
+                {{ sidebar(page.sidebar) }}
             </div>
         </div>
     </main>

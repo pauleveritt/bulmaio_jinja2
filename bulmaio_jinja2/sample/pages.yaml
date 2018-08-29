@@ -226,24 +226,60 @@
       href: /tutorial.html
       is_active: true
   steps:
-  - title: Project Setup
-    logo:
-      href: http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg
-    href: /tutorial_project_setup.html
-    subtitle: Use PyCharm to create and open the project with all
-      dependencies, then see some of the IDE features in action.
-    author:
-      name: Paul Everitt
-      website: http://site
-      thumbnail_url: https://pauleveritt.github.io/pycharm_guide/authors/pauleveritt/paul_headshotx24.jpeg
-    rtype: article
+    entries:
+    - title: Project Setup
+      logo:
+        href: http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg
+      href: /tutorial_project_setup.html
+      subtitle: Use PyCharm to create and open the project with all
+        dependencies, then see some of the IDE features in action.
+      author:
+        name: Paul Everitt
+        website: http://site
+        thumbnail_url: https://pauleveritt.github.io/pycharm_guide/authors/pauleveritt/paul_headshotx24.jpeg
+      rtype: article
+      references:
+      - title: react
+        href: http://react
+      - title: typescript
+        href: http://typescript
+      duration: 2m32s
+      published: '2018-02-25'
+  sidebar:
+    published:
+      published_date: '2018-02-25'
+      published_time: '12:00'
+      author:
+        name: Paul Everitt
+        website: http://site
+        thumbnail_url: https://pauleveritt.github.io/pycharm_guide/authors/pauleveritt/paul_headshotx24.jpeg
+    prev_next:
+      prev:
+        href: http://prev
+        title: Previous Doc
+      next:
+        href: http://next
+        title: Next Doc
     references:
-    - title: react
-      href: http://react
-    - title: typescript
-      href: http://typescript
-    duration: 2m32s
-    published: '2018-02-25'
+      entries:
+        - reftype: Technology
+          entries:
+            - label: angular
+              href: http://angular
+            - label: typescript
+              href: http://typescript
+        - reftype: Topic
+          entries:
+            - label: debugging
+              href: http://debugging
+            - label: running
+              href: http://running
+    steps:
+      entries:
+      - title: Project Setup
+        href: /tutorial_project_setup.html
+        subtitle: Use PyCharm to create and open the project with all
+          dependencies, then see some of the IDE features in action.
 - docname: tutorial_project_setup.html
   published: '2018-02-25'
   template: page.html

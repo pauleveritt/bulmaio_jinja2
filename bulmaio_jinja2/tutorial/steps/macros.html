@@ -1,37 +1,46 @@
+{% from 'page/sidebar/macros.html' import published, prev_next, references %}
 {% from 'common/resource_card/macros.html' import card %}
-{% macro steps_listing(entries) %}
-    <div class="bio-card-listing">
-        {% for entry in entries %}
-            {{ card(entry) }}
-        {% endfor %}
-    </div>
+
+# Full-sized listing in the content area
+{% macro listing(steps_listing) %}
+    {% if steps_listing.entries %}
+        <div class="bio-tutorial-steps-listing">
+            {% for entry in steps_listing.entries %}
+                {{ card(entry) }}
+            {% endfor %}
+        </div>
+    {% endif %}
 {% endmacro %}
 
-{% macro steps_sidebar(entries) %}
-    <h1 class="title is-2">Steps</h1>
-    <ul class="steps has-content-centered is-vertical">
-        <li class="steps-segment">
-            <span class="steps-marker"></span>
-            <div class="steps-content">
-                <p class="is-size-4">Step 1</p>
-                <p>This is the first step, which means you start here.</p>
-            </div>
-        </li>
-        <li class="steps-segment">
-            <span class="steps-marker"></span>
-            <div class="steps-content">
-                <p class="is-size-4">Step 2</p>
-                <p>This is the second step. Once you complete the first step,
-                    you will end up here.</p>
-            </div>
-        </li>
-        <li class="steps-segment is-active">
-            <span class="steps-marker"></span>
-            <div class="steps-content">
-                <p class="is-size-4">Step 3</p>
-                <p>This is the third step. This is halfway between the start
-                    and the end.</p>
-            </div>
-        </li>
-    </ul>
+# Used for the compact listing in the sidebar
+{% macro sidebar_panel(steps_sidebar_panel) %}
+    {% if steps_sidebar_panel.entries %}
+        <div class="bio-tutorial-steps-sidebar">
+            <h1 class="title is-2">Steps</h1>
+            <ul class="steps has-content-centered is-vertical">
+                {% for entry in steps_sidebar_panel.entries %}
+                    <li class="steps-segment {{ 'is-active' if entry.is_active else '' }}">
+                        <a href="{{ entry.href }}" class="has-text-dark">
+                            <span class="steps-marker"></span>
+                            <div class="steps-content">
+                                <p class="is-size-4">{{ entry.title }}</p>
+                                <p>{{ entry.subtitle }}</p>
+                            </div>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endmacro %}
+
+# Tutorial-specific sidebar
+{% macro sidebar (tutorial_sidebar) %}
+    {% set ts = tutorial_sidebar %}
+    <aside class="bd-side bio-page-sidebar">
+        {{ published (tutorial_sidebar.published) }}
+        {{ prev_next (tutorial_sidebar.prev_next) }}
+        {{ references (tutorial_sidebar.references) }}
+        {{ sidebar_panel (tutorial_sidebar.steps) }}
+    </aside>
 {% endmacro %}

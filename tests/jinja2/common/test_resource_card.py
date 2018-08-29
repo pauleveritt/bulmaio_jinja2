@@ -11,7 +11,7 @@ sample = Path(__file__).parents[3] / 'bulmaio_jinja2' / 'sample'
 def context_resource_card():
     pages = load_yaml('pages', base_dir=sample)
     page = pages[6]
-    step = page['steps'][0]
+    step = page['steps']['entries'][0]
     resource_card = ResourceCard(**step)
     return dict(resource_card=resource_card)
 
