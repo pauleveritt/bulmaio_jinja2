@@ -1,14 +1,10 @@
 import os
 from pathlib import Path
 
-from bulmaio_jinja2.models import (
-    Site,
-    Footer
-)
+from bulmaio_jinja2.footer.models import Footer
 from bulmaio_jinja2.navbar.models import Navbar
-from bulmaio_jinja2.sample import (
-    Pages,
-)
+from bulmaio_jinja2.sample import Pages
+from bulmaio_jinja2.site.models import Site
 from bulmaio_jinja2.utils import load_yaml
 from flask import Flask, render_template, send_from_directory, make_response
 from jinja2 import ChoiceLoader, PackageLoader

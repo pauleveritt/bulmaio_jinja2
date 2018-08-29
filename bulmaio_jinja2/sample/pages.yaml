@@ -3,6 +3,8 @@
   title: Homepage
 - docname: documentation.html
   template: section.html
+  title: Documentation
+  subtitle: Everything you need to <strong>make a website</strong> with Bulma
   heading:
     title: Documentation
     subtitle: Everything you need to <strong>make a website</strong> with Bulma
@@ -67,6 +69,8 @@
       icon: fas fa-cube
 - docname: documentation_overview.html
   template: section.html
+  title: Overview
+  subtitle: An overview of what Bulma as a <strong>framework</strong> is all about
   heading:
     title: Overview
     subtitle: An overview of what Bulma as a <strong>framework</strong> is all about
@@ -128,6 +132,8 @@
       icon: fas fa-plus
 - docname: documentation_overview_start.html
   template: section.html
+  title: Getting started with Bulma
+  subtitle: You only need <strong>1 CSS file</strong> to use Bulma
   heading:
     title: Getting started with Bulma
     subtitle: You only need <strong>1 CSS file</strong> to use Bulma
@@ -167,9 +173,8 @@
       href: /documentation_overview_start.html
 - docname: documentation_customize.html
   template: section.html
-  heading:
-    title: Customize
-    subtitle: Create your <strong>own theme</strong> with a simple set of variables
+  title: Customize
+  subtitle: Create your <strong>own theme</strong> with a simple set of variables
   breadcrumbs:
     entries:
     - label: Home
@@ -193,6 +198,8 @@
       icon: fab fa-css3
 - docname: documentation_customize_concepts.html
   template: section.html
+  title: Concepts
+  subtitle: What makes Bulma so <strong>customizable</strong>
   heading:
     title: Concepts
     subtitle: What makes Bulma so <strong>customizable</strong>
@@ -215,6 +222,8 @@
       is_active: true
 - docname: tutorial.html
   template: tutorial.html
+  title: Tutorial
+  subtitle: A TypeScript tutorial <em>series</em>
   heading:
     title: Tutorial
     subtitle: A TypeScript tutorial <em>series</em>
@@ -283,6 +292,9 @@
 - docname: tutorial_project_setup.html
   published: '2018-02-25'
   template: page.html
+  title: Project Setup
+  subtitle: Use PyCharm to create and open the project with all dependencies,
+    then see some of the IDE features in action.
   heading:
     title: Project Setup
     subtitle: Use PyCharm to create and open the project with all dependencies,

@@ -1,4 +1,4 @@
-from bulmaio_jinja2.models import Site
+from bulmaio_jinja2.site.models import Site
 
 extensions = [
     'bulmaio_jinja2'

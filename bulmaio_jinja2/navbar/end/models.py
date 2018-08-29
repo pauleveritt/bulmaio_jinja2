@@ -1,8 +1,8 @@
 from typing import List
 
 from bulmaio_jinja2.base_model import CustomBaseModel
-from bulmaio_jinja2.models import Site
 from bulmaio_jinja2.page.models import Page
+from bulmaio_jinja2.site.models import Site
 
 
 class NavbarEndLink(CustomBaseModel):

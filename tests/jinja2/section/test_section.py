@@ -2,9 +2,9 @@ from pathlib import Path
 
 import pytest
 from bulmaio_jinja2.footer.models import Footer
-from bulmaio_jinja2.models import Site
 from bulmaio_jinja2.navbar.models import Navbar
 from bulmaio_jinja2.section.models import Section
+from bulmaio_jinja2.site.models import Site
 from bulmaio_jinja2.utils import load_yaml
 
 sample = Path(__file__).parents[3] / 'bulmaio_jinja2' / 'sample'
