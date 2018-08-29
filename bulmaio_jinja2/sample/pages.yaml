@@ -270,3 +270,24 @@
         name: Paul Everitt
         website: http://site
         thumbnail_url: https://pauleveritt.github.io/pycharm_guide/authors/pauleveritt/paul_headshotx24.jpeg
+    prev_next:
+      prev:
+        href: http://prev
+        title: Previous Doc
+      next:
+        href: http://next
+        title: Next Doc
+    references:
+      entries:
+        - reftype: Technology
+          entries:
+            - label: angular
+              href: http://angular
+            - label: typescript
+              href: http://typescript
+        - reftype: Topic
+          entries:
+            - label: debugging
+              href: http://debugging
+            - label: running
+              href: http://running

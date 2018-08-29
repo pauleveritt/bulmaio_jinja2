@@ -46,54 +46,50 @@
 {% endmacro %}
 
 
-{% macro prev_next (prev, next) %}
-    {% if prev %}
-        <p class="menu-label">
+{% macro prev_next (sidebar_prev_next) %}
+    {% if sidebar_prev_next.prev %}
+        <p class="menu-label bio-page-sidebar-prev-label">
             Previous
         </p>
-        <ul class="menu-list">
-            <a href="{{ prev.link|e }}"
-               title="{{ _('previous chapter') }}">{{ prev.title }}</a>
+        <ul class="menu-list bio-page-sidebar-prev-list">
+            <a href="{{ sidebar_prev_next.prev.href }}">{{ sidebar_prev_next.prev.title }}</a>
         </ul>
     {% endif %}
 
-    {% if next %}
-        <p class="menu-label">
+    {% if sidebar_prev_next.next %}
+        <p class="menu-label bio-page-sidebar-next-label">
             Next
         </p>
-        <ul class="menu-list">
-            <a href="{{ next.link|e }}"
-               title="{{ _('next chapter') }}">{{ next.title }}</a>
+        <ul class="menu-list bio-page-sidebar-next-list">
+            <a href="{{ sidebar_prev_next.next.href }}">{{ sidebar_prev_next.next.title }}</a>
         </ul>
     {% endif %}
 {% endmacro %}
 
 
-{% macro references (references={}) %}
-    {% for reference_label in references.keys() %}
-        {% if reference_label != 'author' %}
-            <div>
-                <p class="menu-label">
-                    <span style="text-transform: uppercase">{{ reference_label }}</span>
-                </p>
-                <p>
-                    {% for reference in references.resource_references(resource)[reference_label] %}
-                        <a href="{{ pathto(reference.docname, 1) + '.html' }}">
-                            <span class="tag">{{ reference.props.label }}</span>
-                        </a>
-                    {% endfor %}
-                </p>
-            </div>
-        {% endif %}
+{% macro references (sidebar_references) %}
+    {% for reference_group in sidebar_references.entries %}
+        <div class="bio-page-sidebar-references-group">
+            <p class="menu-label">
+                <span style="text-transform: uppercase"
+                      class="bio-page-sidebar-references-reftype">{{ reference_group.reftype }}</span>
+            </p>
+            <p>
+                {% for reference in reference_group.entries %}
+                    <a href="{{ reference.href }}"
+                       class="bio-page-sidebar-references-href">
+                        <span class="tag bio-page-sidebar-references-label">{{ reference.label }}</span>
+                    </a>
+                {% endfor %}
+            </p>
+        </div>
     {% endfor %}
 {% endmacro %}
 
-
-
-{% macro sidebar (entries) %}
+{% macro sidebar (page_sidebar) %}
     <aside class="bd-side">
-        {{ published () }}
-        {{ prev_next () }}
-        {#        {{ references () }}#}
+        {{ published (page_sidebar.published) }}
+        {{ prev_next (page_sidebar.prev_next) }}
+        {{ references (page_sidebar.published) }}
     </aside>
 {% endmacro %}
