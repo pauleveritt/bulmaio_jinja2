@@ -1,6 +1,5 @@
 {% macro published (sidebar_published) %}
-    <div id="kb-sidenav-published-heading">
-        {#        {% set authors = references.resource_references(resource)['author'] %}#}
+    <div class="bio-page-sidenav-published-heading">
 
         {% if sidebar_published.published_date %}
             <p class="menu-label bio-page-sidebar-published">
@@ -87,7 +86,7 @@
 {% endmacro %}
 
 {% macro sidebar (page_sidebar) %}
-    <aside class="bd-side">
+    <aside class="bd-side bio-page-sidebar">
         {{ published (page_sidebar.published) }}
         {{ prev_next (page_sidebar.prev_next) }}
         {{ references (page_sidebar.published) }}
