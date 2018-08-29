@@ -8,11 +8,16 @@ bulmaio_jinja2
 
 - Single Responsibility Principle
 
+- Lots of small, encapsulated components (data, logic, template, style)
+
 - Uses pydantic to enforce the macro contract
 
-- Less magic, less globals
+- Less magic, less globals, fail early and obviously
 
 - Resource-based
+
+- IDE and testing "flow"
+
 
 Future
 ======
