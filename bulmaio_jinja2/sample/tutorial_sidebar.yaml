@@ -32,3 +32,7 @@ steps:
     href: /tutorial_project_setup.html
     subtitle: Use PyCharm to create and open the project with all
       dependencies, then see some of the IDE features in action.
+  - title: Project Cleanup
+    href: /tutorial_project_setup.html
+    subtitle: Clean out some unneeded code from the default app,
+      tweak some configuration in the IDE, and tour a few more features.

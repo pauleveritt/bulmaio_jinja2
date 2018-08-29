@@ -6,6 +6,7 @@ from bulmaio_jinja2.navbar.models import Navbar
 from bulmaio_jinja2.sample import Pages
 from bulmaio_jinja2.sidebar.section.models import SectionSidebar
 from bulmaio_jinja2.site.models import Site
+from bulmaio_jinja2.tutorial.models import TutorialSidebar
 from bulmaio_jinja2.utils import load_yaml
 from flask import Flask, render_template, send_from_directory, make_response
 from jinja2 import ChoiceLoader, PackageLoader
@@ -70,6 +71,9 @@ def page_view(pagename):
     elif page.template == 'page.html':
         section_sidebar = load_yaml('section_sidebar', base_dir=cwd)
         sidebar = SectionSidebar(**section_sidebar)
+    elif page.template == 'tutorial.html':
+        tutorial_sidebar = load_yaml('tutorial_sidebar', base_dir=cwd)
+        sidebar = TutorialSidebar(**tutorial_sidebar)
 
     try:
         active_category = [

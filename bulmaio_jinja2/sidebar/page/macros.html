@@ -69,7 +69,8 @@
 {% macro references (sidebar_references) %}
     {% for reference_group in sidebar_references.entries %}
         <div class="bio-page-sidebar-references-group">
-            <p class="menu-label">
+            <p class="menu-label"
+             style="margin-top: 1rem">
                 <span style="text-transform: uppercase"
                       class="bio-page-sidebar-references-reftype">{{ reference_group.reftype }}</span>
             </p>

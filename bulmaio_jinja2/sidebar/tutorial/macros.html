@@ -5,15 +5,19 @@
 {% macro sidebar_panel(steps_sidebar_panel) %}
     {% if steps_sidebar_panel.entries %}
         <div class="bio-tutorial-steps-sidebar">
-            <h1 class="title is-2">Steps</h1>
-            <ul class="steps has-content-centered is-vertical">
+            <p class="menu-label"
+               style="margin-top: 1rem">
+                Steps
+            </p>
+            <ul class="steps has-content-centered is-vertical is-small">
                 {% for entry in steps_sidebar_panel.entries %}
+                    {% set marker = 'is-info' if entry.is_active else 'is-primary' %}
+
                     <li class="steps-segment {{ 'is-active' if entry.is_active else '' }}">
                         <a href="{{ entry.href }}" class="has-text-dark">
-                            <span class="steps-marker"></span>
+                            <span class="steps-marker {{ marker }}">{{ loop.index }}</span>
                             <div class="steps-content">
-                                <p class="is-size-4">{{ entry.title }}</p>
-                                <p>{{ entry.subtitle }}</p>
+                                <p>{{ entry.title }}</p>
                             </div>
                         </a>
                     </li>
