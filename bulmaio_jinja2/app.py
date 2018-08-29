@@ -4,6 +4,7 @@ from pathlib import Path
 from bulmaio_jinja2.footer.models import Footer
 from bulmaio_jinja2.navbar.models import Navbar
 from bulmaio_jinja2.sample import Pages
+from bulmaio_jinja2.sidebar.section.models import SectionSidebar
 from bulmaio_jinja2.site.models import Site
 from bulmaio_jinja2.utils import load_yaml
 from flask import Flask, render_template, send_from_directory, make_response
@@ -17,7 +18,7 @@ app.jinja_loader = ChoiceLoader([
     PackageLoader('bulmaio_jinja2', '.'),
 ])
 
-cwd = Path(__file__).parents[0]
+cwd = Path(__file__).parents[0] / 'sample'
 
 
 @app.route('/bulmaio_jinja2.map')
@@ -43,7 +44,7 @@ def favicon():
 @app.route('/<pagename>')
 def page_view(pagename):
     # Make a Site with a Footer
-    site = Site(**load_yaml('sample/site', base_dir=cwd))
+    site = Site(**load_yaml('site', base_dir=cwd))
     site.static_dirname = 'static/'  # Don't use Sphinx name
 
     # Get some globals. Jam them in here so that livereload will get them,
@@ -55,30 +56,40 @@ def page_view(pagename):
     page = pages.get(pagename)
 
     # Make a navbar with site-specific and page-specific data
-    navbar = Navbar(**load_yaml('sample/navbar', base_dir=cwd))
+    navbar = Navbar(**load_yaml('navbar', base_dir=cwd))
     navbar.update(site, page)
 
     # Make a footer
-    footer = Footer(**load_yaml('sample/footer', base_dir=cwd))
+    footer = Footer(**load_yaml('footer', base_dir=cwd))
+
+    # Make a sidebar...it's either a section_sidebar or per-resource
+    sidebar = None
+    if page.template == 'section.html':
+        section_sidebar = load_yaml('section_sidebar', base_dir=cwd)
+        sidebar = SectionSidebar(**section_sidebar)
+    elif page.template == 'page.html':
+        section_sidebar = load_yaml('section_sidebar', base_dir=cwd)
+        sidebar = SectionSidebar(**section_sidebar)
+
+    try:
+        active_category = [
+            category
+            for category in sidebar.entries
+            if category.href[1:-6] in page.docname
+        ]
+        if active_category:
+            active_category[0].is_active = True
+    except AttributeError:
+        pass
 
     # Make a context
     context = dict(
         site=site,
         page=page,
         navbar=navbar,
+        sidebar=sidebar,
         footer=footer
     )
 
-    # One last thing....set the correct is_active on the section_sidebar
-    try:
-        active_category = [
-            category
-            for category in site.section_sidebar.entries
-            if category.href[1:-6] in page.docname
-        ]
-    except AttributeError:
-        pass
-    if active_category:
-        active_category[0].is_active = True
 
     return render_template(page.template, **context)

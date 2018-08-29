@@ -1,42 +1,42 @@
 from pathlib import Path
 
 import pytest
-from bulmaio_jinja2.section.sidebar.models import SectionSidebar
+from bulmaio_jinja2.sidebar.section.models import SectionSidebar
 from bulmaio_jinja2.utils import load_yaml
 
 sample = Path(__file__).parents[3] / 'bulmaio_jinja2' / 'sample'
 
 
 @pytest.fixture
-def context_no_section_sidebar():
-    section_sidebar = SectionSidebar()
-    return dict(section_sidebar=section_sidebar)
+def context_no_sidebar_section():
+    sidebar_section = SectionSidebar()
+    return dict(sidebar=sidebar_section)
 
 
 @pytest.fixture
-def context_section_sidebar():
-    site = load_yaml('site', base_dir=sample)
-    entries = site['section_sidebar']['entries']
-    section_sidebar = SectionSidebar(entries=entries)
-    return dict(section_sidebar=section_sidebar)
+def context_sidebar_section():
+    section_sidebar = load_yaml('section_sidebar', base_dir=sample)
+    entries = section_sidebar['entries']
+    sidebar_section = SectionSidebar(entries=entries)
+    return dict(sidebar=sidebar_section)
 
 
 @pytest.mark.parametrize(
     'page',
-    [['test_section_sidebar.html', context_no_section_sidebar], ],
+    [['test_sidebar_section.html', context_no_sidebar_section], ],
     indirect=True
 )
-def test_no_section_sidebar(page):
+def test_no_sidebar_section(page):
     sidebar = page.find_all('aside', class_='bd-side')
     assert 0 == len(sidebar)
 
 
 @pytest.mark.parametrize(
     'page',
-    [['test_section_sidebar.html', context_section_sidebar], ],
+    [['test_sidebar_section.html', context_sidebar_section], ],
     indirect=True
 )
-def test_section_sidebar(page):
+def test_sidebar_section(page):
     sidebar = page.find('aside', class_='bd-side')
     categories = sidebar.find_all('div', 'bd-category')
     assert 8 == len(categories)

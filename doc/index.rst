@@ -12,6 +12,8 @@ bulmaio_jinja2
 
 - Less magic, less globals
 
+- Resource-based
+
 Future
 ======
 
