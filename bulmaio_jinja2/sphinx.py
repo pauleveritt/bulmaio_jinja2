@@ -79,7 +79,10 @@ def inject_page(app, pagename, templatename, context, doctree):
             )
         )
     page.breadcrumbs = breadcrumbs
-    context['page'] = page
+    # context['page'] = page
+
+    context['page'] = app.config.bulmaio_jinja2_page
+
 
 
 def add_template_dir(app: Sphinx):
@@ -121,6 +124,7 @@ def setup_sphinx(app: Sphinx):
     app.add_config_value('bulmaio_jinja2_navbar', None, 'html')
     app.add_config_value('bulmaio_jinja2_sidebar', None, 'html')
     app.add_config_value('bulmaio_jinja2_footer', None, 'html')
+    app.add_config_value('bulmaio_jinja2_page', None, 'html')
 
     app.add_html_theme(
         'bulmaio_jinja2',
@@ -131,11 +135,11 @@ def setup_sphinx(app: Sphinx):
 
     app.connect('builder-inited', add_template_dir)
     app.connect('html-collect-pages', copy_static)
-    app.connect('html-page-context', inject_site)
-    app.connect('html-page-context', inject_navbar)
-    app.connect('html-page-context', inject_sidebar)
-    app.connect('html-page-context', inject_footer)
-    app.connect('html-page-context', inject_page)
+    # app.connect('html-page-context', inject_site)
+    # app.connect('html-page-context', inject_navbar)
+    # app.connect('html-page-context', inject_sidebar)
+    # app.connect('html-page-context', inject_footer)
+    # app.connect('html-page-context', inject_page)
 
     return dict(
         parallel_read_safe=True
