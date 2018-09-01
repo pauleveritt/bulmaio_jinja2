@@ -1,3 +1,5 @@
+from typing import Optional
+
 from bulmaio_jinja2.base_model import CustomBaseModel
 from bulmaio_jinja2.page.breadcrumbs.models import PageBreadcrumbs
 from bulmaio_jinja2.page.heading.models import PageHeading
@@ -18,6 +20,6 @@ class BasePage(CustomBaseModel):
     title: str = None
     body: str = None
     subtitle: str = None
-    template: str = 'page.html'
+    template: Optional[str] = 'page.html'
     breadcrumbs: PageBreadcrumbs = None
     heading: PageHeading = None

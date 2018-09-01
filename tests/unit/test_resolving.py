@@ -28,6 +28,7 @@ def test_relative_uri(base, to, expected):
         ('a/about', 'css/base.css', '../_static/css/base.css'),
         ('a/b/index', 'css/base.css', '../../_static/css/base.css'),
         ('a/b/about', 'css/base.css', '../../_static/css/base.css'),
+        ('', '', '../../_static/css/base.css'),
     ]
 )
 def test_static_path(base, to, expected):
