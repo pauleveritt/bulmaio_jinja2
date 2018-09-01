@@ -1,6 +1,7 @@
 from bulmaio_jinja2.author.models import Author
 from bulmaio_jinja2.base_model import CustomBaseModel
 from bulmaio_jinja2.common.models import SocialMedia, License
+from bulmaio_jinja2.utils import static_path
 
 
 class Site(CustomBaseModel):
@@ -17,3 +18,6 @@ class Site(CustomBaseModel):
     website_license: License = None
     description: str = None
     static_dirname: str = '_static/'
+
+    def static_path(self, current_docname: str, target: str):
+        return static_path(self.static_dirname, current_docname, target)

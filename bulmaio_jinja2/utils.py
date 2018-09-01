@@ -38,7 +38,7 @@ def relative_uri(base, to):
     return ('..' + SEP) * (len(b2) - 1) + SEP.join(t2)
 
 
-def static_path(static_dirname, docname, other):
-    full_other = PurePosixPath(static_dirname, other)
-    target = relative_uri(docname, str(full_other))
+def static_path(static_dirname, base, target):
+    full_other = PurePosixPath(static_dirname, target)
+    target = relative_uri(base, str(full_other))
     return target

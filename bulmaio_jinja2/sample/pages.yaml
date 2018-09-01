@@ -239,7 +239,7 @@
     - title: Project Setup
       logo:
         href: http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg
-      href: /tutorial_project_setup.html
+      href: /tutorial/project_setup.html
       subtitle: Use PyCharm to create and open the project with all
         dependencies, then see some of the IDE features in action.
       author:
@@ -254,7 +254,7 @@
         href: http://typescript
       duration: 2m32s
       published: '2018-02-25'
-- docname: tutorial_project_setup.html
+- docname: tutorial/project_setup.html
   published: '2018-02-25'
   template: tutorialpage.html
   title: Project Setup
@@ -274,14 +274,14 @@
     - label: Tutorial
       href: /tutorial.html
     - label: Project Setup
-      href: /tutorial_project_setup.html
+      href: /tutorial/project_setup.html
       is_active: true
   steps:
     entries:
     - title: Project Setup
       logo:
         href: http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg
-      href: /tutorial_project_setup.html
+      href: /tutorial/project_setup.html
       subtitle: Use PyCharm to create and open the project with all
         dependencies, then see some of the IDE features in action.
       author:

@@ -1,6 +1,6 @@
 {%- extends "layout.html" %}
 {% block body %}
     <div class="bulmaio-body content">
-        {{ page.body }}
+        {{ page.body | safe }}
     </div>
 {% endblock %}
