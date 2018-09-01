@@ -1,7 +1,18 @@
 Now
 ===
 
-- Fix Sphinx
+- Resolver
+
+- Refactor fixtures to not repeat YAML loading
+
+- Have sample content with subdirectory to trigger
+  static path issues
+
+- Context
+
+    - Wrap all the parts needed into a model
+
+    - Include the resolver
 
 Next
 ====
@@ -14,6 +25,14 @@ Next
 
 Soon
 ====
+
+- Layout model
+
+    - Replace the extends string with this
+
+- Make the models with better names
+
+    - Page -> ContextPage
 
 - Write Sphinx docs
 

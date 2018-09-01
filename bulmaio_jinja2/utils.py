@@ -1,5 +1,5 @@
 from os.path import join
-from pathlib import Path
+from pathlib import PurePosixPath
 
 from yaml import Loader, load
 
@@ -39,6 +39,6 @@ def relative_uri(base, to):
 
 
 def static_path(static_dirname, docname, other):
-    full_other = Path(static_dirname, other)
+    full_other = PurePosixPath(static_dirname, other)
     target = relative_uri(docname, str(full_other))
     return target

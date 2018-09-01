@@ -3,6 +3,7 @@ from pathlib import Path
 
 from bulmaio_jinja2.footer.models import Footer
 from bulmaio_jinja2.navbar.models import Navbar
+from bulmaio_jinja2.resolver import Resolver
 from bulmaio_jinja2.sample import Pages
 from bulmaio_jinja2.sidebar.page.models import PageSidebar
 from bulmaio_jinja2.sidebar.section.models import SectionSidebar
@@ -64,6 +65,9 @@ def page_view(pagename):
     # Make a footer
     footer = Footer(**load_yaml('footer', base_dir=cwd))
 
+    # Make a static path resolver
+    resolver = Resolver(site.static_dirname, pagename)
+
     # Make a sidebar...it's either a section_sidebar or per-resource
     sidebar = None
     if page.template == 'section.html':
@@ -93,7 +97,8 @@ def page_view(pagename):
         page=page,
         navbar=navbar,
         sidebar=sidebar,
-        footer=footer
+        footer=footer,
+        resolve=resolver
     )
 
     return render_template(page.template, **context)

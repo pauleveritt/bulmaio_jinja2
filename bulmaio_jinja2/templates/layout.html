@@ -8,9 +8,9 @@
           content="{{ site.description }}">
     <title>{{ page.title }} | {{ site.title }}</title>
     <link rel="shortcut icon"
-          href="{{ pathto('_static/' + site.favicon, 1) }}">
+          href="{{ resolver('_static/' + site.favicon, 1) }}">
     <link rel="stylesheet" id="bulmaio-stylesheet"
-          href="{{ pathto('_static/bulmaio_jinja2.css', 1) }}">
+          href="{{ resolver('_static/bulmaio_jinja2.css', 1) }}">
     <script defer
             src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
 </head>
@@ -21,7 +21,7 @@
 
 {% include 'footer/footer.html' %}
 
-<script defer src="{{ pathto('_static/bulmaio_jinja2.js', 1) }}"></script>
+<script defer src="{{ resolver('_static/bulmaio_jinja2.js', 1) }}"></script>
 
 </body>
 </html>
