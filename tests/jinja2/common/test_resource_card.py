@@ -31,7 +31,7 @@ def test_resource_card(page):
     # Resource data
     props = rc.find('div', class_='bio-common-resourcecard-props')
     a = props.find('a')
-    assert '/tutorial_project_setup.html' == a.attrs['href']
+    assert '/tutorial/project_setup.html' == a.attrs['href']
     strong = props.find('strong')
     assert 'Project Setup' == strong.string.strip()
     span = props.find('span')

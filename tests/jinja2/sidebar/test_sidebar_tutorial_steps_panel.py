@@ -57,5 +57,5 @@ def test_steps_sidebar_panel(page):
     li = entries[0]
     assert 'is-active' not in li.attrs['class']
     a = li.find('a')
-    assert '/tutorial_project_setup.html' == a.attrs['href']
+    assert '/tutorial/project_setup.html' == a.attrs['href']
 
