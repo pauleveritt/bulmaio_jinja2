@@ -172,9 +172,12 @@
     - label: Mixins
       href: /documentation_overview_start.html
 - docname: documentation_customize.html
-  template: section.html
+  template: reference.html
   title: Customize
   subtitle: Create your <strong>own theme</strong> with a simple set of variables
+  heading:
+    title: Customize
+    subtitle: Create your <strong>own theme</strong> with a simple set of variables
   breadcrumbs:
     entries:
     - label: Home
@@ -184,18 +187,25 @@
     - label: Customize
       href: /documentation_customize.html
       is_active: true
-  subsections:
-    entries:
-    - label: Concepts
-      subtitle: What makes Bulma <strong>customizable</strong>
-      href: /documentation_customize_concepts.html
-      accent: danger
-      icon: fas fa-rocket
-    - label: Variables
-      subtitle: See how Bulma uses <strong>SASS variables</strong>
-      href: /documentation_customize_variables.html
-      accent: link
-      icon: fab fa-css3
+  entries:
+  - title: Project Setup
+    logo:
+      href: http://konpa.github.io/devicon/devicon.git/icons/react/react-original-wordmark.svg
+    href: /tutorial/project_setup.html
+    subtitle: Use PyCharm to create and open the project with all
+      dependencies, then see some of the IDE features in action.
+    author:
+      name: Paul Everitt
+      website: http://site
+      thumbnail_url: https://pauleveritt.github.io/pycharm_guide/authors/pauleveritt/paul_headshotx24.jpeg
+    rtype: article
+    references:
+    - title: react
+      href: http://react
+    - title: typescript
+      href: http://typescript
+    duration: 2m32s
+    published: '2018-02-25'
 - docname: documentation_customize_concepts.html
   template: section.html
   title: Concepts

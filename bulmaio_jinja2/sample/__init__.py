@@ -3,6 +3,7 @@ from os.path import join
 from pathlib import Path
 
 from bulmaio_jinja2.page.models import Page
+from bulmaio_jinja2.reference.models import Reference
 from bulmaio_jinja2.section.models import Section
 from bulmaio_jinja2.tutorial.models import Tutorial, TutorialPage
 from bulmaio_jinja2.utils import load_yaml
@@ -13,6 +14,7 @@ cwd = Path(__file__).parents[0]
 klasses = {
     'page.html': Page,
     'section.html': Section,
+    'reference.html': Reference,
     'homepage.html': Page,
     'tutorial.html': Tutorial,
     'tutorialpage.html': TutorialPage,

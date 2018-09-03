@@ -71,7 +71,7 @@ def page_view(pagename, foldername=None):
 
     # Make a sidebar...it's either a section_sidebar or per-resource
     sidebar = None
-    if page.template == 'section.html':
+    if page.template in ['section.html', 'reference.html']:
         section_sidebar = load_yaml('section_sidebar', base_dir=cwd)
         sidebar = SectionSidebar(**section_sidebar)
     elif page.template == 'page.html':

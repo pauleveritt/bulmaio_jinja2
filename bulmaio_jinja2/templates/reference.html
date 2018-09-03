@@ -1,0 +1,27 @@
+{%- extends "layout.html" %}
+{% from 'page/breadcrumbs/macros.html' import breadcrumbs %}
+{% from 'page/heading/macros.html' import heading %}
+{% from 'reference/listing/macros.html' import listing %}
+{% from 'sidebar/section/macros.html' import sidebar_section %}
+{% block body %}
+    <main class="bd-main bulmaio-body">
+
+        <div class="bd-side-background"></div>
+        <div class="bd-main-container container">
+            <div class="bd-duo">
+                <div class="bd-lead">
+                    {{ breadcrumbs(page.breadcrumbs) }}
+                    {{ heading(page.heading) }}
+
+                    <div class="bd-content content">
+                        {{ page.body|safe }}
+                    </div>
+
+                    {{ listing(page) }}
+                </div>
+                {{ sidebar_section(sidebar) }}
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

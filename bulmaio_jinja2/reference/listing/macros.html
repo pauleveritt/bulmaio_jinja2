@@ -1,0 +1,11 @@
+{% from 'common/resource_card/macros.html' import card %}
+
+{% macro listing(page_reference) %}
+    {% if page_reference.entries %}
+        <div class="bio-reference-listing">
+            {% for entry in page_reference.entries %}
+                {{ card(entry) }}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endmacro %}
