@@ -35,6 +35,6 @@ class SidebarReferences(CustomBaseModel):
 
 
 class PageSidebar(CustomBaseModel):
-    published: SidebarPublished
+    published: SidebarPublished = None
     prev_next: SidebarPrevNext
     references: SidebarReferences

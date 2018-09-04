@@ -4,7 +4,7 @@
             <div class="media-left">
                 <figure class="image is-64x64 }">
                     <img class="bio-common-resourcecard-logo"
-                            src="{{ resource_card.logo.href }}"/>
+                         src="{{ resource_card.logo.href }}"/>
                 </figure>
             </div>
             <div class="media-content">
@@ -30,7 +30,7 @@
                                              height="24" width="24"/>
                                     {% endif %}
                                 </figure>
-                                <span>{{ resource_card.author.name }}</span>
+                                <span class="bio-card-author-label">{{ resource_card.author.name }}</span>
                             </a>
                         {% endif %}
                         {% if resource_card.references %}
