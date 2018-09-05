@@ -14,9 +14,18 @@ def context_no_sidebar_published():
 
 
 @pytest.fixture
-def context_sidebar_published():
+def context_sidebar_published_headshot():
     sidebar_yaml = load_yaml('page_sidebar', base_dir=sample)
     published = sidebar_yaml['published']
+    sidebar_published = SidebarPublished(**published)
+    return dict(sidebar_published=sidebar_published)
+
+
+@pytest.fixture
+def context_sidebar_published_no_headshot():
+    sidebar_yaml = load_yaml('page_sidebar', base_dir=sample)
+    published = sidebar_yaml['published']
+    del published['author']
     sidebar_published = SidebarPublished(**published)
     return dict(sidebar_published=sidebar_published)
 
@@ -42,21 +51,36 @@ def test_no_sidebar_published(page):
 
 @pytest.mark.parametrize(
     'page',
-    [['test_sidebar_page_published.html', context_sidebar_published], ],
+    [['test_sidebar_page_published.html',
+      context_sidebar_published_headshot], ],
     indirect=True
 )
-def test_sidebar_published(page):
+def test_sidebar_published_headshot(page):
     published = page.find_all('p', class_='bio-page-sidebar-published')
     assert 1 == len(published)
 
     published_date = page.find('span',
                                class_='bio-page-sidebar-published-date')
-    e1 = 'Published\n                        on 2018-02-25'
+    e1 = '2018-02-25'
     assert e1 == published_date.string.strip()
     published_time = page.find('span',
                                class_='bio-page-sidebar-published-time')
     e2 = '12:00'
     assert e2 == published_time.string.strip()
+
+    headshot = page.find('img')
+    assert 'paul_headshot' in headshot.attrs['src']
+
+
+@pytest.mark.parametrize(
+    'page',
+    [['test_sidebar_page_published.html',
+      context_sidebar_published_no_headshot], ],
+    indirect=True
+)
+def test_sidebar_published_no_headshot(page):
+    headshot = page.find('img')
+    assert None is headshot
 
 
 @pytest.mark.parametrize(

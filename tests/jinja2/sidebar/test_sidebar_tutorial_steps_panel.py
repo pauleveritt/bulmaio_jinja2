@@ -51,7 +51,7 @@ def test_no_steps_sidebar_panel(page):
 def test_steps_sidebar_panel(page):
     sp = page.find('div', class_='bio-tutorial-steps-sidebar')
     entries = sp.find_all('li', class_='steps-segment')
-    assert 1 == len(entries)
+    assert 3 == len(entries)
 
     # Entry
     li = entries[0]

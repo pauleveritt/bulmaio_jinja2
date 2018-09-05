@@ -6,21 +6,34 @@
             </p>
             <ul class="menu-list">
                 <li>
-                    <span class="bio-page-sidebar-published-date">
-                        Published
-                        on {{ sidebar_published.published_date }}</span>
-                    at
-                    <span class="bio-page-sidebar-published-time">{{ sidebar_published.published_time }}</span>
                     {% if sidebar_published.author %}
-                        by:
-                        <a href="{{ sidebar_published.author.website }}">
-                            <figure class="image is-rounded is-24x24"
-                                    style="display: inline-block; margin: 0.5rem">
-                                <img src="{{ sidebar_published.author.thumbnail_url }}">
+                        {% set author = sidebar_published.author %}
+                        <article class="media">
+                            <figure class="media-left">
+                                <p class="image is-48x48">
+                                    <img src="{{ author.thumbnail_url }}"
+                                         alt="Headshot">
+                                </p>
                             </figure>
-                            <span
-                                    style="display: inline-block; vertical-align: super">{{ sidebar_published.author.name }}</span>
-                        </a>
+                            <div class="media-content">
+                                <div class="content">
+                                    <span class="bio-page-sidebar-published-date">{{ sidebar_published.published_date }}</span>
+                                    <br/>
+                                    at
+                                    <span class="bio-page-sidebar-published-time">{{ sidebar_published.published_time }}</span>
+                                    by
+                                    <br/>
+                                    <a href="{{ author.website }}">{{ author.name }}</a>
+                                </div>
+                            </div>
+                        </article>
+
+
+                    {% else %}
+                        <span class="bio-page-sidebar-published-date">{{ sidebar_published.published_date }}</span>
+                        <br/>
+                        at
+                        <span class="bio-page-sidebar-published-time">{{ sidebar_published.published_time }}</span>
                     {% endif %}
                 </li>
             </ul>
