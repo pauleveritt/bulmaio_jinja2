@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 from bulmaio_jinja2.author.models import Author
 from bulmaio_jinja2.base_model import CustomBaseModel
@@ -7,7 +7,7 @@ from bulmaio_jinja2.base_model import CustomBaseModel
 class SidebarPublished(CustomBaseModel):
     published_date: str = None
     published_time: str = None
-    author: Author = None
+    author: Optional[Author] = None
 
 
 class SidebarPrevNextItem(CustomBaseModel):
