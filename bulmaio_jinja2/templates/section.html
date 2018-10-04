@@ -14,12 +14,12 @@
                     {{ heading(page.heading) }}
                     {{ tabs(page.tabs) }}
                     <div class="bd-content">
-                        {{ subsections(page.subsections) }}
-                        {% if page.content %}
-                            <div class="bd-content">
-                                {{ page.content | safe }}
+                        {% if page.body %}
+                            <div class="content">
+                                {{ page.body | safe }}
                             </div>
                         {% endif %}
+                        {{ subsections(page.subsections) }}
                     </div>
                 </div>
                 {{ sidebar_section(sidebar) }}
